@@ -1,4 +1,4 @@
-/** Render the actual README and release notes as an offline documentation preview. */
+/** Render both README languages and release notes as a local documentation preview. */
 const fs = require('node:fs');
 const path = require('node:path');
 const { pathToFileURL } = require('node:url');
@@ -6,8 +6,9 @@ const { pathToFileURL } = require('node:url');
 const root = path.resolve(__dirname, '..');
 const out = path.join(root, 'docs', 'preview');
 const pages = [
-  { input: 'README.md', output: 'index.html', label: 'README' },
-  { input: 'RELEASE_NOTES.md', output: 'release-notes.html', label: '릴리즈 노트' },
+  { input: 'README.md', output: 'index.html', label: '한국어', lang: 'ko' },
+  { input: 'README.en.md', output: 'index.en.html', label: 'English', lang: 'en' },
+  { input: 'RELEASE_NOTES.md', output: 'release-notes.html', label: '릴리즈 노트', lang: 'ko' },
 ];
 
 function slug(text) {
@@ -32,7 +33,7 @@ a:focus-visible { outline:2px solid var(--link); outline-offset:4px; }
 .site-name { font-weight:650; font-size:18px; }
 .preview-label { color:var(--muted); font-size:13px; }
 .frame { max-width:1008px; margin:0 auto 48px; background:var(--paper); border:1px solid var(--line); border-radius:6px; overflow:hidden; }
-.tabs { display:flex; align-items:center; gap:24px; min-height:55px; padding:0 32px; border-bottom:1px solid var(--line); font-size:14px; }
+.tabs { display:flex; flex-wrap:wrap; align-items:center; gap:0 24px; min-height:55px; padding:0 32px; border-bottom:1px solid var(--line); font-size:14px; }
 .tabs a { padding:15px 0; color:var(--muted); }
 .tabs a[aria-current=page] { color:var(--ink); font-weight:600; border-bottom:2px solid #6c6bce; }
 .tabs .source { margin-left:auto; font-size:12px; }
@@ -56,12 +57,14 @@ a:focus-visible { outline:2px solid var(--link); outline-offset:4px; }
 .markdown-body tr:nth-child(even) td { background:var(--canvas); }
 .markdown-body ol, .markdown-body ul { margin:0 0 20px; padding-left:28px; }
 .markdown-body li + li { margin-top:8px; }
+.markdown-body details { margin:0 0 20px; }
+.markdown-body summary { cursor:pointer; margin-bottom:12px; }
 .foot { padding:18px 32px; color:var(--muted); border-top:1px solid var(--line); font-size:12px; }
 @media(max-width:640px) {
  .site-head { padding:18px 16px; gap:4px 12px; }
  .site-name { font-size:16px; }
  .frame { margin:0 10px 24px; }
- .tabs { padding:0 18px; gap:18px; }
+ .tabs { padding:0 18px; gap:0 18px; }
  .tabs .source { font-size:11px; }
  .markdown-body { padding:16px; }
  .markdown-body h1 { font-size:22px; }
@@ -83,10 +86,11 @@ async function main() {
     const source = fs.readFileSync(path.join(root, page.input), 'utf8');
     const body = marked.parse(source, { gfm:true, renderer }).replace(/(href|src)="([^"]+)"/g, (_, attr, url) => attr + '="' + rewriteUrl(url) + '"');
     const nav = pages.map(item => '<a href="' + item.output + '"' + (item === page ? ' aria-current="page"' : '') + '>' + item.label + '</a>').join('');
+    const isEnglish = page.lang === 'en';
     const html = `<!doctype html>
-<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${page.label} · AI Slop 탈곡기</title><style>${css}</style></head>
-<body><header class="site-head"><a class="site-name" href="index.html">AI Slop Thresher</a><span class="preview-label">GitHub 문서 미리보기</span></header>
-<main class="frame"><nav class="tabs" aria-label="문서">${nav}<a class="source" href="../../${page.input}">원본 Markdown</a></nav><article class="markdown-body">${body}</article><footer class="foot">저장된 Markdown을 렌더링한 로컬 미리보기입니다. GitHub의 실제 화면과 세부 서식은 다를 수 있습니다.</footer></main></body></html>\n`;
+<html lang="${page.lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${page.label} · AI Slop Thresher</title><style>${css}</style></head>
+<body><header class="site-head"><a class="site-name" href="${isEnglish ? 'index.en.html' : 'index.html'}">AI Slop Thresher</a><span class="preview-label">${isEnglish ? 'GitHub documentation preview' : 'GitHub 문서 미리보기'}</span></header>
+<main class="frame"><nav class="tabs" aria-label="${isEnglish ? 'Documentation' : '문서'}">${nav}<a class="source" href="../../${page.input}">${isEnglish ? 'Markdown source' : '원본 Markdown'}</a></nav><article class="markdown-body">${body}</article><footer class="foot">${isEnglish ? 'Local preview rendered from saved Markdown. Details may differ from GitHub.' : '저장된 Markdown을 렌더링한 로컬 미리보기입니다. GitHub의 실제 화면과 세부 서식은 다를 수 있습니다.'}</footer></main></body></html>\n`;
     fs.writeFileSync(path.join(out, page.output), html, 'utf8');
     console.log('Rendered ' + page.input + ' -> docs/preview/' + page.output);
   }

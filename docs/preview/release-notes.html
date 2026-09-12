@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>릴리즈 노트 · AI Slop 탈곡기</title><style>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>릴리즈 노트 · AI Slop Thresher</title><style>
 :root { color-scheme: light; --ink:#1f2328; --muted:#59636e; --line:#d1d9e0; --canvas:#f6f8fa; --paper:#fff; --link:#0969da; }
 * { box-sizing:border-box; }
 body { margin:0; color:var(--ink); background:var(--canvas); font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","Malgun Gothic",sans-serif; }
@@ -10,7 +10,7 @@ a:focus-visible { outline:2px solid var(--link); outline-offset:4px; }
 .site-name { font-weight:650; font-size:18px; }
 .preview-label { color:var(--muted); font-size:13px; }
 .frame { max-width:1008px; margin:0 auto 48px; background:var(--paper); border:1px solid var(--line); border-radius:6px; overflow:hidden; }
-.tabs { display:flex; align-items:center; gap:24px; min-height:55px; padding:0 32px; border-bottom:1px solid var(--line); font-size:14px; }
+.tabs { display:flex; flex-wrap:wrap; align-items:center; gap:0 24px; min-height:55px; padding:0 32px; border-bottom:1px solid var(--line); font-size:14px; }
 .tabs a { padding:15px 0; color:var(--muted); }
 .tabs a[aria-current=page] { color:var(--ink); font-weight:600; border-bottom:2px solid #6c6bce; }
 .tabs .source { margin-left:auto; font-size:12px; }
@@ -34,12 +34,14 @@ a:focus-visible { outline:2px solid var(--link); outline-offset:4px; }
 .markdown-body tr:nth-child(even) td { background:var(--canvas); }
 .markdown-body ol, .markdown-body ul { margin:0 0 20px; padding-left:28px; }
 .markdown-body li + li { margin-top:8px; }
+.markdown-body details { margin:0 0 20px; }
+.markdown-body summary { cursor:pointer; margin-bottom:12px; }
 .foot { padding:18px 32px; color:var(--muted); border-top:1px solid var(--line); font-size:12px; }
 @media(max-width:640px) {
  .site-head { padding:18px 16px; gap:4px 12px; }
  .site-name { font-size:16px; }
  .frame { margin:0 10px 24px; }
- .tabs { padding:0 18px; gap:18px; }
+ .tabs { padding:0 18px; gap:0 18px; }
  .tabs .source { font-size:11px; }
  .markdown-body { padding:16px; }
  .markdown-body h1 { font-size:22px; }
@@ -50,7 +52,7 @@ a:focus-visible { outline:2px solid var(--link); outline-offset:4px; }
 }
 </style></head>
 <body><header class="site-head"><a class="site-name" href="index.html">AI Slop Thresher</a><span class="preview-label">GitHub 문서 미리보기</span></header>
-<main class="frame"><nav class="tabs" aria-label="문서"><a href="index.html">README</a><a href="release-notes.html" aria-current="page">릴리즈 노트</a><a class="source" href="../../RELEASE_NOTES.md">원본 Markdown</a></nav><article class="markdown-body"><h1 id="ai-slop-탈곡기-v110">AI Slop 탈곡기 v1.1.0</h1>
+<main class="frame"><nav class="tabs" aria-label="문서"><a href="index.html">한국어</a><a href="index.en.html">English</a><a href="release-notes.html" aria-current="page">릴리즈 노트</a><a class="source" href="../../RELEASE_NOTES.md">원본 Markdown</a></nav><article class="markdown-body"><h1 id="ai-slop-탈곡기-v110">AI Slop 탈곡기 v1.1.0</h1>
 <p>이 글은 흥미롭지 않습니다.</p>
 <p>2026년 9월 12일 · 첫 공개 릴리즈</p>
 <p>v1.1.0은 기존 <code>humanizer</code>의 이름을 <code>ai-slop-thresher</code>로 바꾸고 짧은 호출 <code>$thresh</code>를 추가한 버전입니다. 원문의 뜻과 말투를 보존하는 편집 지침은 그대로 사용합니다.</p>

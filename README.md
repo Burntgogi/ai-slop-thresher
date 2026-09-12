@@ -2,23 +2,26 @@
   <img src="assets/ai-slop-thresher-banner.png" alt="흰 고양이가 탈곡기로 긴 원고를 다듬는 픽셀 아트. AI Slop Thresher: 이 글은 흥미롭지 않습니다." width="100%">
 </p>
 
-<h1 align="center">AI Slop 탈곡기: 이 글은 흥미롭지 않습니다.</h1>
-
-<p align="center">AI Slop Thresher: This Text Is Not Interesting.</p>
-
-<p align="center">알맹이는 남기고 AI 말투와 과잉 설명을 털어냅니다.</p>
-
-<p align="center">Codex 스킬 · 한국어 윤문 · <a href="RELEASE_NOTES.md">v1.1.0</a> · <a href="LICENSE">Apache-2.0</a></p>
+<h1 align="center">AI Slop 탈곡기:<br>이 글은 흥미롭지 않습니다.</h1>
 
 <p align="center">
-  <a href="#적용-전후">적용 전후</a> ·
-  <a href="#설치">설치</a> ·
-  <a href="#사용법">사용법</a> ·
-  <a href="RELEASE_NOTES.md">릴리즈 노트</a> ·
-  <a href="reports/ai-slop-thresher-report.md">제작 보고서</a>
+  한국어 초안의 상투어, 과잉 설명과 반복 수사를 줄이는 Codex 스킬입니다.<br>
+  원문의 사실과 말투를 유지하며 문장을 다듬습니다.
 </p>
 
-한국어 초안의 상투어, 과잉 설명과 반복 수사를 줄이는 Codex 스킬입니다. 원문의 사실과 말투를 유지하며 문장을 다듬습니다.
+<p align="center">
+  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.1.0"><img src="https://img.shields.io/badge/status-released-f3a6ca" alt="상태: 공개 릴리즈"></a>
+  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.1.0"><img src="https://img.shields.io/badge/release-v1.1.0-315BFF" alt="릴리즈: v1.1.0"></a>
+  <a href="#편집-기준"><img src="https://img.shields.io/badge/language-Korean-2f80ed" alt="윤문 대상 언어: 한국어"></a>
+  <a href="#확인한-범위"><img src="https://img.shields.io/badge/checks-fixtures_passed-8a78d6" alt="검사: 저장된 가상 예문 검사 통과"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache_2.0-3aa675" alt="라이선스: Apache-2.0"></a>
+</p>
+
+<p align="center">
+  <strong>한국어</strong> · <a href="README.en.md">English</a> ·
+  <a href="#적용-전후">적용 전후</a> · <a href="#설치">설치</a> ·
+  <a href="#사용법">사용법</a> · <a href="#라이선스">라이선스</a>
+</p>
 
 설치 후 Codex에 다듬을 글과 함께 입력하세요.
 
@@ -91,7 +94,7 @@ $thresh 아래 글의 뜻과 말투를 유지하면서 자연스럽게 다듬어
 
 ## 확인한 범위
 
-초기 지침을 만든 뒤 5회 개선했고, 기본 예문 12개와 추가 예문 8개의 적용 전후를 기록했습니다. 저장된 결과의 문자 검사와 자체 의미 검토를 수행했습니다.
+초기 지침을 만든 뒤 5회 개선했고, 기본 예문 12개와 추가 예문 8개의 적용 전후를 기록했습니다. 저장된 결과의 문자 검사와 자체 의미 검토를 수행했습니다. 상단의 `checks` 배지는 저장된 예문의 문자 검사 결과를 나타냅니다.
 
 원문과 윤문은 같은 에이전트가 작성한 가상 자료입니다. 독립 평가나 AI 탐지기 통과율을 측정한 결과는 아닙니다. 실제 문서에서는 수치, 조건과 인용을 원문과 대조해 주세요.
 
@@ -109,9 +112,11 @@ $thresh 아래 글의 뜻과 말투를 유지하면서 자연스럽게 다듬어
 | [AIScientists-Dev/academic-humanizer](https://github.com/AIScientists-Dev/academic-humanizer) | 학술 문장의 조건·표본 범위와 유보 보존 |
 | [Nanako0129/sepia](https://github.com/Nanako0129/sepia) | 장르·독자에 맞춘 최소 수정과 원문 목소리 보존 |
 | [Burntgogi/Gpt_Codex_HWP](https://github.com/Burntgogi/Gpt_Codex_HWP) | 배너, 제목, 바로가기와 결과 예시 배치 |
-| [Burntgogi/codex_oracle](https://github.com/Burntgogi/codex_oracle) | 짧은 소개, 호출 예시와 릴리즈 문서 구성 |
+| [Burntgogi/codex_oracle](https://github.com/Burntgogi/codex_oracle) | 가운데 정렬 소개, 배지 색상·배치, 언어 전환과 릴리즈 문서 구성 |
 
 읽은 리비전, 라이선스 원문과 구체적인 반영 범위는 [ATTRIBUTIONS.md](ATTRIBUTIONS.md)에 정리했습니다. 각 프로젝트의 유지관리자와 기여자께 감사드립니다.
+
+상단 배지는 [Shields.io](https://shields.io/badges/static-badge)로 표시합니다. 배지의 참고 경로와 각 항목의 뜻은 [화면 구성 문서](docs/github-frontpage.md)에 적었습니다.
 
 ## 라이선스
 

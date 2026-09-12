@@ -1,13 +1,20 @@
 {
   "as_of": "2026-09-12",
-  "local_links_checked": 47,
+  "local_links_checked": 76,
   "broken_local_links": [],
   "runtime_files_unchanged": 6,
   "readme_example_matches_saved_output": true,
+  "english_readme_original_example_matches_saved_output": true,
+  "readme_language_links_checked": true,
+  "matching_badges_per_readme": 5,
   "artifacts": [
     {
       "path": "README.md",
-      "sha256": "05250b341875c1ac2a316cf64f9bf4fb902a3d5c432a2acb6615dce7f8d034e3"
+      "sha256": "3cda6f9f5bdd5f892cf6e27b07ac2d8b55042aa7c8216ec650dfecba371fb6d1"
+    },
+    {
+      "path": "README.en.md",
+      "sha256": "96505dc99e6147a1cabe0111c1f32b46b8e3cdb2637e3f770fdd522ab7762fdb"
     },
     {
       "path": "RELEASE_NOTES.md",
@@ -15,15 +22,15 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "a2dd2ac4392e9b4f36877833ad73a45380f9169753c8857b1948c2ee054c90e0"
+      "sha256": "b25b3c74bd7d55a821ee8797067c4ea0266f7aee8b64e8849ce709f5f7640f10"
     },
     {
       "path": "ATTRIBUTIONS.md",
-      "sha256": "69d9d18514a79ffc494c0053ddebc968f8f92e224d5e2b3578e82a1133cd7b1f"
+      "sha256": "6ae1ecdd5fa6f6bc027e93778150d5dc421aa9b2c4f47ae304935260d6459070"
     },
     {
       "path": "reports/document-editing.md",
-      "sha256": "c40be5ff122dd79d53278298075370f5afd321a964ddb17fa1dbd86a149421a6"
+      "sha256": "68ba0b357ba3a2b16290fac3ffd9193dda965476c9093d07d1dc959090abe82a"
     },
     {
       "path": "docs/banner-prompt.md",
@@ -31,7 +38,7 @@
     },
     {
       "path": "docs/github-frontpage.md",
-      "sha256": "a30f25835f2f4c5f0a1d92a5dfa142d4b53d172351fb3f9f9c095b3e26fac225"
+      "sha256": "6c8c28a2853612efefdf1472974e1a2a96e1ad442eeb9acc8ab07593ba3f0bdd"
     },
     {
       "path": "docs/license-comparison.md",
@@ -47,11 +54,15 @@
     },
     {
       "path": "docs/preview/index.html",
-      "sha256": "2e16d8597ca85d1806a49efed735694460319b4825e6fee6ed8f54aff1593f93"
+      "sha256": "9ad6ac95ca1e5013651e8b75f6e0fc9f90199895582561c3c92a4b06a88f602d"
+    },
+    {
+      "path": "docs/preview/index.en.html",
+      "sha256": "80b4e327b459b1882880b491c302faa528ccf9bc1548e1a57e39a2f87f7b0060"
     },
     {
       "path": "docs/preview/release-notes.html",
-      "sha256": "cb1d3bce8850f1479ad5f528e68400253aec8b1fd44328ed50fb2127b4c8f142"
+      "sha256": "5709b4e11bb34e5c875f355d3e554541bbc068996ff402840221d1c0eb1ab33c"
     }
   ]
 }

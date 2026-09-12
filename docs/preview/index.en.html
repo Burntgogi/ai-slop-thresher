@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>English · AI Slop Thresher</title><style>
+:root { color-scheme: light; --ink:#1f2328; --muted:#59636e; --line:#d1d9e0; --canvas:#f6f8fa; --paper:#fff; --link:#0969da; }
+* { box-sizing:border-box; }
+body { margin:0; color:var(--ink); background:var(--canvas); font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","Malgun Gothic",sans-serif; }
+a { color:var(--link); text-decoration:none; }
+a:hover { text-decoration:underline; }
+a:focus-visible { outline:2px solid var(--link); outline-offset:4px; }
+.site-head { max-width:1056px; margin:0 auto; padding:26px 24px 20px; display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; }
+.site-name { font-weight:650; font-size:18px; }
+.preview-label { color:var(--muted); font-size:13px; }
+.frame { max-width:1008px; margin:0 auto 48px; background:var(--paper); border:1px solid var(--line); border-radius:6px; overflow:hidden; }
+.tabs { display:flex; flex-wrap:wrap; align-items:center; gap:0 24px; min-height:55px; padding:0 32px; border-bottom:1px solid var(--line); font-size:14px; }
+.tabs a { padding:15px 0; color:var(--muted); }
+.tabs a[aria-current=page] { color:var(--ink); font-weight:600; border-bottom:2px solid #6c6bce; }
+.tabs .source { margin-left:auto; font-size:12px; }
+.markdown-body { padding:32px; overflow-wrap:anywhere; }
+.markdown-body > :first-child { margin-top:0; }
+.markdown-body img { max-width:100%; height:auto; }
+.markdown-body h1 { font-size:28px; line-height:1.4; padding-bottom:16px; margin:24px 0 16px; border-bottom:1px solid var(--line); }
+.markdown-body h2 { font-size:23px; line-height:1.4; margin:36px 0 16px; padding-bottom:8px; border-bottom:1px solid var(--line); }
+.markdown-body h3 { font-size:19px; margin:24px 0 12px; }
+.markdown-body p { margin:0 0 16px; }
+.markdown-body p[align=center] { text-align:center; }
+.markdown-body h1[align=center] { text-align:center; }
+.markdown-body pre { margin:0 0 20px; padding:16px; background:var(--canvas); border-radius:6px; overflow-x:auto; line-height:1.65; }
+.markdown-body code { font:85%/1.6 ui-monospace,SFMono-Regular,Consolas,"Malgun Gothic",monospace; padding:0.16em 0.35em; background:var(--canvas); border-radius:4px; }
+.markdown-body pre code { padding:0; background:transparent; white-space:pre-wrap; overflow-wrap:anywhere; }
+.markdown-body blockquote { margin:0 0 20px; padding:0 18px; border-left:4px solid var(--line); color:var(--muted); }
+.markdown-body blockquote p { margin:0; }
+.markdown-body table { border-collapse:collapse; width:100%; margin:0 0 20px; font-size:15px; }
+.markdown-body th, .markdown-body td { border:1px solid var(--line); padding:9px 13px; vertical-align:top; text-align:left; }
+.markdown-body th { background:var(--canvas); font-weight:600; }
+.markdown-body tr:nth-child(even) td { background:var(--canvas); }
+.markdown-body ol, .markdown-body ul { margin:0 0 20px; padding-left:28px; }
+.markdown-body li + li { margin-top:8px; }
+.markdown-body details { margin:0 0 20px; }
+.markdown-body summary { cursor:pointer; margin-bottom:12px; }
+.foot { padding:18px 32px; color:var(--muted); border-top:1px solid var(--line); font-size:12px; }
+@media(max-width:640px) {
+ .site-head { padding:18px 16px; gap:4px 12px; }
+ .site-name { font-size:16px; }
+ .frame { margin:0 10px 24px; }
+ .tabs { padding:0 18px; gap:0 18px; }
+ .tabs .source { font-size:11px; }
+ .markdown-body { padding:16px; }
+ .markdown-body h1 { font-size:22px; }
+ .markdown-body h2 { font-size:21px; }
+ .markdown-body th, .markdown-body td { padding:8px; }
+ .markdown-body table { font-size:14px; }
+ .foot { padding:16px; }
+}
+</style></head>
+<body><header class="site-head"><a class="site-name" href="index.en.html">AI Slop Thresher</a><span class="preview-label">GitHub documentation preview</span></header>
+<main class="frame"><nav class="tabs" aria-label="Documentation"><a href="index.html">한국어</a><a href="index.en.html" aria-current="page">English</a><a href="release-notes.html">릴리즈 노트</a><a class="source" href="../../README.en.md">Markdown source</a></nav><article class="markdown-body"><p align="center">
+  <img src="../../assets/ai-slop-thresher-banner.png" alt="A white kitten feeds a long draft into a thresher. The pixel-art banner reads AI Slop Thresher; its Korean tagline means This Text Is Not Interesting." width="100%">
+</p>
+
+<h1 align="center">AI Slop Thresher:<br>This Text Is Not Interesting.</h1>
+
+<p align="center">
+  A Codex skill that cuts stock phrases, repeated praise, and needless explanation from Korean drafts.<br>
+  It edits sentences while preserving the original facts and voice.
+</p>
+
+<p align="center">
+  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.1.0"><img src="https://img.shields.io/badge/status-released-f3a6ca" alt="Status: released"></a>
+  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.1.0"><img src="https://img.shields.io/badge/release-v1.1.0-315BFF" alt="Release: v1.1.0"></a>
+  <a href="#editing-rules"><img src="https://img.shields.io/badge/language-Korean-2f80ed" alt="Editing language: Korean"></a>
+  <a href="#validation-scope"><img src="https://img.shields.io/badge/checks-fixtures_passed-8a78d6" alt="Checks: saved synthetic fixtures passed"></a>
+  <a href="../../LICENSE"><img src="https://img.shields.io/badge/license-Apache_2.0-3aa675" alt="License: Apache-2.0"></a>
+</p>
+
+<p align="center">
+  <a href="index.html">한국어</a> · <strong>English</strong> ·
+  <a href="#before-and-after">Before &amp; after</a> · <a href="#install">Install</a> ·
+  <a href="#usage">Usage</a> · <a href="#license">License</a>
+</p>
+
+<p>The skill&#39;s instructions and evaluation examples are in Korean. This page explains how to use it on Korean text.</p>
+<p>After installation, paste your draft into Codex with a request such as:</p>
+<pre><code class="language-text">$thresh Edit the Korean text below for natural phrasing. Preserve its meaning and tone.
+</code></pre>
+<h2 id="before-and-after">Before and after</h2>
+<p>These are English translations of a synthetic Korean product notice used during development. The skill was applied to the Korean original.</p>
+<h3 id="before">Before</h3>
+<blockquote>
+<p>The interesting thing is that the new dashboard supports fast, swift, and agile work. In internal tests, weekly report writing time fell from 30 minutes to 10 minutes. However, reports can also be downloaded as &#39;CSV&#39;. The fun part is that report writing time has been reduced in this way. This change sets <strong>a new standard for work</strong>.</p>
+</blockquote>
+<h3 id="after">After</h3>
+<blockquote>
+<p>In internal tests of the new dashboard, weekly report writing time fell from 30 minutes to 10 minutes. Reports can also be downloaded as CSV.</p>
+</blockquote>
+<p>The edit removes repeated praise and a misplaced contrast. It keeps the scope of the internal tests, both time values, and the CSV feature. The <a href="../../reports/comparisons.md">20 full examples</a> include cases with conditions, quotations, and code.</p>
+<details>
+<summary>Original Korean example</summary>
+
+<p>Before:</p>
+<blockquote>
+<p>흥미로운 점은 새 대시보드가 빠르고, 신속하며, 민첩한 업무 처리를 지원한다는 점입니다. 내부 테스트에서 주간 보고서 작성 시간은 30분에서 10분으로 줄었습니다. 하지만, 보고서는 &#39;CSV&#39;로도 내려받을 수 있습니다. 재미있는 점은 이처럼 보고서 작성 시간을 줄였다는 것입니다. <strong>업무의 새로운 기준</strong>을 제시하는 변화입니다.</p>
+</blockquote>
+<p>After:</p>
+<blockquote>
+<p>새 대시보드의 내부 테스트에서 주간 보고서 작성 시간이 30분에서 10분으로 줄었습니다. 보고서는 CSV로도 내려받을 수 있습니다.</p>
+</blockquote>
+</details>
+
+<h2 id="install">Install</h2>
+<p>The skill needs no separate API key or Python installation. Codex reads the instructions and edits your text.</p>
+<ol>
+<li>Download and extract the <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/download/v1.1.0/ai-slop-thresher.zip">v1.1.0 skill ZIP</a>.</li>
+<li>Place the <code>ai-slop-thresher</code> and <code>thresh</code> folders together in a skills directory that Codex reads.</li>
+<li>Invoke <code>$thresh</code> or <code>$ai-slop-thresher</code> in Codex. Restart Codex if the new skills do not appear.</li>
+</ol>
+<p>The <a href="https://learn.chatgpt.com/docs/build-skills">Codex documentation</a> lists <code>~/.agents/skills</code> as the personal skills directory:</p>
+<pre><code class="language-text">~/.agents/skills/
+├── ai-slop-thresher/
+│   ├── SKILL.md
+│   ├── agents/openai.yaml
+│   └── references/
+│       ├── edge-cases.md
+│       └── design-sources.md
+└── thresh/
+    ├── SKILL.md
+    └── agents/openai.yaml
+</code></pre>
+<p>If your existing Codex setup already discovers skills in <code>~/.codex/skills</code>, you can keep using that directory. Installing the same skill in both locations may create duplicate entries in the skill picker.</p>
+<h2 id="usage">Usage</h2>
+<p><code>$thresh</code> and <code>$ai-slop-thresher</code> apply the same editing instructions. The <code>thresh</code> shortcut reads the main skill, so install both folders together.</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Example request</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Return the edited text</td>
+<td><code>$thresh Edit the Korean text below. Keep its polite tone.</code></td>
+</tr>
+<tr>
+<td>Compare versions</td>
+<td><code>$thresh Show the original and edited Korean text, then briefly explain the changes.</code></td>
+</tr>
+<tr>
+<td>Diagnose only</td>
+<td><code>$thresh Identify awkward passages in this Korean text and explain why. Leave the text unchanged.</code></td>
+</tr>
+<tr>
+<td>Edit a Markdown file</td>
+<td><code>$thresh Edit the Korean prose in README.md. Preserve headings, tables, links, and commands.</code></td>
+</tr>
+</tbody></table>
+<p>By default, the skill returns only the edited text. It does not append a work summary, an offer of further help, or the product tagline.</p>
+<h2 id="editing-rules">Editing rules</h2>
+<table>
+<thead>
+<tr>
+<th>What it removes</th>
+<th>What it preserves</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Stock openings such as “the interesting thing” and repeated praise</td>
+<td>Distinct claims and the author&#39;s feelings</td>
+</tr>
+<tr>
+<td>Misplaced connectors and strings of similar modifiers</td>
+<td>Actual causes, contrasts, and sequences of events</td>
+</tr>
+<tr>
+<td>Unnecessary commas, emphasis quotes, and decorative formatting</td>
+<td>Direct quotations, code, URLs, dates, and numerical notation</td>
+</tr>
+<tr>
+<td>Explanations and endings that repeat an earlier point</td>
+<td>Conditions, evidence, steps, and examples the reader needs</td>
+</tr>
+</tbody></table>
+<p>The instructions forbid turning possibilities into facts or inventing personal experiences. Sentences that already read naturally stay as they are. See <a href="../../skills/ai-slop-thresher/SKILL.md">SKILL.md</a> for the full rules in Korean.</p>
+<h2 id="validation-scope">Validation scope</h2>
+<p>The initial instructions went through five improvement rounds. The project records original and edited text for 12 core examples and eight additional examples. Checks cover required text and protected values in saved outputs, alongside a review of meaning by the same agent.</p>
+<p>The originals and edits are synthetic examples written by the same agent. They have not undergone independent evaluation, and no AI detector pass rate was measured. The <code>checks</code> badge refers to checks on the saved examples. For real documents, compare numbers, conditions, and quotations with the original.</p>
+<h2 id="references">References</h2>
+<p>The projects below informed the editing criteria and documentation layout. The skill instructions and Korean examples are original work.</p>
+<table>
+<thead>
+<tr>
+<th>Project</th>
+<th>What informed this project</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/blader/humanizer">blader/humanizer</a></td>
+<td>Reviewing repetitive openings, endings, and paragraph structures</td>
+</tr>
+<tr>
+<td><a href="https://github.com/op7418/Humanizer-zh">op7418/Humanizer-zh</a></td>
+<td>Adapting translation and formatting checks to the target language</td>
+</tr>
+<tr>
+<td><a href="https://github.com/hardikpandya/stop-slop">hardikpandya/stop-slop</a></td>
+<td>Removing previews of the main point, empty conclusions, and decorative dashes</td>
+</tr>
+<tr>
+<td><a href="https://github.com/conorbronsdon/avoid-ai-writing">conorbronsdon/avoid-ai-writing</a></td>
+<td>Avoiding invented facts and separating diagnosis from editing</td>
+</tr>
+<tr>
+<td><a href="https://github.com/epoko77-ai/im-not-ai">epoko77-ai/im-not-ai</a></td>
+<td>Korean particles and connective endings, register, and quotation preservation</td>
+</tr>
+<tr>
+<td><a href="https://github.com/AIScientists-Dev/academic-humanizer">AIScientists-Dev/academic-humanizer</a></td>
+<td>Preserving conditions, sample scope, and qualifications in academic writing</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Nanako0129/sepia">Nanako0129/sepia</a></td>
+<td>Making minimal edits for the genre and audience while retaining the author&#39;s voice</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Burntgogi/Gpt_Codex_HWP">Burntgogi/Gpt_Codex_HWP</a></td>
+<td>Placement of the banner, title, navigation, examples, and installation steps</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Burntgogi/codex_oracle">Burntgogi/codex_oracle</a></td>
+<td>Centered introduction, badge colors and placement, language links, and release documentation</td>
+</tr>
+</tbody></table>
+<p><a href="../../ATTRIBUTIONS.md">ATTRIBUTIONS.md</a> records the revisions reviewed, links to their license files, and the scope of each reference. Thanks to the maintainers and contributors who made this work available.</p>
+<p>The header badges use <a href="https://shields.io/badges/static-badge">Shields.io</a>. The <a href="../../docs/github-frontpage.md">layout notes</a> explain their sources and labels.</p>
+<h2 id="license">License</h2>
+<p>This project is licensed under Apache-2.0. See <a href="../../LICENSE">LICENSE</a> for the terms and <a href="../../NOTICE">NOTICE</a> and <a href="../../ATTRIBUTIONS.md">ATTRIBUTIONS.md</a> for copyright and reference information. Referenced projects retain their own copyrights and licenses.</p>
+<h2 id="documentation">Documentation</h2>
+<p>The detailed documentation below is in Korean.</p>
+<p><a href="release-notes.html">Release notes</a> · <a href="../../CHANGELOG.md">Changelog</a> · <a href="../../reports/ai-slop-thresher-report.md">Development report</a> · <a href="../../reports/comparisons.md">20 original and edited examples</a> · <a href="../../docs/verification.md">Verification guide</a></p>
+<p><a href="../../docs/github-frontpage.md">Layout and design sources</a> · <a href="../../reports/document-editing.md">README and release notes editing record</a> · <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/download/v1.1.0/ai-slop-thresher-workbench.zip">Full project ZIP</a></p>
+</article><footer class="foot">Local preview rendered from saved Markdown. Details may differ from GitHub.</footer></main></body></html>

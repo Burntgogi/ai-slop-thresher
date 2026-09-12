@@ -21,7 +21,11 @@
 | 참고 저장소와 읽은 소스 | 이 프로젝트에 반영한 내용 | 해당 리비전의 LICENSE |
 | --- | --- | --- |
 | [Burntgogi/Gpt_Codex_HWP](https://github.com/Burntgogi/Gpt_Codex_HWP/blob/ec55c59bfbe1cab9d98a800ac8c95de890747aea/README.md) | 전체 폭 배너, 가운데 정렬 제목, 바로가기와 결과 예시·설치 안내의 배치를 참고했습니다. | [Apache-2.0](https://github.com/Burntgogi/Gpt_Codex_HWP/blob/ec55c59bfbe1cab9d98a800ac8c95de890747aea/LICENSE) |
-| [Burntgogi/codex_oracle](https://github.com/Burntgogi/codex_oracle/blob/aedbbb13f434c7722555bd485f0398d2a9f91a05/README.md) | 짧은 소개와 첫 호출 예시, 간결한 릴리즈 노트와 상세 문서 링크를 참고했습니다. | [MIT](https://github.com/Burntgogi/codex_oracle/blob/aedbbb13f434c7722555bd485f0398d2a9f91a05/LICENSE) |
+| [Burntgogi/codex_oracle](https://github.com/Burntgogi/codex_oracle/blob/aedbbb13f434c7722555bd485f0398d2a9f91a05/README.md) | 가운데 정렬 소개, Shields.io 배지의 색상·배치, 한국어·영어 전환, 첫 호출 예시와 릴리즈 문서 구성을 참고했습니다. | [MIT](https://github.com/Burntgogi/codex_oracle/blob/aedbbb13f434c7722555bd485f0398d2a9f91a05/LICENSE) |
+
+배지 이미지는 [Shields.io의 정적 배지](https://shields.io/badges/static-badge)를 사용합니다. `codex_oracle`의 README에 적힌 이미지 주소와 같은 `flat` 형식과 색상을 적용하고, 표시 값과 링크는 이 프로젝트의 공개 상태에 맞췄습니다. 외부 서비스에서 제공하는 배지 이미지를 연결하며 해당 서비스의 코드를 배포하지 않습니다.
+
+`codex_oracle`의 감사 항목은 [steipete/oracle](https://github.com/steipete/oracle)을 작업 맥락을 선별해 다른 모델에 검토받는 흐름의 참고 출처로 소개합니다. 해당 설명만으로 배지 디자인도 그 저장소에서 왔다고 확인할 수 없어, 이 프로젝트의 배지 출처는 직접 확인한 `codex_oracle` README와 Shields.io 문서로 기록합니다.
 
 한국어 세부 편집에는 im-not-ai의 [quick-rules.md](https://github.com/epoko77-ai/im-not-ai/blob/9747f036cdc28a1a8aea4dc71fef1f7846eb96f7/skills/humanize-korean/references/quick-rules.md)와 [rewriting-playbook.md](https://github.com/epoko77-ai/im-not-ai/blob/9747f036cdc28a1a8aea4dc71fef1f7846eb96f7/skills/humanize-korean/references/rewriting-playbook.md)도 참고했습니다.
 
