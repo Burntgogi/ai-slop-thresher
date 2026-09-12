@@ -1,0 +1,48 @@
+{
+  "as_of": "2026-09-12",
+  "renderer": "Local marked preview; not a live GitHub render",
+  "checks": [
+    {
+      "viewport": {
+        "name": "desktop",
+        "width": 1440,
+        "height": 1180
+      },
+      "title": "AI Slop 탈곡기: 이 글은 흥미롭지 않습니다.",
+      "image": [
+        {
+          "loaded": true,
+          "width": 1774,
+          "height": 887
+        }
+      ],
+      "overflow": false,
+      "brokenAnchors": [],
+      "releaseNavigation": true,
+      "installAnchorNavigation": true,
+      "releaseOverflow": false,
+      "pageErrors": []
+    },
+    {
+      "viewport": {
+        "name": "mobile",
+        "width": 390,
+        "height": 844
+      },
+      "title": "AI Slop 탈곡기: 이 글은 흥미롭지 않습니다.",
+      "image": [
+        {
+          "loaded": true,
+          "width": 1774,
+          "height": 887
+        }
+      ],
+      "overflow": false,
+      "brokenAnchors": [],
+      "releaseNavigation": true,
+      "installAnchorNavigation": true,
+      "releaseOverflow": false,
+      "pageErrors": []
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+.tools/
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
+
+# Local installation evidence contains workstation paths.
+research/install-receipt.json
+research/history/install-receipt-1.0.0.json
+research/history/skill-validation-1.0.0.json
+
+# Earlier local bundles may contain installation evidence.
+dist/archive/
+
+# Draft preview screenshots are kept locally; publish the current HTML preview.
+docs/preview/frontpage-desktop.png
+docs/preview/frontpage-mobile.png
+docs/preview/release-desktop.png
+docs/preview/release-mobile.png

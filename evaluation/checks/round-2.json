@@ -1,0 +1,113 @@
+{
+  "scope": "Saved output fixtures: literal anchors, numeric tokens, protected spans, decorative marks. Not semantic verification or an AI detector.",
+  "evaluated": 5,
+  "passed": 5,
+  "failed": 0,
+  "cases": [
+    {
+      "id": "C01",
+      "passed": true,
+      "failures": [],
+      "before": {
+        "characters": 184,
+        "staging_phrases": 2,
+        "commas_in_editable_text": 3,
+        "single_quote_marks_in_editable_text": 2,
+        "dash_marks_in_editable_text": 0,
+        "bold_spans_in_editable_text": 1
+      },
+      "after": {
+        "characters": 73,
+        "staging_phrases": 0,
+        "commas_in_editable_text": 0,
+        "single_quote_marks_in_editable_text": 0,
+        "dash_marks_in_editable_text": 0,
+        "bold_spans_in_editable_text": 0
+      }
+    },
+    {
+      "id": "C02",
+      "passed": true,
+      "failures": [],
+      "before": {
+        "characters": 117,
+        "staging_phrases": 0,
+        "commas_in_editable_text": 4,
+        "single_quote_marks_in_editable_text": 0,
+        "dash_marks_in_editable_text": 0,
+        "bold_spans_in_editable_text": 0
+      },
+      "after": {
+        "characters": 82,
+        "staging_phrases": 0,
+        "commas_in_editable_text": 0,
+        "single_quote_marks_in_editable_text": 0,
+        "dash_marks_in_editable_text": 0,
+        "bold_spans_in_editable_text": 0
+      }
+    },
+    {
+      "id": "C03",
+      "passed": true,
+      "failures": [],
+      "before": {
+        "characters": 137,
+        "staging_phrases": 0,
+        "commas_in_editable_text": 2,
+        "single_quote_marks_in_editable_text": 0,
+        "dash_marks_in_editable_text": 0,
+        "bold_spans_in_editable_text": 0
+      },
+      "after": {
+        "characters": 46,
+        "staging_phrases": 0,
+        "commas_in_editable_text": 0,
+        "single_quote_marks_in_editable_text": 0,
+        "dash_marks_in_editable_text": 0,
+        "bold_spans_in_editable_text": 0
+      }
+    },
+    {
+      "id": "C04",
+      "passed": true,
+      "failures": [],
+      "before": {
+        "characters": 135,
+        "staging_phrases": 1,
+        "commas_in_editable_text": 1,
+        "single_quote_marks_in_editable_text": 0,
+        "dash_marks_in_editable_text": 0,
+        "bold_spans_in_editable_text": 0
+      },
+      "after": {
+        "characters": 107,
+        "staging_phrases": 0,
+        "commas_in_editable_text": 0,
+        "single_quote_marks_in_editable_text": 0,
+        "dash_marks_in_editable_text": 0,
+        "bold_spans_in_editable_text": 0
+      }
+    },
+    {
+      "id": "C05",
+      "passed": true,
+      "failures": [],
+      "before": {
+        "characters": 144,
+        "staging_phrases": 1,
+        "commas_in_editable_text": 3,
+        "single_quote_marks_in_editable_text": 0,
+        "dash_marks_in_editable_text": 0,
+        "bold_spans_in_editable_text": 0
+      },
+      "after": {
+        "characters": 93,
+        "staging_phrases": 0,
+        "commas_in_editable_text": 1,
+        "single_quote_marks_in_editable_text": 0,
+        "dash_marks_in_editable_text": 0,
+        "bold_spans_in_editable_text": 0
+      }
+    }
+  ]
+}

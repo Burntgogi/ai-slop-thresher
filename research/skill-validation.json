@@ -1,0 +1,22 @@
+{
+  "as_of": "2026-09-12",
+  "skill_version": "1.1.0",
+  "skills": [
+    {
+      "name": "ai-slop-thresher",
+      "official_result": "Skill is valid!",
+      "ui_metadata_valid": true,
+      "short_description_length": 28
+    },
+    {
+      "name": "thresh",
+      "official_result": "Skill is valid!",
+      "ui_metadata_valid": true,
+      "short_description_length": 28
+    }
+  ],
+  "editorial_rules_unchanged": true,
+  "reference_content_unchanged": true,
+  "shortcut_resolves_to_main": true,
+  "verification_scope": "Format, content identity and invocation path; live selector not exercised."
+}

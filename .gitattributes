@@ -1,0 +1,2 @@
+# Preserve the bytes verified in release archives on every platform.
+* -text

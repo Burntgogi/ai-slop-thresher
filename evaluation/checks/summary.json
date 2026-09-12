@@ -1,0 +1,56 @@
+{
+  "round_1": {
+    "evaluated": 3,
+    "passed": 3,
+    "failed": 0
+  },
+  "round_2": {
+    "evaluated": 5,
+    "passed": 5,
+    "failed": 0
+  },
+  "round_3": {
+    "evaluated": 8,
+    "passed": 8,
+    "failed": 0
+  },
+  "round_4": {
+    "evaluated": 11,
+    "passed": 11,
+    "failed": 0
+  },
+  "round_5": {
+    "evaluated": 12,
+    "passed": 12,
+    "failed": 0
+  },
+  "transfer": {
+    "evaluated": 8,
+    "passed": 8,
+    "failed": 0
+  },
+  "negative_controls": [
+    {
+      "name": "changed_amount",
+      "case": "C05",
+      "expected_failure_caught": true
+    },
+    {
+      "name": "changed_command",
+      "case": "C06",
+      "expected_failure_caught": true
+    },
+    {
+      "name": "changed_quote",
+      "case": "C07",
+      "expected_failure_caught": true
+    },
+    {
+      "name": "dropped_feature",
+      "case": "C09",
+      "expected_failure_caught": true
+    }
+  ],
+  "all_checks_passed": true,
+  "limits": "Checks inspect saved text only; all outputs and semantic reviews were authored by the same agent."
+}

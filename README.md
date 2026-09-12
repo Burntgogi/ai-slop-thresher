@@ -1,0 +1,124 @@
+<p align="center">
+  <img src="assets/ai-slop-thresher-banner.png" alt="흰 고양이가 탈곡기로 긴 원고를 다듬는 픽셀 아트. AI Slop Thresher: 이 글은 흥미롭지 않습니다." width="100%">
+</p>
+
+<h1 align="center">AI Slop 탈곡기: 이 글은 흥미롭지 않습니다.</h1>
+
+<p align="center">AI Slop Thresher: This Text Is Not Interesting.</p>
+
+<p align="center">알맹이는 남기고 AI 말투와 과잉 설명을 털어냅니다.</p>
+
+<p align="center">Codex 스킬 · 한국어 윤문 · <a href="RELEASE_NOTES.md">v1.1.0</a> · <a href="LICENSE">Apache-2.0</a></p>
+
+<p align="center">
+  <a href="#적용-전후">적용 전후</a> ·
+  <a href="#설치">설치</a> ·
+  <a href="#사용법">사용법</a> ·
+  <a href="RELEASE_NOTES.md">릴리즈 노트</a> ·
+  <a href="reports/ai-slop-thresher-report.md">제작 보고서</a>
+</p>
+
+한국어 초안의 상투어, 과잉 설명과 반복 수사를 줄이는 Codex 스킬입니다. 원문의 사실과 말투를 유지하며 문장을 다듬습니다.
+
+설치 후 Codex에 다듬을 글과 함께 입력하세요.
+
+```text
+$thresh 아래 글의 뜻과 말투를 유지하면서 자연스럽게 다듬어 주세요.
+```
+
+## 적용 전후
+
+아래는 제작 과정에서 사용한 가상 제품 안내문입니다.
+
+### 적용 전
+
+> 흥미로운 점은 새 대시보드가 빠르고, 신속하며, 민첩한 업무 처리를 지원한다는 점입니다. 내부 테스트에서 주간 보고서 작성 시간은 30분에서 10분으로 줄었습니다. 하지만, 보고서는 'CSV'로도 내려받을 수 있습니다. 재미있는 점은 이처럼 보고서 작성 시간을 줄였다는 것입니다. **업무의 새로운 기준**을 제시하는 변화입니다.
+
+### 적용 후
+
+> 새 대시보드의 내부 테스트에서 주간 보고서 작성 시간이 30분에서 10분으로 줄었습니다. 보고서는 CSV로도 내려받을 수 있습니다.
+
+반복 칭찬과 문맥에 맞지 않는 역접을 덜었습니다. 내부 테스트라는 범위, 두 수치와 CSV 기능은 남겼습니다. [20개 예문 전문](reports/comparisons.md)에서 조건, 인용문과 코드가 있는 사례도 볼 수 있습니다.
+
+## 설치
+
+스킬 전용 API 키나 Python 설치는 필요하지 않습니다. Codex가 스킬 지침을 읽고 글을 다듬습니다.
+
+1. [v1.1.0 스킬 ZIP](https://github.com/Burntgogi/ai-slop-thresher/releases/download/v1.1.0/ai-slop-thresher.zip)을 내려받아 압축을 풉니다.
+2. `ai-slop-thresher`와 `thresh` 두 폴더를 Codex가 읽는 같은 스킬 디렉터리에 넣습니다.
+3. Codex에서 `$thresh` 또는 `$ai-slop-thresher`를 호출합니다. 새 스킬이 보이지 않으면 Codex를 다시 시작합니다.
+
+현재 [Codex 공식 안내](https://learn.chatgpt.com/docs/build-skills)의 개인 스킬 경로는 `~/.agents/skills`입니다. 폴더 구조는 다음과 같습니다.
+
+```text
+~/.agents/skills/
+├── ai-slop-thresher/
+│   ├── SKILL.md
+│   ├── agents/openai.yaml
+│   └── references/
+│       ├── edge-cases.md
+│       └── design-sources.md
+└── thresh/
+    ├── SKILL.md
+    └── agents/openai.yaml
+```
+
+기존 Codex 환경에서 `~/.codex/skills`의 스킬을 이미 인식하고 있다면 그 경로를 유지해도 됩니다. 같은 이름을 두 곳에 중복 설치하면 선택 목록에 함께 나타날 수 있습니다.
+
+## 사용법
+
+`$thresh`와 `$ai-slop-thresher`는 같은 편집 지침을 적용합니다. 짧은 호출용 `thresh`가 본 스킬을 읽으므로 두 폴더를 함께 설치해야 합니다.
+
+| 원하는 작업 | 요청 예시 |
+| --- | --- |
+| 본문만 윤문 | `$thresh 아래 글을 정중한 말투로 다듬어 주세요.` |
+| 적용 전후 비교 | `$thresh 원문과 수정문을 함께 보여주고 바뀐 이유를 짧게 적어 주세요.` |
+| 문제 구간 진단 | `$thresh 글을 고치지 말고 어색한 구간과 이유만 알려 주세요.` |
+| Markdown 파일 편집 | `$thresh README.md의 문장을 다듬어 주세요. 제목, 표, 링크와 명령어는 유지해 주세요.` |
+
+기본 응답은 다듬은 본문입니다. 작업 설명이나 후속 제안, 제품 부제를 자동으로 붙이지 않습니다.
+
+## 편집 기준
+
+| 덜어내는 것 | 지키는 것 |
+| --- | --- |
+| 흥미로운 점 같은 상투적인 도입과 반복 칭찬 | 고유한 주장과 저자의 감정 |
+| 문맥에 맞지 않는 접속사와 같은 뜻의 수식어 나열 | 실제 원인, 대조와 시간 순서 |
+| 불필요한 쉼표, 강조용 작은따옴표와 장식 서식 | 직접 인용, 코드, URL, 날짜와 수치 표기 |
+| 이미 한 말을 되풀이하는 설명과 마무리 | 독자에게 필요한 조건, 근거, 절차와 예시 |
+
+가능성을 사실로 단정하거나 원문에 없는 경험을 보태지 않습니다. 이미 자연스러운 문장은 유지합니다. 자세한 규칙은 [SKILL.md](skills/ai-slop-thresher/SKILL.md)에 있습니다.
+
+## 확인한 범위
+
+초기 지침을 만든 뒤 5회 개선했고, 기본 예문 12개와 추가 예문 8개의 적용 전후를 기록했습니다. 저장된 결과의 문자 검사와 자체 의미 검토를 수행했습니다.
+
+원문과 윤문은 같은 에이전트가 작성한 가상 자료입니다. 독립 평가나 AI 탐지기 통과율을 측정한 결과는 아닙니다. 실제 문서에서는 수치, 조건과 인용을 원문과 대조해 주세요.
+
+## 참고한 프로젝트
+
+다음 프로젝트의 편집 기준과 문서 구성을 참고했습니다. 이 스킬의 지침과 한국어 예문은 새로 작성했습니다.
+
+| 프로젝트 | 참고한 내용 |
+| --- | --- |
+| [blader/humanizer](https://github.com/blader/humanizer) | 반복되는 도입·결말과 문단 구조 검토 |
+| [op7418/Humanizer-zh](https://github.com/op7418/Humanizer-zh) | 대상 언어에 맞춘 번역투와 서식 검토 |
+| [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop) | 본론 전 예고, 빈 결론과 장식 대시 줄이기 |
+| [conorbronsdon/avoid-ai-writing](https://github.com/conorbronsdon/avoid-ai-writing) | 없는 사실 추가 금지, 진단과 윤문 구분 |
+| [epoko77-ai/im-not-ai](https://github.com/epoko77-ai/im-not-ai) | 한국어 조사·연결어미, 격식과 인용 보존 |
+| [AIScientists-Dev/academic-humanizer](https://github.com/AIScientists-Dev/academic-humanizer) | 학술 문장의 조건·표본 범위와 유보 보존 |
+| [Nanako0129/sepia](https://github.com/Nanako0129/sepia) | 장르·독자에 맞춘 최소 수정과 원문 목소리 보존 |
+| [Burntgogi/Gpt_Codex_HWP](https://github.com/Burntgogi/Gpt_Codex_HWP) | 배너, 제목, 바로가기와 결과 예시 배치 |
+| [Burntgogi/codex_oracle](https://github.com/Burntgogi/codex_oracle) | 짧은 소개, 호출 예시와 릴리즈 문서 구성 |
+
+읽은 리비전, 라이선스 원문과 구체적인 반영 범위는 [ATTRIBUTIONS.md](ATTRIBUTIONS.md)에 정리했습니다. 각 프로젝트의 유지관리자와 기여자께 감사드립니다.
+
+## 라이선스
+
+Apache-2.0으로 배포합니다. [LICENSE](LICENSE)에 전체 조건을, [NOTICE](NOTICE)와 [ATTRIBUTIONS.md](ATTRIBUTIONS.md)에 저작권 고지와 참고 자료를 담았습니다. 참고 프로젝트의 저작권과 라이선스는 각 원저작자에게 남습니다.
+
+## 문서
+
+[릴리즈 노트](RELEASE_NOTES.md) · [변경 이력](CHANGELOG.md) · [제작 보고서](reports/ai-slop-thresher-report.md) · [20개 적용 전후 사례](reports/comparisons.md) · [재검증 방법](docs/verification.md)
+
+[화면 구성과 참고 자료](docs/github-frontpage.md) · [README·릴리즈 노트 윤문 기록](reports/document-editing.md) · [전체 제작 자료 ZIP](https://github.com/Burntgogi/ai-slop-thresher/releases/download/v1.1.0/ai-slop-thresher-workbench.zip)

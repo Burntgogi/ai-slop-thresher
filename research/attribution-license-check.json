@@ -1,0 +1,105 @@
+{
+  "as_of": "2026-09-12",
+  "verification": "LICENSE files were read at the exact revisions used in the design comparison.",
+  "entries": [
+    {
+      "repository": "blader/humanizer",
+      "commit": "9862685f575c65a8247f90369951df1b3416e3d6",
+      "source_url": "https://github.com/blader/humanizer/blob/9862685f575c65a8247f90369951df1b3416e3d6/SKILL.md",
+      "license_url": "https://github.com/blader/humanizer/blob/9862685f575c65a8247f90369951df1b3416e3d6/LICENSE",
+      "license_label": "MIT",
+      "category": "윤문 설계",
+      "applied": "반복되는 도입·결말과 문단 구조를 검토하고, 수정 후 사실을 다시 대조합니다.",
+      "license_text_length": 1066,
+      "license_header_and_body_reviewed": true
+    },
+    {
+      "repository": "op7418/Humanizer-zh",
+      "commit": "91f3d394db8419c20d67ebe22a96cf8fee0a404b",
+      "source_url": "https://github.com/op7418/Humanizer-zh/blob/91f3d394db8419c20d67ebe22a96cf8fee0a404b/SKILL.md",
+      "license_url": "https://github.com/op7418/Humanizer-zh/blob/91f3d394db8419c20d67ebe22a96cf8fee0a404b/LICENSE",
+      "license_label": "MIT",
+      "category": "윤문 설계",
+      "applied": "영어권 패턴을 그대로 옮기지 않고 대상 언어의 번역투와 서식 문제로 다시 살핍니다.",
+      "license_text_length": 1059,
+      "license_header_and_body_reviewed": true
+    },
+    {
+      "repository": "hardikpandya/stop-slop",
+      "commit": "8da1f030185bdfe8471220585162991eaeb970e9",
+      "source_url": "https://github.com/hardikpandya/stop-slop/blob/8da1f030185bdfe8471220585162991eaeb970e9/SKILL.md",
+      "license_url": "https://github.com/hardikpandya/stop-slop/blob/8da1f030185bdfe8471220585162991eaeb970e9/LICENSE",
+      "license_label": "MIT",
+      "category": "윤문 설계",
+      "applied": "본론 전 예고, 불필요한 대구, 내용 없는 결론과 장식 대시를 줄입니다.",
+      "license_text_length": 1070,
+      "license_header_and_body_reviewed": true
+    },
+    {
+      "repository": "conorbronsdon/avoid-ai-writing",
+      "commit": "e7faf81f2c9353bd5e5c6ad6ce82f513bb89ee3e",
+      "source_url": "https://github.com/conorbronsdon/avoid-ai-writing/blob/e7faf81f2c9353bd5e5c6ad6ce82f513bb89ee3e/SKILL.md",
+      "license_url": "https://github.com/conorbronsdon/avoid-ai-writing/blob/e7faf81f2c9353bd5e5c6ad6ce82f513bb89ee3e/LICENSE",
+      "license_label": "MIT",
+      "category": "윤문 설계",
+      "applied": "없는 경험과 사실을 보태지 않고, 진단과 윤문을 구별한 뒤 결과를 다시 읽습니다.",
+      "license_text_length": 1071,
+      "license_header_and_body_reviewed": true
+    },
+    {
+      "repository": "epoko77-ai/im-not-ai",
+      "commit": "9747f036cdc28a1a8aea4dc71fef1f7846eb96f7",
+      "source_url": "https://github.com/epoko77-ai/im-not-ai/blob/9747f036cdc28a1a8aea4dc71fef1f7846eb96f7/codex/skills/humanize-korean/SKILL.md",
+      "license_url": "https://github.com/epoko77-ai/im-not-ai/blob/9747f036cdc28a1a8aea4dc71fef1f7846eb96f7/LICENSE",
+      "license_label": "MIT",
+      "category": "윤문 설계",
+      "applied": "한국어 조사·연결어미, 명사형·피동, 격식과 직접 인용을 기준으로 국소 편집합니다.",
+      "license_text_length": 1067,
+      "license_header_and_body_reviewed": true
+    },
+    {
+      "repository": "AIScientists-Dev/academic-humanizer",
+      "commit": "94b88b23703bed7df507acae7d6d5876209a0cdf",
+      "source_url": "https://github.com/AIScientists-Dev/academic-humanizer/blob/94b88b23703bed7df507acae7d6d5876209a0cdf/SKILL.md",
+      "license_url": "https://github.com/AIScientists-Dev/academic-humanizer/blob/94b88b23703bed7df507acae7d6d5876209a0cdf/LICENSE",
+      "license_label": "MIT 표기, 비표준 본문",
+      "category": "윤문 설계",
+      "applied": "수치·인용, 조건·표본 범위와 유보 표현을 보존하고 학술 문체를 유지합니다.",
+      "license_text_length": 890,
+      "license_header_and_body_reviewed": true
+    },
+    {
+      "repository": "Nanako0129/sepia",
+      "commit": "abddddb545ad791fc39d65331080bd0e1422c1d1",
+      "source_url": "https://github.com/Nanako0129/sepia/blob/abddddb545ad791fc39d65331080bd0e1422c1d1/skills/sepia/SKILL.md",
+      "license_url": "https://github.com/Nanako0129/sepia/blob/abddddb545ad791fc39d65331080bd0e1422c1d1/LICENSE",
+      "license_label": "MIT",
+      "category": "윤문 설계",
+      "applied": "장르와 독자에 맞춰 원문의 목소리를 보존하고, 최소 수정과 전체 흐름 검토를 함께 합니다.",
+      "license_text_length": 1068,
+      "license_header_and_body_reviewed": true
+    },
+    {
+      "repository": "Burntgogi/Gpt_Codex_HWP",
+      "commit": "ec55c59bfbe1cab9d98a800ac8c95de890747aea",
+      "source_url": "https://github.com/Burntgogi/Gpt_Codex_HWP/blob/ec55c59bfbe1cab9d98a800ac8c95de890747aea/README.md",
+      "license_url": "https://github.com/Burntgogi/Gpt_Codex_HWP/blob/ec55c59bfbe1cab9d98a800ac8c95de890747aea/LICENSE",
+      "license_label": "Apache-2.0",
+      "category": "화면·문서",
+      "applied": "전체 폭 배너, 가운데 정렬 제목, 바로가기와 결과 예시·설치 안내의 배치를 참고했습니다.",
+      "license_text_length": 11358,
+      "license_header_and_body_reviewed": true
+    },
+    {
+      "repository": "Burntgogi/codex_oracle",
+      "commit": "aedbbb13f434c7722555bd485f0398d2a9f91a05",
+      "source_url": "https://github.com/Burntgogi/codex_oracle/blob/aedbbb13f434c7722555bd485f0398d2a9f91a05/README.md",
+      "license_url": "https://github.com/Burntgogi/codex_oracle/blob/aedbbb13f434c7722555bd485f0398d2a9f91a05/LICENSE",
+      "license_label": "MIT",
+      "category": "화면·문서",
+      "applied": "짧은 소개와 첫 호출 예시, 간결한 릴리즈 노트와 상세 문서 링크를 참고했습니다.",
+      "license_text_length": 1082,
+      "license_header_and_body_reviewed": true
+    }
+  ]
+}

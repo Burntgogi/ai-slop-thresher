@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0",
+  "files": [
+    {
+      "path": "humanizer/agents/openai.yaml",
+      "bytes": 269,
+      "sha256": "b6925ec3516413115f60b483f8d225984c045a3d0884e52fac5feffc497b950d"
+    },
+    {
+      "path": "humanizer/references/design-sources.md",
+      "bytes": 4102,
+      "sha256": "25188a459c60d1f9e4dd079d3f5ec973644a5bdeb858712e106e34acc754462a"
+    },
+    {
+      "path": "humanizer/references/edge-cases.md",
+      "bytes": 3093,
+      "sha256": "509b6dd4de4022f1ca6a144d2f038d3b43e0d861fee5a55feb618b745b09718f"
+    },
+    {
+      "path": "humanizer/SKILL.md",
+      "bytes": 6787,
+      "sha256": "2fdea93863991e46f39245adca4a1214e5c22703bc6a568a3a689e553de216dc"
+    }
+  ]
+}

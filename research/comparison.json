@@ -1,0 +1,128 @@
+[
+  {
+    "repo": "blader/humanizer",
+    "adopt": "문장 단어뿐 아니라 반복되는 도입·결말과 문단 구조를 검토한다. 사실을 보존하고 재검토한다.",
+    "omit": "초안·잔여 패턴·최종본을 매번 모두 출력하는 방식과 원문에 없는 반응 추가는 채택하지 않는다.",
+    "metadata": {
+      "full_name": "blader/humanizer",
+      "created_at": "2026-01-18T05:30:15Z",
+      "stars": 46981,
+      "fork": false,
+      "pushed_at": "2026-09-06T20:26:10Z",
+      "default_branch": "main",
+      "description": "Agent skill that removes signs of AI-generated writing from text",
+      "license": "MIT",
+      "url": "https://github.com/blader/humanizer"
+    },
+    "revision": "9862685f575c65a8247f90369951df1b3416e3d6",
+    "source_url": "https://github.com/blader/humanizer/blob/9862685f575c65a8247f90369951df1b3416e3d6/SKILL.md"
+  },
+  {
+    "repo": "op7418/Humanizer-zh",
+    "adopt": "영어권 패턴을 대상 언어의 예문으로 다시 설계한다. 번역투와 과도한 서식을 함께 본다.",
+    "omit": "인격을 주입하는 방향, 자기평가 점수의 합계로 자연스러움을 증명하는 방식은 채택하지 않는다.",
+    "metadata": {
+      "full_name": "op7418/Humanizer-zh",
+      "created_at": "2026-01-19T04:23:44Z",
+      "stars": 17077,
+      "fork": false,
+      "pushed_at": "2026-01-19T07:46:35Z",
+      "default_branch": "main",
+      "description": "Humanizer 的汉化版本，Claude Code Skills，旨在消除文本中 AI 生成的痕迹。",
+      "license": "MIT",
+      "url": "https://github.com/op7418/Humanizer-zh"
+    },
+    "revision": "91f3d394db8419c20d67ebe22a96cf8fee0a404b",
+    "source_url": "https://github.com/op7418/Humanizer-zh/blob/91f3d394db8419c20d67ebe22a96cf8fee0a404b/SKILL.md"
+  },
+  {
+    "repo": "hardikpandya/stop-slop",
+    "adopt": "본론 전 예고, 불필요한 대구, 내용이 없는 결론과 장식 대시를 줄인다.",
+    "omit": "모든 부사·피동문 제거, 세 항목을 두 항목보다 나쁘게 보는 규칙은 채택하지 않는다.",
+    "metadata": {
+      "full_name": "hardikpandya/stop-slop",
+      "created_at": "2026-01-11T12:00:59Z",
+      "stars": 17039,
+      "fork": false,
+      "pushed_at": "2026-03-17T18:50:39Z",
+      "default_branch": "main",
+      "description": "A skill file for removing AI tells from prose",
+      "license": "MIT",
+      "url": "https://github.com/hardikpandya/stop-slop"
+    },
+    "revision": "8da1f030185bdfe8471220585162991eaeb970e9",
+    "source_url": "https://github.com/hardikpandya/stop-slop/blob/8da1f030185bdfe8471220585162991eaeb970e9/SKILL.md"
+  },
+  {
+    "repo": "conorbronsdon/avoid-ai-writing",
+    "adopt": "원문에 없는 1인칭·사실을 넣지 않는다. 진단과 윤문을 구별하며 수정 후 다시 읽는다.",
+    "omit": "기본 응답의 여러 진단 섹션, 영어 어휘 목록의 직역, 무거운 탐지기 의존은 채택하지 않는다.",
+    "metadata": {
+      "full_name": "conorbronsdon/avoid-ai-writing",
+      "created_at": "2026-03-06T07:47:40Z",
+      "stars": 4315,
+      "fork": false,
+      "pushed_at": "2026-09-12T00:21:34Z",
+      "default_branch": "main",
+      "description": "Skill that audits and rewrites content to remove AI writing patterns. Use it with your favorite agents including Claude Code, OpenClaw, Codex, and Hermes.",
+      "license": "MIT",
+      "url": "https://github.com/conorbronsdon/avoid-ai-writing"
+    },
+    "revision": "e7faf81f2c9353bd5e5c6ad6ce82f513bb89ee3e",
+    "source_url": "https://github.com/conorbronsdon/avoid-ai-writing/blob/e7faf81f2c9353bd5e5c6ad6ce82f513bb89ee3e/SKILL.md"
+  },
+  {
+    "repo": "epoko77-ai/im-not-ai",
+    "adopt": "한국어 조사·연결어미, 명사형·피동, 서법, 격식, 직접 인용을 중심으로 국소 편집한다.",
+    "omit": "고정 변경률에 따른 중단, 매번 파일·숨은 요약 주석 생성, 종결어미와 길이의 획일적 할당은 채택하지 않는다.",
+    "metadata": {
+      "full_name": "epoko77-ai/im-not-ai",
+      "created_at": "2026-04-24T12:48:40Z",
+      "stars": 5459,
+      "fork": false,
+      "pushed_at": "2026-09-06T15:16:59Z",
+      "default_branch": "main",
+      "description": "AI가 쓴 한글을 사람 글처럼 윤문하는 Claude 스킬 — Korean AI-text humanizer: detects and rewrites translationese, mechanical parallelism, and 71 other AI tells",
+      "license": "MIT",
+      "url": "https://github.com/epoko77-ai/im-not-ai"
+    },
+    "revision": "9747f036cdc28a1a8aea4dc71fef1f7846eb96f7",
+    "source_url": "https://github.com/epoko77-ai/im-not-ai/blob/9747f036cdc28a1a8aea4dc71fef1f7846eb96f7/codex/skills/humanize-korean/SKILL.md"
+  },
+  {
+    "repo": "AIScientists-Dev/academic-humanizer",
+    "adopt": "조건·표본 범위·유보와 수치·결과·인용을 보존한다. 학술 문장을 임의로 구어체로 바꾸지 않는다.",
+    "omit": "연구비 제안서 구조나 문단 수 고정은 일반 한국어 윤문의 필수 규칙으로 옮기지 않는다.",
+    "metadata": {
+      "full_name": "AIScientists-Dev/academic-humanizer",
+      "created_at": "2026-06-20T13:23:52Z",
+      "stars": 1501,
+      "fork": false,
+      "pushed_at": "2026-07-03T07:58:33Z",
+      "default_branch": "main",
+      "description": "Strip AI-writing tells from papers and grant proposals (NSF/NIH), while keeping scholarly voice and tying claims to evidence. A skill for Claude Code, Codex, and MorphMind.",
+      "license": "NOASSERTION",
+      "url": "https://github.com/AIScientists-Dev/academic-humanizer"
+    },
+    "revision": "94b88b23703bed7df507acae7d6d5876209a0cdf",
+    "source_url": "https://github.com/AIScientists-Dev/academic-humanizer/blob/94b88b23703bed7df507acae7d6d5876209a0cdf/SKILL.md"
+  },
+  {
+    "repo": "Nanako0129/sepia",
+    "adopt": "장르와 독자에 맞게 편집하고 원문의 목소리를 보존한다. 최소 수정과 전체 흐름 검토를 함께 한다.",
+    "omit": "소설 서사 구조 수리, 작성 모델 추정·분류, 특정 작가 목소리 주입은 이번 범위에 넣지 않는다.",
+    "metadata": {
+      "full_name": "Nanako0129/sepia",
+      "created_at": "2026-08-28T05:56:49Z",
+      "stars": 2556,
+      "fork": false,
+      "pushed_at": "2026-09-11T11:02:22Z",
+      "default_branch": "main",
+      "description": "De-AI writing skill for any Agent Skills-compatible agent (77+ via the Skills CLI), with native plugins for Claude Code, Codex, Grok Build, and Antigravity. Narrative-architecture repair for fiction, venue-matched rules for professional prose. Based on StoryScope (arXiv:2604.03136).",
+      "license": "MIT",
+      "url": "https://github.com/Nanako0129/sepia"
+    },
+    "revision": "abddddb545ad791fc39d65331080bd0e1422c1d1",
+    "source_url": "https://github.com/Nanako0129/sepia/blob/abddddb545ad791fc39d65331080bd0e1422c1d1/skills/sepia/SKILL.md"
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "skill_files": 6,
+  "references_resolve": true,
+  "archive_bytes_match_sources": true,
+  "packages": [
+    {
+      "file": "ai-slop-thresher.zip",
+      "members": 9,
+      "bytes": 15598,
+      "sha256": "0ae43505167bd7ba0b5e7cd5bbb96ffc3fd9b8b8e2694e0c2ade7297e46856c5"
+    },
+    {
+      "file": "ai-slop-thresher-workbench.zip",
+      "members": 76,
+      "bytes": 2079455,
+      "sha256": "f64ab0af63dda9784b0c3da3ab9f64658959cba8020bd70624042f07df41c347"
+    }
+  ]
+}

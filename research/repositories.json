@@ -1,0 +1,104 @@
+{
+  "as_of": "2026-09-12",
+  "source": "GitHub REST API, fetched during this task",
+  "criteria": {
+    "created_from": "2025-09-12",
+    "created_through": "2026-09-12",
+    "minimum_stars": 1000
+  },
+  "queries": [
+    "humanizer stars:>=1000 created:2025-09-12..2026-09-12",
+    "\"AI writing\" stars:>=1000 created:2025-09-12..2026-09-12",
+    "Web discovery: stop-slop"
+  ],
+  "repositories": [
+    {
+      "full_name": "blader/humanizer",
+      "created_at": "2026-01-18T05:30:15Z",
+      "stars": 46981,
+      "fork": false,
+      "pushed_at": "2026-09-06T20:26:10Z",
+      "default_branch": "main",
+      "description": "Agent skill that removes signs of AI-generated writing from text",
+      "license": "MIT",
+      "url": "https://github.com/blader/humanizer"
+    },
+    {
+      "full_name": "op7418/Humanizer-zh",
+      "created_at": "2026-01-19T04:23:44Z",
+      "stars": 17077,
+      "fork": false,
+      "pushed_at": "2026-01-19T07:46:35Z",
+      "default_branch": "main",
+      "description": "Humanizer 的汉化版本，Claude Code Skills，旨在消除文本中 AI 生成的痕迹。",
+      "license": "MIT",
+      "url": "https://github.com/op7418/Humanizer-zh"
+    },
+    {
+      "full_name": "hardikpandya/stop-slop",
+      "created_at": "2026-01-11T12:00:59Z",
+      "stars": 17039,
+      "fork": false,
+      "pushed_at": "2026-03-17T18:50:39Z",
+      "default_branch": "main",
+      "description": "A skill file for removing AI tells from prose",
+      "license": "MIT",
+      "url": "https://github.com/hardikpandya/stop-slop"
+    },
+    {
+      "full_name": "conorbronsdon/avoid-ai-writing",
+      "created_at": "2026-03-06T07:47:40Z",
+      "stars": 4315,
+      "fork": false,
+      "pushed_at": "2026-09-12T00:21:34Z",
+      "default_branch": "main",
+      "description": "Skill that audits and rewrites content to remove AI writing patterns. Use it with your favorite agents including Claude Code, OpenClaw, Codex, and Hermes.",
+      "license": "MIT",
+      "url": "https://github.com/conorbronsdon/avoid-ai-writing"
+    },
+    {
+      "full_name": "epoko77-ai/im-not-ai",
+      "created_at": "2026-04-24T12:48:40Z",
+      "stars": 5459,
+      "fork": false,
+      "pushed_at": "2026-09-06T15:16:59Z",
+      "default_branch": "main",
+      "description": "AI가 쓴 한글을 사람 글처럼 윤문하는 Claude 스킬 — Korean AI-text humanizer: detects and rewrites translationese, mechanical parallelism, and 71 other AI tells",
+      "license": "MIT",
+      "url": "https://github.com/epoko77-ai/im-not-ai"
+    },
+    {
+      "full_name": "AIScientists-Dev/academic-humanizer",
+      "created_at": "2026-06-20T13:23:52Z",
+      "stars": 1501,
+      "fork": false,
+      "pushed_at": "2026-07-03T07:58:33Z",
+      "default_branch": "main",
+      "description": "Strip AI-writing tells from papers and grant proposals (NSF/NIH), while keeping scholarly voice and tying claims to evidence. A skill for Claude Code, Codex, and MorphMind.",
+      "license": "NOASSERTION",
+      "url": "https://github.com/AIScientists-Dev/academic-humanizer"
+    },
+    {
+      "full_name": "Nanako0129/sepia",
+      "created_at": "2026-08-28T05:56:49Z",
+      "stars": 2556,
+      "fork": false,
+      "pushed_at": "2026-09-11T11:02:22Z",
+      "default_branch": "main",
+      "description": "De-AI writing skill for any Agent Skills-compatible agent (77+ via the Skills CLI), with native plugins for Claude Code, Codex, Grok Build, and Antigravity. Narrative-architecture repair for fiction, venue-matched rules for professional prose. Based on StoryScope (arXiv:2604.03136).",
+      "license": "MIT",
+      "url": "https://github.com/Nanako0129/sepia"
+    },
+    {
+      "full_name": "RevoltDevScript/Revolt-Script",
+      "created_at": "2026-03-29T11:33:21Z",
+      "stars": 1169,
+      "fork": false,
+      "pushed_at": "2026-08-20T15:18:31Z",
+      "default_branch": "main",
+      "description": "Revolt is the #1 Edgenuity automation tool featuring Auto Quiz, Auto Essay, Auto Advance, AI-powered writing with humanization, Auto Vocabulary, Auto Journal, and more. A semi-AFK script that handles quizzes, tests, exams, projects, and essays with ease. Compatible with desktop and mobile. Visit https://revolt.ly to get started.",
+      "license": null,
+      "url": "https://github.com/RevoltDevScript/Revolt-Script"
+    }
+  ]
+}

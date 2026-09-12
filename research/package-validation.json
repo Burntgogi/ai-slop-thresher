@@ -1,0 +1,13 @@
+{
+  "skill_files": 6,
+  "references_resolve": true,
+  "archive_bytes_match_sources": true,
+  "packages": [
+    {
+      "file": "ai-slop-thresher.zip",
+      "members": 9,
+      "bytes": 15598,
+      "sha256": "0ae43505167bd7ba0b5e7cd5bbb96ffc3fd9b8b8e2694e0c2ade7297e46856c5"
+    }
+  ]
+}

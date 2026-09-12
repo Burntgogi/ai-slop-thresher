@@ -1,0 +1,37 @@
+{
+  "version": "1.1.0",
+  "skill": "ai-slop-thresher",
+  "shortcut": "thresh",
+  "files": [
+    {
+      "path": "ai-slop-thresher/agents/openai.yaml",
+      "bytes": 300,
+      "sha256": "da55cd85de865d735eb44e87164ab4b84d6f1302bdf244af270e799026f958e3"
+    },
+    {
+      "path": "ai-slop-thresher/references/design-sources.md",
+      "bytes": 4102,
+      "sha256": "25188a459c60d1f9e4dd079d3f5ec973644a5bdeb858712e106e34acc754462a"
+    },
+    {
+      "path": "ai-slop-thresher/references/edge-cases.md",
+      "bytes": 3093,
+      "sha256": "509b6dd4de4022f1ca6a144d2f038d3b43e0d861fee5a55feb618b745b09718f"
+    },
+    {
+      "path": "ai-slop-thresher/SKILL.md",
+      "bytes": 7249,
+      "sha256": "e3c0efc1b179d82f670bce79a34aa3b93906fa28ac93398f16421a37fcca6edc"
+    },
+    {
+      "path": "thresh/agents/openai.yaml",
+      "bytes": 261,
+      "sha256": "bcdd0a263399e56eb27b1b49098c39d1200333a0fa2910e0e90d5ed3ce297dc1"
+    },
+    {
+      "path": "thresh/SKILL.md",
+      "bytes": 803,
+      "sha256": "6cdb6c720ff8bd6a7fe71994d0bbdc2ee58528625a4a13d7e1d9f1060979279a"
+    }
+  ]
+}

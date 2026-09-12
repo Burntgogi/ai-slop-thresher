@@ -1,0 +1,44 @@
+[
+  {
+    "repository": "blader/humanizer",
+    "path": "SKILL.md",
+    "commit": "9862685f575c65a8247f90369951df1b3416e3d6",
+    "url": "https://github.com/blader/humanizer/blob/9862685f575c65a8247f90369951df1b3416e3d6/SKILL.md"
+  },
+  {
+    "repository": "op7418/Humanizer-zh",
+    "path": "SKILL.md",
+    "commit": "91f3d394db8419c20d67ebe22a96cf8fee0a404b",
+    "url": "https://github.com/op7418/Humanizer-zh/blob/91f3d394db8419c20d67ebe22a96cf8fee0a404b/SKILL.md"
+  },
+  {
+    "repository": "hardikpandya/stop-slop",
+    "path": "SKILL.md",
+    "commit": "8da1f030185bdfe8471220585162991eaeb970e9",
+    "url": "https://github.com/hardikpandya/stop-slop/blob/8da1f030185bdfe8471220585162991eaeb970e9/SKILL.md"
+  },
+  {
+    "repository": "conorbronsdon/avoid-ai-writing",
+    "path": "SKILL.md",
+    "commit": "e7faf81f2c9353bd5e5c6ad6ce82f513bb89ee3e",
+    "url": "https://github.com/conorbronsdon/avoid-ai-writing/blob/e7faf81f2c9353bd5e5c6ad6ce82f513bb89ee3e/SKILL.md"
+  },
+  {
+    "repository": "epoko77-ai/im-not-ai",
+    "path": "codex/skills/humanize-korean/SKILL.md",
+    "commit": "9747f036cdc28a1a8aea4dc71fef1f7846eb96f7",
+    "url": "https://github.com/epoko77-ai/im-not-ai/blob/9747f036cdc28a1a8aea4dc71fef1f7846eb96f7/codex/skills/humanize-korean/SKILL.md"
+  },
+  {
+    "repository": "AIScientists-Dev/academic-humanizer",
+    "path": "SKILL.md",
+    "commit": "94b88b23703bed7df507acae7d6d5876209a0cdf",
+    "url": "https://github.com/AIScientists-Dev/academic-humanizer/blob/94b88b23703bed7df507acae7d6d5876209a0cdf/SKILL.md"
+  },
+  {
+    "repository": "Nanako0129/sepia",
+    "path": "skills/sepia/SKILL.md",
+    "commit": "abddddb545ad791fc39d65331080bd0e1422c1d1",
+    "url": "https://github.com/Nanako0129/sepia/blob/abddddb545ad791fc39d65331080bd0e1422c1d1/skills/sepia/SKILL.md"
+  }
+]

@@ -1,0 +1,57 @@
+{
+  "as_of": "2026-09-12",
+  "local_links_checked": 47,
+  "broken_local_links": [],
+  "runtime_files_unchanged": 6,
+  "readme_example_matches_saved_output": true,
+  "artifacts": [
+    {
+      "path": "README.md",
+      "sha256": "05250b341875c1ac2a316cf64f9bf4fb902a3d5c432a2acb6615dce7f8d034e3"
+    },
+    {
+      "path": "RELEASE_NOTES.md",
+      "sha256": "d2d784db2f22f4ce1f5da2d66e70d4b8670f5fabf007d5c15f6b9f5d390b39cd"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "a2dd2ac4392e9b4f36877833ad73a45380f9169753c8857b1948c2ee054c90e0"
+    },
+    {
+      "path": "ATTRIBUTIONS.md",
+      "sha256": "69d9d18514a79ffc494c0053ddebc968f8f92e224d5e2b3578e82a1133cd7b1f"
+    },
+    {
+      "path": "reports/document-editing.md",
+      "sha256": "c40be5ff122dd79d53278298075370f5afd321a964ddb17fa1dbd86a149421a6"
+    },
+    {
+      "path": "docs/banner-prompt.md",
+      "sha256": "0be72c50a6c289c6c2764aa8bd36356c47a1b8826935da0014be132e491b828c"
+    },
+    {
+      "path": "docs/github-frontpage.md",
+      "sha256": "a30f25835f2f4c5f0a1d92a5dfa142d4b53d172351fb3f9f9c095b3e26fac225"
+    },
+    {
+      "path": "docs/license-comparison.md",
+      "sha256": "94843189f28b8f85e48dcc1427afcc8d56254979594aaaf69489767592e0ed69"
+    },
+    {
+      "path": "docs/verification.md",
+      "sha256": "2660abf50279ec60fc1f181e05cb363616ac8c967eb79d2ff258517a91db917e"
+    },
+    {
+      "path": "assets/ai-slop-thresher-banner.png",
+      "sha256": "921f652769adf3c319e2fbc9f75ae09804bf806938ceae414d3c4f24012de71a"
+    },
+    {
+      "path": "docs/preview/index.html",
+      "sha256": "2e16d8597ca85d1806a49efed735694460319b4825e6fee6ed8f54aff1593f93"
+    },
+    {
+      "path": "docs/preview/release-notes.html",
+      "sha256": "cb1d3bce8850f1479ad5f528e68400253aec8b1fd44328ed50fb2127b4c8f142"
+    }
+  ]
+}

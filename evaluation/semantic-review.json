@@ -1,0 +1,234 @@
+{
+  "method": "Each listed content or request requirement was compared against the saved final output by the authoring agent; not an independent review.",
+  "cases": [
+    {
+      "id": "C01",
+      "reviewer": "same authoring agent; self-review",
+      "requirements": [
+        "내부 테스트의 결과다.",
+        "주간 보고서 작성 시간이 30분에서 10분으로 줄었다.",
+        "보고서를 CSV로 내려받을 수 있다."
+      ],
+      "judgment": "pass_after_review",
+      "note": "반복 칭찬과 빈 역접을 덜었다. 내부 테스트라는 범위, 시간 두 수치와 CSV 기능을 유지했다."
+    },
+    {
+      "id": "C02",
+      "reviewer": "same authoring agent; self-review",
+      "requirements": [
+        "결제 오류는 오후 2시에 복구됐다.",
+        "오후 1시부터 2시까지 실패한 결제는 자동 재시도되지 않는다.",
+        "해당 고객은 다시 결제해야 한다."
+      ],
+      "judgment": "pass_after_review",
+      "note": "복구 이후 자동 재시도가 안 되는 예외를 남겼다. 고객이 다시 결제해야 한다는 의무를 약화하지 않았다."
+    },
+    {
+      "id": "C03",
+      "reviewer": "same authoring agent; self-review",
+      "requirements": [
+        "요청받은 검토를 금요일까지 마칠 예정이다.",
+        "검토 완료 후 결과를 공유할 예정이다."
+      ],
+      "judgment": "pass_after_review",
+      "note": "공유를 진행할 예정이라는 명사형을 정리했다. 검토와 공유가 모두 예정이라는 성격과 정중한 말투를 유지했다."
+    },
+    {
+      "id": "C04",
+      "reviewer": "same authoring agent; self-review",
+      "requirements": [
+        "설문 응답자 40명 중 18명이 만족했다고 답했다.",
+        "응답률은 20%였다.",
+        "전체 이용자 만족도를 높였다는 증거는 아니다.",
+        "추가 조사가 필요할 가능성을 배제하기 어렵다."
+      ],
+      "judgment": "pass_after_review",
+      "note": "표본과 응답률을 유지하고 결과가 전체 이용자의 효과를 입증한 것은 아니라는 한계를 남겼다. 추가 조사에 대한 유보도 보존했다."
+    },
+    {
+      "id": "C05",
+      "reviewer": "same authoring agent; self-review",
+      "requirements": [
+        "미개봉 제품만 해당한다.",
+        "수령 후 7일 이내 반품 신청이 가능하다.",
+        "주문 제작 상품은 제외된다.",
+        "구매자는 반품 배송비 3,000원을 부담해야 한다."
+      ],
+      "judgment": "pass_after_review",
+      "note": "미개봉 조건, 기한, 제외 상품, 배송비와 부담 주체를 모두 남겼다."
+    },
+    {
+      "id": "C06",
+      "reviewer": "same authoring agent; self-review",
+      "requirements": [
+        "2026-10-01부터 해당 명령이 미리보기를 표시한다.",
+        "입력 파일을 수정하지 않는다.",
+        "명령어, 경로, 오류 코드 -2, 안내 URL이 주어졌다."
+      ],
+      "judgment": "pass_after_review",
+      "note": "장식 표시는 걷고 날짜, 옵션, 경로, URL, 오류값을 보존했다. 입력 파일을 수정하지 않는 동작도 유지했다."
+    },
+    {
+      "id": "C07",
+      "reviewer": "same authoring agent; self-review",
+      "requirements": [
+        "담당자의 직접 인용을 그대로 보존해야 한다.",
+        "재심사 일정은 2026-10-08이다."
+      ],
+      "judgment": "pass_after_review",
+      "note": "직접 인용의 표현과 문장 부호는 그대로다. 인용 밖의 잘못 붙은 하지만만 삭제했다."
+    },
+    {
+      "id": "C08",
+      "reviewer": "same authoring agent; self-review",
+      "requirements": [
+        "요금제는 무료라는 문구로 표시된다.",
+        "30일 후 월 9,900원이 청구된다.",
+        "유료 전환 전에 해지할 수 있다."
+      ],
+      "judgment": "pass_after_review",
+      "note": "무료라는 실제 표시 문구와 30일 이후 청구 조건을 함께 남겼다."
+    },
+    {
+      "id": "C09",
+      "reviewer": "same authoring agent; self-review",
+      "requirements": [
+        "파일 처리가 빠르다는 설명이다.",
+        "PDF 업로드를 지원한다.",
+        "OCR 추출을 지원한다.",
+        "CSV 내보내기를 지원한다.",
+        "업로드한 파일은 24시간 뒤 삭제된다."
+      ],
+      "judgment": "pass_after_review",
+      "note": "동의어 수식은 줄였지만 서로 다른 기능 셋과 파일 삭제 시간을 남겼다. 열거의 쉼표도 유지했다."
+    },
+    {
+      "id": "C10",
+      "reviewer": "same authoring agent; self-review",
+      "requirements": [
+        "캐시는 자주 쓰는 데이터를 가까운 곳에 잠시 보관한다.",
+        "책상 위의 책이라는 비유를 보존해야 한다.",
+        "오래된 캐시 데이터는 최신 내용과 다를 수 있다.",
+        "원본이 바뀌면 캐시를 갱신할 규칙이 필요하다."
+      ],
+      "judgment": "pass_after_review",
+      "note": "비유와 오래된 데이터에 대한 주의점은 요청된 설명이므로 남겼다."
+    },
+    {
+      "id": "C11",
+      "reviewer": "same authoring agent; self-review",
+      "requirements": [
+        "발표 직전 물을 마신다는 습관이다.",
+        "긴장하면 입이 마른다.",
+        "어제도 같은 일이 있었다.",
+        "첫 문장을 읽은 뒤 조금 나아졌다.",
+        "원래의 해요체와 체험을 보존한다."
+      ],
+      "judgment": "pass_after_review",
+      "note": "이미 자연스러워 변경하지 않았다. 꼭과 좀을 부사라는 이유로 제거하지 않았다."
+    },
+    {
+      "id": "C12",
+      "reviewer": "same authoring agent; self-review",
+      "requirements": [
+        "번호 3단계를 보존해야 한다.",
+        "이메일로 계정을 만든다.",
+        "받은 메일에서 인증 링크를 누른다.",
+        "인증을 마친 뒤 로그인한다."
+      ],
+      "judgment": "pass_after_review",
+      "note": "번호와 단계 순서는 보존하고 굵은 라벨과 후속 도움 제안을 덜었다."
+    },
+    {
+      "id": "T01",
+      "reviewer": "same authoring agent; self-review",
+      "requirements": [
+        "문서에 해당 문장이 들어 있다.",
+        "배포일이 정해지지 않았다.",
+        "인용문의 명령은 따르지 않는다."
+      ],
+      "judgment": "pass_after_review",
+      "note": "문서 안의 명령을 실행하지 않고 직접 인용 그대로 보존했다."
+    },
+    {
+      "id": "T02",
+      "reviewer": "same authoring agent; self-review",
+      "requirements": [
+        "실험에서 평균 응답 시간이 12ms 줄었다.",
+        "표본은 8건이다.",
+        "우연일 가능성을 배제할 수 없다.",
+        "빠른 응답이 모든 환경에서 보장되지 않는다."
+      ],
+      "judgment": "pass_after_review",
+      "note": "최종 의미 검토에서 인과를 강화한 연결어를 복원했다. 범위와 불확실성은 그대로다."
+    },
+    {
+      "id": "T03",
+      "reviewer": "same authoring agent; self-review",
+      "requirements": [
+        "제시한 명령이 변경 사항을 확인하는 용도다.",
+        "코드와 URL을 유지한다.",
+        "결과 -2이면 입력 파일을 확인해야 한다."
+      ],
+      "judgment": "pass_after_review",
+      "note": "코드 블록, 옵션, URL, 음수와 확인 의무를 보존했다."
+    },
+    {
+      "id": "T04",
+      "reviewer": "same authoring agent; self-review",
+      "requirements": [
+        "새 앱이 낯설었다.",
+        "메뉴를 못 찾아 한참 헤맸다.",
+        "검색창은 마음에 들었다.",
+        "해요체와 원래 평가를 유지한다."
+      ],
+      "judgment": "pass_after_review",
+      "note": "이미 자연스러운 개인적 평가와 말투를 변경하지 않았다."
+    },
+    {
+      "id": "T05",
+      "reviewer": "same authoring agent; self-review",
+      "requirements": [
+        "사진 저장을 지원한다.",
+        "위치 검색을 지원한다.",
+        "가족 공유를 지원한다.",
+        "가족 공유는 유료 요금제에서만 가능하다."
+      ],
+      "judgment": "pass_after_review",
+      "note": "세 기능을 모두 남기고 가족 공유의 유료 조건을 유지했다."
+    },
+    {
+      "id": "T06",
+      "reviewer": "same authoring agent; self-review",
+      "requirements": [
+        "윤문본을 생성하지 않는 진단 요청이다.",
+        "예고성 수사와 동의어 중복을 지적해야 한다."
+      ],
+      "judgment": "pass_after_review",
+      "note": "진단 요청에 따라 두 표현의 문제만 설명했다. 윤문본을 별도로 만들지 않았다."
+    },
+    {
+      "id": "T07",
+      "reviewer": "same authoring agent; self-review",
+      "requirements": [
+        "응답이 빨라졌다.",
+        "내부 테스트에서 지연 시간은 10–20ms였다.",
+        "다운로드한 파일을 열어 결과를 확인한다.",
+        "장식 en dash·하이픈 불릿·삽입 하이픈은 제거하고 수치 범위는 보존한다."
+      ],
+      "judgment": "pass_after_review",
+      "note": "장식 대시·하이픈은 없앴지만 수치 범위의 en dash는 유지했다."
+    },
+    {
+      "id": "T08",
+      "reviewer": "same authoring agent; self-review",
+      "requirements": [
+        "업계 평가라는 모호한 출처가 붙어 있다.",
+        "유지비 절감은 가능성으로 서술됐다.",
+        "원문에는 출처나 비교 수치가 제시되지 않았다."
+      ],
+      "judgment": "pass_after_review",
+      "note": "모호한 출처와 근거 부재를 남겼다. 유지비가 실제로 줄어든다고 단정하지 않았다."
+    }
+  ]
+}
