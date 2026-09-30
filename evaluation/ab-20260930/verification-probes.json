@@ -1,0 +1,47 @@
+{
+  "baseline_fixture_passed": true,
+  "all_mutations_rejected": true,
+  "probes": [
+    {
+      "mutation": "duplicate_pair",
+      "rejected": true,
+      "reason": "Packet pair/case coverage mismatch"
+    },
+    {
+      "mutation": "same_arm_both_sides",
+      "rejected": true,
+      "reason": "Pair arm/suite assignment mismatch"
+    },
+    {
+      "mutation": "missing_raw_output_hash",
+      "rejected": true,
+      "reason": "Mapping output hash coverage mismatch"
+    },
+    {
+      "mutation": "missing_generator_input_hash",
+      "rejected": true,
+      "reason": "Generator input hash coverage/arm mismatch"
+    },
+    {
+      "mutation": "missing_judge_input_hash",
+      "rejected": true,
+      "reason": "Judge input hash coverage mismatch"
+    },
+    {
+      "mutation": "suite_mismatch",
+      "rejected": true,
+      "reason": "Pair arm/suite assignment mismatch"
+    },
+    {
+      "mutation": "changed_skill",
+      "rejected": true,
+      "reason": "Applied skill differs from downloaded release"
+    },
+    {
+      "mutation": "changed_raw_output",
+      "rejected": true,
+      "reason": "Raw generation changed: outputs-q-1.json"
+    }
+  ],
+  "source_evidence_unchanged": true
+}

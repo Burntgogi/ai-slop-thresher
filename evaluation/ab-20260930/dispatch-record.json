@@ -1,0 +1,16 @@
+{
+  "evidence_kind": "Root transcript of actual collaboration.spawn_agent tool calls; not a server-signed independent trace",
+  "shared_model_setting": "Parent model inherited without override; exact runtime identifier unavailable",
+  "all_calls_fork_turns": "none",
+  "calls_in_dispatch_order": [
+    {"task_name":"/root/ab_q1","role":"generator","arm":"q","repetition":1,"allowed_inputs":["arms/q/SKILL.md","arms/q/edge-cases.md","generation-inputs-1.json"]},
+    {"task_name":"/root/ab_r1","role":"generator","arm":"r","repetition":1,"allowed_inputs":["arms/r/SKILL.md","arms/r/edge-cases.md","generation-inputs-1.json"]},
+    {"task_name":"/root/ab_q2","role":"generator","arm":"q","repetition":2,"allowed_inputs":["arms/q/SKILL.md","arms/q/edge-cases.md","generation-inputs-2.json"]},
+    {"task_name":"/root/ab_r2","role":"generator","arm":"r","repetition":2,"allowed_inputs":["arms/r/SKILL.md","arms/r/edge-cases.md","generation-inputs-2.json"]},
+    {"task_name":"/root/ab_judge1","role":"judge","repetition":1,"allowed_inputs":["judge-rubric.md","judge-pairs-1.json"]},
+    {"task_name":"/root/ab_judge2","role":"judge","repetition":2,"allowed_inputs":["judge-rubric.md","judge-pairs-2.json"]}
+  ],
+  "generator_instruction": "Generate actual per-request outputs using only assigned SKILL, edge cases and cases; no other arm, expected answer, protocol or experiment mapping; no scoring or content changes after generation",
+  "judge_instruction": "Read rubric and anonymous pairs only; do not read version/source skills, experiment or mapping; do not infer which version is newer",
+  "limits": "Shared filesystem and inherited common system/developer instructions; file allowlists are instructions, not an OS access sandbox. Fresh contexts and no retry are root dispatch observations plus agent self-report, not independently attested by a model API log."
+}

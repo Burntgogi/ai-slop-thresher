@@ -1,0 +1,177 @@
+{
+  "repetition": 1,
+  "output_sha256": {
+    "outputs-q-1.json": "192c525a2777fd614c2ce537e8afb5a88c25f63d66910d7b6eab7feda39305b3",
+    "outputs-r-1.json": "12600ad9bf32ba6a142bdd65754c1652f28c82310041f22567b809bd8e649378"
+  },
+  "pairs": {
+    "P1-01": {
+      "case_id": "N15",
+      "left": "r",
+      "right": "q",
+      "suite": "development"
+    },
+    "P1-02": {
+      "case_id": "H04",
+      "left": "q",
+      "right": "r",
+      "suite": "new"
+    },
+    "P1-03": {
+      "case_id": "H07",
+      "left": "q",
+      "right": "r",
+      "suite": "new"
+    },
+    "P1-04": {
+      "case_id": "N01",
+      "left": "q",
+      "right": "r",
+      "suite": "development"
+    },
+    "P1-05": {
+      "case_id": "H02",
+      "left": "q",
+      "right": "r",
+      "suite": "new"
+    },
+    "P1-06": {
+      "case_id": "H08",
+      "left": "q",
+      "right": "r",
+      "suite": "new"
+    },
+    "P1-07": {
+      "case_id": "N04",
+      "left": "q",
+      "right": "r",
+      "suite": "development"
+    },
+    "P1-08": {
+      "case_id": "N06",
+      "left": "q",
+      "right": "r",
+      "suite": "development"
+    },
+    "P1-09": {
+      "case_id": "H10",
+      "left": "q",
+      "right": "r",
+      "suite": "new"
+    },
+    "P1-10": {
+      "case_id": "H05",
+      "left": "r",
+      "right": "q",
+      "suite": "new"
+    },
+    "P1-11": {
+      "case_id": "N10",
+      "left": "r",
+      "right": "q",
+      "suite": "development"
+    },
+    "P1-12": {
+      "case_id": "N11",
+      "left": "r",
+      "right": "q",
+      "suite": "development"
+    },
+    "P1-13": {
+      "case_id": "H09",
+      "left": "r",
+      "right": "q",
+      "suite": "new"
+    },
+    "P1-14": {
+      "case_id": "H01",
+      "left": "q",
+      "right": "r",
+      "suite": "new"
+    },
+    "P1-15": {
+      "case_id": "N03",
+      "left": "r",
+      "right": "q",
+      "suite": "development"
+    },
+    "P1-16": {
+      "case_id": "N08",
+      "left": "q",
+      "right": "r",
+      "suite": "development"
+    },
+    "P1-17": {
+      "case_id": "N16",
+      "left": "q",
+      "right": "r",
+      "suite": "development"
+    },
+    "P1-18": {
+      "case_id": "H03",
+      "left": "r",
+      "right": "q",
+      "suite": "new"
+    },
+    "P1-19": {
+      "case_id": "N07",
+      "left": "q",
+      "right": "r",
+      "suite": "development"
+    },
+    "P1-20": {
+      "case_id": "N13",
+      "left": "q",
+      "right": "r",
+      "suite": "development"
+    },
+    "P1-21": {
+      "case_id": "B01",
+      "left": "q",
+      "right": "r",
+      "suite": "development"
+    },
+    "P1-22": {
+      "case_id": "N14",
+      "left": "q",
+      "right": "r",
+      "suite": "development"
+    },
+    "P1-23": {
+      "case_id": "N05",
+      "left": "r",
+      "right": "q",
+      "suite": "development"
+    },
+    "P1-24": {
+      "case_id": "N02",
+      "left": "q",
+      "right": "r",
+      "suite": "development"
+    },
+    "P1-25": {
+      "case_id": "H06",
+      "left": "r",
+      "right": "q",
+      "suite": "new"
+    },
+    "P1-26": {
+      "case_id": "N09",
+      "left": "r",
+      "right": "q",
+      "suite": "development"
+    },
+    "P1-27": {
+      "case_id": "B02",
+      "left": "q",
+      "right": "r",
+      "suite": "development"
+    },
+    "P1-28": {
+      "case_id": "N12",
+      "left": "r",
+      "right": "q",
+      "suite": "development"
+    }
+  }
+}

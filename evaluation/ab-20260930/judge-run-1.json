@@ -1,0 +1,17 @@
+{
+  "agent_id": "/root/ab_judge1",
+  "input_files": [
+    {
+      "path": "judge-rubric.md",
+      "sha256": "841b8a57ea5e423fd42e3692e7e23849ef3ea906726715b837c3530b6e04ef7a"
+    },
+    {
+      "path": "judge-pairs-1.json",
+      "sha256": "c6bf69d2a88e8e087c7743674e6eeafae937fc6f71270a99c5e8944f1595df4f"
+    }
+  ],
+  "utc_started_at": "2026-09-30T14:22:02.3223647Z",
+  "utc_completed_at": "2026-09-30T14:27:21Z",
+  "pair_count": 28,
+  "version_mapping_not_provided": true
+}

@@ -1,0 +1,170 @@
+{
+  "prepared_at_utc": "2026-09-30T14:16:09.313772+00:00",
+  "case_count": 28,
+  "development_cases": 18,
+  "new_cases": 10,
+  "repetitions": 2,
+  "assignment_seed": 13712761821949927825,
+  "arms": {
+    "q": {
+      "tag": "v1.1.0",
+      "commit": "3861b63c17426a0935a5928943be655d83362781",
+      "release_url": "https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.1.0",
+      "published_at": "2026-09-12T04:54:37Z",
+      "asset_name": "ai-slop-thresher.zip",
+      "asset_url": "https://github.com/Burntgogi/ai-slop-thresher/releases/download/v1.1.0/ai-slop-thresher.zip",
+      "asset_sha256": "0ae43505167bd7ba0b5e7cd5bbb96ffc3fd9b8b8e2694e0c2ade7297e46856c5",
+      "asset_bytes": 15598,
+      "members": {
+        "ai-slop-thresher/agents/openai.yaml": {
+          "bytes": 300,
+          "sha256": "da55cd85de865d735eb44e87164ab4b84d6f1302bdf244af270e799026f958e3"
+        },
+        "ai-slop-thresher/references/design-sources.md": {
+          "bytes": 4102,
+          "sha256": "25188a459c60d1f9e4dd079d3f5ec973644a5bdeb858712e106e34acc754462a"
+        },
+        "ai-slop-thresher/references/edge-cases.md": {
+          "bytes": 3093,
+          "sha256": "509b6dd4de4022f1ca6a144d2f038d3b43e0d861fee5a55feb618b745b09718f"
+        },
+        "ai-slop-thresher/SKILL.md": {
+          "bytes": 7249,
+          "sha256": "e3c0efc1b179d82f670bce79a34aa3b93906fa28ac93398f16421a37fcca6edc"
+        },
+        "thresh/agents/openai.yaml": {
+          "bytes": 261,
+          "sha256": "bcdd0a263399e56eb27b1b49098c39d1200333a0fa2910e0e90d5ed3ce297dc1"
+        },
+        "thresh/SKILL.md": {
+          "bytes": 803,
+          "sha256": "6cdb6c720ff8bd6a7fe71994d0bbdc2ee58528625a4a13d7e1d9f1060979279a"
+        },
+        "LICENSE": {
+          "bytes": 11358,
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        "ATTRIBUTIONS.md": {
+          "bytes": 5946,
+          "sha256": "69d9d18514a79ffc494c0053ddebc968f8f92e224d5e2b3578e82a1133cd7b1f"
+        },
+        "NOTICE": {
+          "bytes": 501,
+          "sha256": "2b497d57ae1cb755c24e54275570b145a2158ca46beb88332f25660d24f8cfac"
+        }
+      }
+    },
+    "r": {
+      "tag": "v1.2.0",
+      "commit": "3513a87649eb43005003f1251359592ecb415f26",
+      "release_url": "https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.2.0",
+      "published_at": "2026-09-30T14:14:30Z",
+      "asset_name": "ai-slop-thresher-portable.zip",
+      "asset_url": "https://github.com/Burntgogi/ai-slop-thresher/releases/download/v1.2.0/ai-slop-thresher-portable.zip",
+      "asset_sha256": "8a1c63859cd67192c08b6672f3efe24ff538d023c1bdebf0e70665b82f44996a",
+      "asset_bytes": 16461,
+      "members": {
+        "ATTRIBUTIONS.md": {
+          "bytes": 6816,
+          "sha256": "6ae1ecdd5fa6f6bc027e93778150d5dc421aa9b2c4f47ae304935260d6459070"
+        },
+        "LICENSE": {
+          "bytes": 11358,
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        "NOTICE": {
+          "bytes": 501,
+          "sha256": "2b497d57ae1cb755c24e54275570b145a2158ca46beb88332f25660d24f8cfac"
+        },
+        "ai-slop-thresher/SKILL.md": {
+          "bytes": 9145,
+          "sha256": "c286b555ef09b6aad44b58885bee1a8f8919ebba9ece34880e8c4f4ce18d7d53"
+        },
+        "ai-slop-thresher/references/design-sources.md": {
+          "bytes": 4102,
+          "sha256": "25188a459c60d1f9e4dd079d3f5ec973644a5bdeb858712e106e34acc754462a"
+        },
+        "ai-slop-thresher/references/edge-cases.md": {
+          "bytes": 4770,
+          "sha256": "5bf05beb247ad6a5dc7e3d94318749c970ed6cb56c991ea8cba1de0fb422c271"
+        },
+        "thresh/SKILL.md": {
+          "bytes": 882,
+          "sha256": "c5e56ff1c821fa8ee3238e5f3b13eea1fc0613844b27f210cbe52654d212c5e9"
+        }
+      }
+    }
+  },
+  "input_orders": {
+    "1": [
+      "H09",
+      "H06",
+      "N08",
+      "N15",
+      "N01",
+      "N12",
+      "H04",
+      "N07",
+      "N11",
+      "N09",
+      "H03",
+      "N13",
+      "H07",
+      "N02",
+      "N10",
+      "N05",
+      "N06",
+      "B02",
+      "N14",
+      "H10",
+      "N04",
+      "N16",
+      "H02",
+      "H08",
+      "B01",
+      "H05",
+      "H01",
+      "N03"
+    ],
+    "2": [
+      "H08",
+      "B02",
+      "N01",
+      "N02",
+      "N05",
+      "N09",
+      "N10",
+      "N11",
+      "N14",
+      "H07",
+      "H06",
+      "B01",
+      "N08",
+      "N03",
+      "H05",
+      "N06",
+      "H01",
+      "H10",
+      "N04",
+      "H04",
+      "N15",
+      "N07",
+      "N13",
+      "H03",
+      "H02",
+      "H09",
+      "N16",
+      "N12"
+    ]
+  },
+  "pre_generation_sha256": {
+    "protocol.md": "88f1ca7dab00768476c2a9de82c77b7c98f139369f3f03d4cecec4e3d4b4e329",
+    "new-inputs.json": "5969a317bf7b4ef0a3fe1125f9ac14f053a8b4151c74f3cc61431ba4092231f3",
+    "inputs.json": "3369528d307828d432f413d0ae2998f15db5766971956b17d821c91a6d08a99e",
+    "generation-inputs-1.json": "fc01e4217ad49352f4078770c39c528fd1f8b1b610aea0a1efc7817b016cf179",
+    "generation-inputs-2.json": "e3be6534af4fd6ec9e011913f0ee4e7117c13634a07e4c33e7593a2902970111"
+  },
+  "model": "inherited Codex model; exact identifier unavailable to agents",
+  "temperature": "not controlled/exposed",
+  "model_seed": "not controlled/exposed"
+}

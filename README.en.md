@@ -115,6 +115,8 @@ The originals and edits are synthetic examples written by the same agent. They h
 
 The [development improvement report](reports/improvement-20260930.md) records fresh agent outputs, five further improvement rounds, and the scope of Codex, Dot, and Muse reviews. The separate Codex evaluator uses the same model family; this is not independent human evaluation or evidence of cross-model generalization.
 
+The [release-based A/B comparison](reports/ab-comparison-20260930.md) found equal meaning-preservation judgments. Style preferences favored v1.1.0 in 10 pairs, v1.2.0 in 5, and tied in 40; one pair was ineligible. This exploratory comparison used 28 synthetic cases twice per version and does not establish overall quality superiority for v1.2.0.
+
 ## References
 
 The projects below informed the editing criteria and documentation layout. The skill instructions and Korean examples are original work.

@@ -1,0 +1,105 @@
+{
+  "cases": 28,
+  "development_cases": 18,
+  "new_cases": 10,
+  "repetitions": 2,
+  "outputs": 112,
+  "pairs": 56,
+  "counts": {
+    "all": {
+      "v1.1.0": {
+        "total": 56,
+        "semantic_pass": 55,
+        "request_pass": 56,
+        "both_pass": 55
+      },
+      "v1.2.0": {
+        "total": 56,
+        "semantic_pass": 55,
+        "request_pass": 56,
+        "both_pass": 55
+      }
+    },
+    "development": {
+      "v1.1.0": {
+        "total": 36,
+        "semantic_pass": 35,
+        "request_pass": 36,
+        "both_pass": 35
+      },
+      "v1.2.0": {
+        "total": 36,
+        "semantic_pass": 35,
+        "request_pass": 36,
+        "both_pass": 35
+      }
+    },
+    "new": {
+      "v1.1.0": {
+        "total": 20,
+        "semantic_pass": 20,
+        "request_pass": 20,
+        "both_pass": 20
+      },
+      "v1.2.0": {
+        "total": 20,
+        "semantic_pass": 20,
+        "request_pass": 20,
+        "both_pass": 20
+      }
+    }
+  },
+  "style_preferences": {
+    "all": {
+      "left": 3,
+      "right": 12,
+      "tie": 40,
+      "not_comparable": 1,
+      "v1.1.0": 10,
+      "v1.2.0": 5
+    },
+    "development": {
+      "left": 1,
+      "right": 10,
+      "tie": 24,
+      "not_comparable": 1,
+      "v1.1.0": 6,
+      "v1.2.0": 5
+    },
+    "new": {
+      "left": 2,
+      "right": 2,
+      "tie": 16,
+      "not_comparable": 0,
+      "v1.1.0": 4,
+      "v1.2.0": 0
+    }
+  },
+  "failed_outputs": [
+    {
+      "pair_id": "P2-03",
+      "case_id": "N16",
+      "repetition": 2,
+      "tag": "v1.2.0",
+      "semantic_pass": false,
+      "request_pass": true,
+      "issues": [
+        "최대 20개 제한을 흥미롭게 보는 저자 평가를 삭제했다."
+      ],
+      "evidence": "지원 기능과 ‘최대 20개까지만’이라는 제한은 보존했지만 source의 ‘최대 20개까지만 처리하는 것이 흥미로운 점입니다’라는 평가 술어는 남기지 않았다. 제한 사실만으로 그 제한이 흥미롭다는 평가까지 전달되지는 않는다."
+    },
+    {
+      "pair_id": "P2-03",
+      "case_id": "N16",
+      "repetition": 2,
+      "tag": "v1.1.0",
+      "semantic_pass": false,
+      "request_pass": true,
+      "issues": [
+        "최대 20개 제한을 흥미롭게 보는 저자 평가를 삭제했다."
+      ],
+      "evidence": "지원 기능과 ‘최대 20개까지만’이라는 제한은 보존했지만 source가 그 제한을 ‘흥미로운 점’으로 평가한 구간은 삭제했다. 본문 윤문 형식은 지켰다."
+    }
+  ],
+  "scope": "Recorded blinded agent judgments on synthetic cases, repeated within the same Codex harness; not independent human or cross-model performance."
+}

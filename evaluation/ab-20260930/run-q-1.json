@@ -1,0 +1,14 @@
+{
+  "agent_id": "/root/ab_q1",
+  "input_sha256": {
+    "arms/q/SKILL.md": "E3C0EFC1B179D82F670BCE79A34AA3B93906FA28AC93398F16421A37FCCA6EDC",
+    "arms/q/edge-cases.md": "509B6DD4DE4022F1CA6A144D2F038D3B43E0D861FEE5A55FEB618B745B09718F",
+    "generation-inputs-1.json": "FC01E4217AD49352F4078770C39C528FD1F8B1B610AEA0A1EFC7817B016CF179"
+  },
+  "started_at_utc": "2026-09-30T14:17:01.1954385Z",
+  "completed_at_utc": "2026-09-30T14:20:03.6024229Z",
+  "case_count": 28,
+  "exact_model_identifier": "unavailable",
+  "temperature": "not exposed",
+  "self_edits_after_generation": false
+}

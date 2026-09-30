@@ -1,0 +1,13 @@
+{
+  "release_id": 400115695,
+  "url": "https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.2.0",
+  "published_at": "2026-09-30T14:14:30Z",
+  "asset_digests_verified_against_local_dist": [
+    "ai-slop-thresher-codex-plugin.zip",
+    "ai-slop-thresher-portable.zip",
+    "ai-slop-thresher-workbench.zip",
+    "ai-slop-thresher.zip",
+    "SHA256SUMS"
+  ],
+  "tag_commit": "3513a87649eb43005003f1251359592ecb415f26"
+}
