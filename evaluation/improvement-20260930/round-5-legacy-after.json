@@ -1,0 +1,7 @@
+{
+  "exit_code": 1,
+  "history_changed": false,
+  "manifest_version": "1.1.0",
+  "stderr": "Historical generator requires the v1.1.0 skill tree; no files written. See docs/verification.md for candidate checks.",
+  "scope": "temporary copy only; live history untouched"
+}

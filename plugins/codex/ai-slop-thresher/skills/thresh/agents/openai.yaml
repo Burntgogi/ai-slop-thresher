@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Slop 탈곡기 · thresh"
+  short_description: "짧게 불러도 알맹이는 남기고 AI 말투만 털어냅니다"
+  default_prompt: "$thresh 아래 글의 뜻과 말투를 유지하면서 자연스럽게 다듬어 주세요."

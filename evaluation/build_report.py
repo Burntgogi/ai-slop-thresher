@@ -1,7 +1,8 @@
-"""Build the requested Korean report from saved sources, outputs, and checks."""
+"""Historical v1.1.0 report generator; refuses newer skill trees."""
 
 import hashlib
 import json
+import re
 from pathlib import Path
 
 
@@ -24,6 +25,12 @@ def block(text):
 
 
 def main():
+    # This generator embeds v1.1.0 claims and writes its historical manifest.
+    # A new candidate must never be silently relabeled as that release.
+    source = (ROOT / "skills/ai-slop-thresher/SKILL.md").read_text(encoding="utf-8")
+    frontmatter = source.split("---", 2)[1] if source.startswith("---") else ""
+    if not re.search(r'(?m)^  version: ["\']?1\.1\.0["\']?\s*$', frontmatter):
+        raise SystemExit("Historical generator requires the v1.1.0 skill tree; no files written. See docs/verification.md for candidate checks.")
     cases = read_json("evaluation/cases.json")
     transfer = read_json("evaluation/transfer-cases.json")
     final = {row["id"]: row["output"] for row in read_json("evaluation/final-results.json")["outputs"]}

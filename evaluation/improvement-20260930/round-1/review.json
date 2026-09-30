@@ -1,0 +1,79 @@
+{
+  "round": 1,
+  "observations": [
+    "N09에서 디자인 핵심 배제가 삭제됐다. 뒤의 공동 개선 요구는 우선순위를 대신하지 못한다.",
+    "나머지 15건은 semantic-criteria.json의 보존 항목·요청 모드를 확인했다."
+  ],
+  "changes": [
+    "canonical과 edge-cases에 모호한 핵심·우선순위·배제 범위 보존 규칙을 추가했다. 다음 회차는 최초 원문으로 재실행했다."
+  ],
+  "reviewer": "root Codex; semantic judgment, not automatic scoring",
+  "generation_agent": "/root/forward_eval",
+  "output_sha256": "a64d35d8ef509439cd9dc2d01c9072876e2838cd33d3831f4fe535fdba3b6739",
+  "case_reviews": {
+    "N01": {
+      "judgment": "criteria_satisfied",
+      "note": "semantic-criteria.json 항목을 원문과 직접 대조"
+    },
+    "N02": {
+      "judgment": "criteria_satisfied",
+      "note": "semantic-criteria.json 항목을 원문과 직접 대조"
+    },
+    "N03": {
+      "judgment": "criteria_satisfied",
+      "note": "semantic-criteria.json 항목을 원문과 직접 대조"
+    },
+    "N04": {
+      "judgment": "criteria_satisfied",
+      "note": "semantic-criteria.json 항목을 원문과 직접 대조"
+    },
+    "N05": {
+      "judgment": "criteria_satisfied",
+      "note": "semantic-criteria.json 항목을 원문과 직접 대조"
+    },
+    "N06": {
+      "judgment": "criteria_satisfied",
+      "note": "semantic-criteria.json 항목을 원문과 직접 대조"
+    },
+    "N07": {
+      "judgment": "criteria_satisfied",
+      "note": "semantic-criteria.json 항목을 원문과 직접 대조"
+    },
+    "N08": {
+      "judgment": "criteria_satisfied",
+      "note": "semantic-criteria.json 항목을 원문과 직접 대조"
+    },
+    "N09": {
+      "judgment": "needs_revision",
+      "note": "디자인 핵심 배제와 속도 단독 문제 배제 누락"
+    },
+    "N10": {
+      "judgment": "criteria_satisfied",
+      "note": "semantic-criteria.json 항목을 원문과 직접 대조"
+    },
+    "N11": {
+      "judgment": "criteria_satisfied",
+      "note": "semantic-criteria.json 항목을 원문과 직접 대조"
+    },
+    "N12": {
+      "judgment": "criteria_satisfied",
+      "note": "semantic-criteria.json 항목을 원문과 직접 대조"
+    },
+    "N13": {
+      "judgment": "criteria_satisfied",
+      "note": "semantic-criteria.json 항목을 원문과 직접 대조"
+    },
+    "N14": {
+      "judgment": "criteria_satisfied",
+      "note": "semantic-criteria.json 항목을 원문과 직접 대조"
+    },
+    "N15": {
+      "judgment": "criteria_satisfied",
+      "note": "semantic-criteria.json 항목을 원문과 직접 대조"
+    },
+    "N16": {
+      "judgment": "criteria_satisfied",
+      "note": "semantic-criteria.json 항목을 원문과 직접 대조"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "scope": "post-review recovery correction; outside five completed improvement rounds",
+  "baseline": {
+    "fault_injection": "staging rename and backup restore rename both fail after old output moved",
+    "caught_error": "injected backup restore failure",
+    "rename_calls": 3,
+    "output_exists": false,
+    "remaining_backups": 0,
+    "original_data_lost": true
+  },
+  "after": {
+    "same_two_rename_failures": true,
+    "rename_calls": 3,
+    "output_exists": false,
+    "remaining_backups": 1,
+    "backup_bytes_match_original": true,
+    "error_reports_preserved_backup_path": true,
+    "original_data_lost": false,
+    "temporary_staging_removed": true,
+    "retry_blocked_without_changes": true,
+    "explicit_restore_then_rebuild_succeeds": true
+  },
+  "before_source_preserved_before_edit": true,
+  "evidence_utc": "2026-09-30T13:12:56.529610+00:00",
+  "source_hashes": {
+    "evaluation/improvement-20260930/post-review-recovery-before/distribute.py": "373bc595523dd314c5b688912b8d9b730503bf2057d8a77ecf0c8d583e4ffd84",
+    "evaluation/improvement-20260930/post-review-recovery-before/test_distribution.py": "cb13f755d0b81bf925271c3745b09d512b67c99bc0129fbf24720c63f332469f",
+    "scripts/distribute.py": "28db41a95a73cced1a30294dcd8a41cf19c7404de8058f97e0e1692846248975",
+    "tests/test_distribution.py": "5abb14b9d3c8b9f1a63b0ada9818748b7dd9181092dd5e487b3789a9563001d4",
+    "docs/installation.md": "f3045bc6e9a43b2bf5c210ce00d660ab8847f18f50c4036f4edfbbf4ccef48c5"
+  },
+  "tests": {
+    "command": "python -O -m unittest discover -s tests -p test_distribution.py -v",
+    "run": 33,
+    "passed": 30,
+    "skipped": 3,
+    "failed": 0,
+    "skip_reason": "Windows symlink creation privileges unavailable; Windows junction test passed",
+    "python": "3.13.5",
+    "platform": "Windows",
+    "new_recovery_cases": [
+      "install failure with successful restore",
+      "install and restore both fail; backup remains; retry blocked; explicit recovery",
+      "successful replacement removes superseded backup",
+      "temporary cleanup failure does not hide backup path"
+    ]
+  },
+  "recovery_policy": "An unresolved .thresher-old-* sibling blocks build; never auto-adopt or delete it. Inspect and explicitly restore it to an absent original output, or relocate it for safekeeping. Backups are deleted only after successful replacement.",
+  "scope_limitation": "Simulated rename/cleanup exceptions in temporary fixture directories; no real user installation or adversarial concurrent-path race test."
+}

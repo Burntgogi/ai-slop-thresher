@@ -6,13 +6,18 @@
 
 ```powershell
 python evaluation/run_checks.py
-python evaluation/build_report.py
+python evaluation/improvement-20260930/record.py verify
+python -m unittest discover -s tests -v
 python evaluation/package_artifacts.py
 ```
 
-첫 명령은 5회 개선 과정과 추가 예문의 문자 검사를 다시 실행합니다. 수치, 보호해야 할 문자열과 필수 내용의 누락 등을 살피며, 고의로 잘못 바꾼 사례 4개를 잡는지도 확인합니다. 두 번째 명령은 저장된 결과로 보고서와 스킬 파일 목록을 만듭니다. 세 번째 명령은 배포 ZIP을 다시 만들고 소스 파일과 바이트 단위로 대조합니다.
+첫 명령은 과거 제작의 5회 개선 과정과 추가 예문의 문자 검사를 다시 실행합니다. 두 번째는 2026-09-30 후보의 다섯 회차 입력·출력·검토 기록의 해시와 완결성을 확인합니다. 세 번째는 임시 디렉터리 설치·패키징과 역사 자료 보호를 검사합니다. 마지막은 현재 후보의 portable·Codex 플러그인·전체 자료 ZIP을 재생성하고 소스와 바이트 단위로 대조합니다.
+
+`evaluation/build_report.py`는 v1.1.0 당시 보고서 생성기입니다. 현재 후보에서 실행하면 과거 버전으로 잘못 표시되는 것을 막기 위해 파일을 쓰기 전에 중단합니다. 과거 보고서와 평가 원본을 현재 후보의 결과로 다시 쓰지 않습니다.
 
 이 명령들은 새 윤문을 생성하지 않습니다. 새로운 글을 평가하려면 원문과 스킬 지침으로 수정문을 만든 뒤 의미와 문체를 별도로 비교해야 합니다.
+
+현재 후보의 프로토콜과 한계는 [새 개선 기록](../evaluation/improvement-20260930/protocol.md), 삼자 감수와 요약은 [이번 보고서](../reports/improvement-20260930.md)에 있습니다. 이전 JSON은 당시 배포 기록이며, 새 배포 검증은 `research/package-validation-current.json`과 `research/bundle-checksum-current.json`을 확인하세요. 설치 방법은 [하네스별 안내](installation.md)에 있습니다.
 
 ## 검증 기록
 

@@ -1,0 +1,16 @@
+{
+  "name": "ai-slop-thresher",
+  "version": "1.2.0",
+  "description": "한국어 AI 문체 윤문과 의미 보존 검토를 위한 스킬 모음",
+  "author": {
+    "name": "Burntgogi"
+  },
+  "homepage": "https://github.com/Burntgogi/ai-slop-thresher",
+  "repository": "https://github.com/Burntgogi/ai-slop-thresher",
+  "license": "Apache-2.0",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "AI Slop 탈곡기",
+    "shortDescription": "뜻을 보존하며 AI 문체를 다듬는 한국어 윤문 스킬"
+  }
+}

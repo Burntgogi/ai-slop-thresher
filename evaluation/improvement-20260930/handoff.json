@@ -1,0 +1,23 @@
+{
+  "candidate_manifest_sha256":"af0ccaa2222069a380b9a48be8d1861a6f9d5b69100a868fbeff1a0dac70ac9d",
+  "recipient":"Dot HMX-13",
+  "thread_id":"01a0f136-0ce9-739f-957b-ae2b67a8c006",
+  "page_url":"https://chatgpt.com/space/page_3b2ed8a81b68819195557b40c1bc5612",
+  "transfer_method":"Private Page canonical Files attachment; sharing unchanged",
+  "packet_bytes":245120,
+  "packet_sha256":"6c87e307b01461ce2d95fd30adbcffa4ca6e70dd710f8fd43c49abbff8e66134",
+  "host_upload_file_access_confirmed":true,
+  "local_read_page_reference_matches_upload":true,
+  "cloud_verification":{
+    "command_execution_id":"exec-c2624086-b979-414d-8a1e-301ec723e6ec",
+    "exit_code":0,
+    "verified_files":51,
+    "raw_stdout":"raw_packet_bytes 245120\nraw_packet_sha256 6c87e307b01461ce2d95fd30adbcffa4ca6e70dd710f8fd43c49abbff8e66134\nverified_files 51\nmanifest_sha256 af0ccaa2222069a380b9a48be8d1861a6f9d5b69100a868fbeff1a0dac70ac9d\nroot /workspace/shared/dm-thresh-r2\n",
+    "scope":"Raw transport and reconstructed file hashes; not UI installation or Muse execution proof"
+  },
+  "earlier_attempts":[
+    "R1 inline JSON was HTML escaped in the receiving chat; exact byte review withheld",
+    "Long base64 chat payload could not be extracted by the receiving tools; exact byte review withheld"
+  ],
+  "limits":"Dot's reconstruction removed a single appended newline only after its removal matched the exact expected whole-packet SHA-256. No arbitrary HTML decoding was treated as source verification."
+}

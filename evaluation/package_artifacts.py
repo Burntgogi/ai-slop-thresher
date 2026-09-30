@@ -1,13 +1,18 @@
-"""Package only deliverables and check every member against the source bytes."""
+"""Compatibility entry point for separated packages and the full workbench.
 
-import hashlib
+This explicit packaging command writes dist artifacts. Checks remain active with
+python -O; it does not install skills or change harness configuration.
+"""
+
+import importlib.util
 import json
-import re
-import zipfile
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
+spec = importlib.util.spec_from_file_location("distribution", ROOT / "scripts/distribute.py")
+distribution = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(distribution)
+
 LOCAL_ONLY = {
     "research/install-receipt.json",
     "research/history/install-receipt-1.0.0.json",
@@ -16,55 +21,50 @@ LOCAL_ONLY = {
     "docs/preview/frontpage-mobile.png",
     "docs/preview/release-desktop.png",
     "docs/preview/release-mobile.png",
+    "research/bundle-checksum.json",
+    "research/bundle-checksum-current.json",
 }
 
 
-def bundle(target, entries):
-    target.parent.mkdir(exist_ok=True)
-    with zipfile.ZipFile(target, "w", compression=zipfile.ZIP_DEFLATED) as archive:
-        for file, name in entries:
-            archive.write(file, name)
-    with zipfile.ZipFile(target) as archive:
-        assert archive.testzip() is None
-        assert len(archive.namelist()) == len(entries)
-        for file, name in entries:
-            assert archive.read(name) == file.read_bytes(), name
-    return {"file": target.name, "members": len(entries), "bytes": target.stat().st_size, "sha256": hashlib.sha256(target.read_bytes()).hexdigest()}
-
-
 def main():
-    skill = ROOT / "skills/ai-slop-thresher"
-    files = sorted(p for p in skill.rglob("*") if p.is_file())
-    expected = {"SKILL.md", "agents/openai.yaml", "references/edge-cases.md", "references/design-sources.md"}
-    assert {p.relative_to(skill).as_posix() for p in files} == expected
-    shortcut = ROOT / "skills/thresh"
-    shortcut_files = sorted(p for p in shortcut.rglob("*") if p.is_file())
-    assert {p.relative_to(shortcut).as_posix() for p in shortcut_files} == {"SKILL.md", "agents/openai.yaml"}
-    all_files = files + shortcut_files
-    for file in (p for p in all_files if p.suffix == ".md"):
-        body = file.read_text(encoding="utf-8")
-        for link in re.findall(r"\]\(([^)]+)\)", body):
-            if "://" not in link:
-                assert (file.parent / link).is_file(), (file, link)
-        assert "[TODO:" not in body
-    dist = ROOT / "dist"
-    package_entries = [(p, p.relative_to(ROOT / "skills").as_posix()) for p in all_files]
-    package_entries.append((ROOT / "LICENSE", "LICENSE"))
-    package_entries.append((ROOT / "ATTRIBUTIONS.md", "ATTRIBUTIONS.md"))
-    package_entries.append((ROOT / "NOTICE", "NOTICE"))
-    packages = [bundle(dist / "ai-slop-thresher.zip", package_entries)]
-    result = {"skill_files": len(all_files), "references_resolve": True, "archive_bytes_match_sources": True, "packages": list(packages)}
-    (ROOT / "research/package-validation.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    entries = [(ROOT / name, name) for name in ("README.md", "RELEASE_NOTES.md", "CHANGELOG.md", "LICENSE", "ATTRIBUTIONS.md", "NOTICE", ".gitignore", ".gitattributes")]
-    for folder in ("skills", "reports", "evaluation", "research", "assets", "docs"):
-        for p in sorted((ROOT / folder).rglob("*")):
-            if p.is_file() and "__pycache__" not in p.parts and p.name != "bundle-checksum.json" and p.relative_to(ROOT).as_posix() not in LOCAL_ONLY:
-                entries.append((p, p.relative_to(ROOT).as_posix()))
-    entries.append((dist / "ai-slop-thresher.zip", "dist/ai-slop-thresher.zip"))
-    packages.append(bundle(dist / "ai-slop-thresher-workbench.zip", entries))
-    result = {"skill_files": len(all_files), "references_resolve": True, "archive_bytes_match_sources": True, "packages": packages}
-    (ROOT / "research/bundle-checksum.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    (dist / "SHA256SUMS").write_text("".join(f"{p['sha256']}  {p['file']}\n" for p in packages), encoding="utf-8")
+    build = distribution.build_plugin(root=ROOT, apply=True)
+    check = distribution.check_plugin(root=ROOT)
+    package = distribution.package(root=ROOT, apply=True)
+    result = {
+        "version": build["version"],
+        "portable_skill_files": package["portable_files"] - len(distribution.LEGAL),
+        "codex_projection_files": check["files"],
+        "references_resolve": True,
+        "archive_bytes_match_sources": True,
+        "checks_active_under_python_O": True,
+        "packages": package["packages"],
+    }
+    (ROOT / "research/package-validation-current.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+    files = {}
+    # Include both README languages and every new adapter/build/test source.
+    for name in ("README.md", "README.en.md", "RELEASE_NOTES.md", "CHANGELOG.md", *distribution.LEGAL, ".gitignore", ".gitattributes"):
+        files[name] = distribution.plain_path(ROOT / name).read_bytes()
+    for folder in ("skills", "integrations", "plugins", "scripts", "tests", ".agents", "reports", "evaluation", "research", "assets", "docs"):
+        path = ROOT / folder
+        if not path.exists():
+            continue
+        for file in sorted(path.rglob("*")):
+            distribution.plain_path(file)
+            if "__pycache__" in file.parts or file.suffix in (".pyc", ".pyo"):
+                continue
+            if file.is_file():
+                name = file.relative_to(ROOT).as_posix()
+                if name not in LOCAL_ONLY:
+                    files[name] = file.read_bytes()
+    for item in package["packages"]:
+        files[f"dist/{item['file']}"] = distribution.plain_path(ROOT / "dist" / item["file"]).read_bytes()
+    blob = distribution.archive_bytes(files)
+    target = distribution.plain_path(ROOT / "dist/ai-slop-thresher-workbench.zip")
+    target.write_bytes(blob)
+    result["packages"].append({"file": target.name, "members": len(files), "bytes": len(blob), "sha256": distribution.digest(blob)})
+    (ROOT / "research/bundle-checksum-current.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+    checksum = distribution.plain_path(ROOT / "dist/SHA256SUMS")
+    checksum.write_text("".join(f"{item['sha256']}  {item['file']}\n" for item in result["packages"]), encoding="utf-8", newline="\n")
     print(json.dumps(result, ensure_ascii=False, indent=2))
 
 

@@ -1,0 +1,212 @@
+{
+  "candidate": "1.2.0-unreleased",
+  "base_commit": "1ce5dddaff01c4353a71bbaf2abcb03f66dd4965",
+  "manifest_sha256": "b65968890cd7abfd03872b78b89765892727d0bd478d7ae5c19e49cc10d3de2c",
+  "files": {
+    ".agents/plugins/marketplace.json": {
+      "bytes": 365,
+      "sha256": "bc61dac34647867e6b45bf2cb0f8a51111f92ce1f50376ad5e0d61e486a0c5b6"
+    },
+    "ATTRIBUTIONS.md": {
+      "bytes": 6816,
+      "sha256": "6ae1ecdd5fa6f6bc027e93778150d5dc421aa9b2c4f47ae304935260d6459070"
+    },
+    "CHANGELOG.md": {
+      "bytes": 2161,
+      "sha256": "0b0779488c6944f0c88a75e73190f4467c17f0ef11b64f784f32e2aaca23ce4a"
+    },
+    "LICENSE": {
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "NOTICE": {
+      "bytes": 501,
+      "sha256": "2b497d57ae1cb755c24e54275570b145a2158ca46beb88332f25660d24f8cfac"
+    },
+    "README.en.md": {
+      "bytes": 10300,
+      "sha256": "f5ba41a972d7587dc784ba2dee2a6aabbdc0a975b6a82e6956120fa6c74b0bf7"
+    },
+    "README.md": {
+      "bytes": 9762,
+      "sha256": "b4dac1c2d419bba6b36ec87c2f7443be7890c7e85c41c990b5fbbd57b52bbfb7"
+    },
+    "docs/installation.md": {
+      "bytes": 9508,
+      "sha256": "3eebebd153aef997eaa37d18283375305ef64637b40a01b19c4c698cc549a792"
+    },
+    "docs/verification.md": {
+      "bytes": 2653,
+      "sha256": "e93fe29ab268edcac13d4d75126f888233bf951f6066879fba720240d110b965"
+    },
+    "evaluation/build_report.py": {
+      "bytes": 15395,
+      "sha256": "e44bc1f097273d35c97e791b6e39a35b1d8240f6348e4a55eec7164faa7c0bd4"
+    },
+    "evaluation/improvement-20260930/boundary-inputs.json": {
+      "bytes": 551,
+      "sha256": "d034427ca1077702d39a4434bbc9ec91463fdc261042c1c3f8d3928c2c6cd299"
+    },
+    "evaluation/improvement-20260930/boundary-outputs.json": {
+      "bytes": 346,
+      "sha256": "01b3400b5bc5dfb3c321a2dee75d4ed1ab6996f44a5ea88e04c282d973849747"
+    },
+    "evaluation/improvement-20260930/freeze.py": {
+      "bytes": 2586,
+      "sha256": "eaf8dd63a2609515e801a3878b2420421a09ec6368915ace17922b69d18262e8"
+    },
+    "evaluation/improvement-20260930/inputs.json": {
+      "bytes": 4216,
+      "sha256": "fdeba839a1a7b8d4c0f83a62cfef90486fb234d9ff22fc049dd5f5c0445cd778"
+    },
+    "evaluation/improvement-20260930/post-review-recovery.json": {
+      "bytes": 2578,
+      "sha256": "5ef67f417d5d528f721606da3835529806786a9e0242b297fc9c1f10742430b8"
+    },
+    "evaluation/improvement-20260930/protocol.md": {
+      "bytes": 2862,
+      "sha256": "24fbfa02db32b2a7514b836827fcf943911457f2e224e5e665e31a9446d717a1"
+    },
+    "evaluation/improvement-20260930/record.py": {
+      "bytes": 3322,
+      "sha256": "dbebab374f57bb8d688174e6cc6b7bcfbe9880153100191c438c7149a1f8fab9"
+    },
+    "evaluation/improvement-20260930/round-1-outputs.json": {
+      "bytes": 3291,
+      "sha256": "a64d35d8ef509439cd9dc2d01c9072876e2838cd33d3831f4fe535fdba3b6739"
+    },
+    "evaluation/improvement-20260930/round-1/review.json": {
+      "bytes": 2806,
+      "sha256": "c45373b52f40c1936c8fd32994ef33f2e1041c71d579fef54ee7445f21da6929"
+    },
+    "evaluation/improvement-20260930/round-2/review.json": {
+      "bytes": 2981,
+      "sha256": "79c2c0260048eb0853b91d7fc1646345054ae953d4dfaaacb135d7ce9bab2d76"
+    },
+    "evaluation/improvement-20260930/round-3/review.json": {
+      "bytes": 2985,
+      "sha256": "5efbeee8a7aece794461df70a74dba2375eebb49b173d08845b2169ce9693db4"
+    },
+    "evaluation/improvement-20260930/round-4-packaging.json": {
+      "bytes": 3012,
+      "sha256": "d684f6cdfb7e0dcfd4c308d6fcb173e80cac14feb89324856685b65e49a1eafa"
+    },
+    "evaluation/improvement-20260930/round-4/review.json": {
+      "bytes": 3001,
+      "sha256": "a82a5b7af8c12e5dbb384fe16ae599f3f409b0c9014a0a3105315721b9bfe2c4"
+    },
+    "evaluation/improvement-20260930/round-5-legacy-after.json": {
+      "bytes": 278,
+      "sha256": "6a311c0b0d7da5df1562ceb4a5256ce09b756034837322bd9209afcfaea885d5"
+    },
+    "evaluation/improvement-20260930/round-5-legacy-before.json": {
+      "bytes": 161,
+      "sha256": "fe3806d6b4b3387edb4bd8628a38c936856bbdad9be6bfa4d4ba8ed54f6e11e0"
+    },
+    "evaluation/improvement-20260930/round-5-outputs.json": {
+      "bytes": 3399,
+      "sha256": "5e0902722b173a81dd93b42967cec1b5f55bc54d491722c1c7fd7ed90ccef0e2"
+    },
+    "evaluation/improvement-20260930/round-5/review.json": {
+      "bytes": 3203,
+      "sha256": "dea29a2feb4ccb5030931934263a7c762acfeca199454494fb3469fcea10ffef"
+    },
+    "evaluation/improvement-20260930/semantic-criteria.json": {
+      "bytes": 1762,
+      "sha256": "86d8145226ce33b1cd47d90cdbf844cf23bcaa040b95399bc6e8f127806b2d97"
+    },
+    "evaluation/improvement-20260930/validation.json": {
+      "bytes": 5284,
+      "sha256": "e81bafa53bae91668a03396b7832a5e4c31682b900d9ef9d438c3d87b595a001"
+    },
+    "evaluation/package_artifacts.py": {
+      "bytes": 3407,
+      "sha256": "6d11c2424a8e67a28a479ed5df087ed963acac02f51fb03c21a807e6acfef16b"
+    },
+    "integrations/codex/agents/ai-slop-thresher/openai.yaml": {
+      "bytes": 300,
+      "sha256": "da55cd85de865d735eb44e87164ab4b84d6f1302bdf244af270e799026f958e3"
+    },
+    "integrations/codex/agents/thresh/openai.yaml": {
+      "bytes": 261,
+      "sha256": "bcdd0a263399e56eb27b1b49098c39d1200333a0fa2910e0e90d5ed3ce297dc1"
+    },
+    "plugins/codex/ai-slop-thresher/.build-receipt.json": {
+      "bytes": 1024,
+      "sha256": "40274e42ba02638c16307879ed5411d9055c5a86a29cb4bc94248b5e5d2dba6d"
+    },
+    "plugins/codex/ai-slop-thresher/.codex-plugin/plugin.json": {
+      "bytes": 528,
+      "sha256": "0dc8fec3bc8edb862ed36f4f30735721a749d61066015b9c1e00a98d84c5cc5b"
+    },
+    "plugins/codex/ai-slop-thresher/ATTRIBUTIONS.md": {
+      "bytes": 6816,
+      "sha256": "6ae1ecdd5fa6f6bc027e93778150d5dc421aa9b2c4f47ae304935260d6459070"
+    },
+    "plugins/codex/ai-slop-thresher/LICENSE": {
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "plugins/codex/ai-slop-thresher/NOTICE": {
+      "bytes": 501,
+      "sha256": "2b497d57ae1cb755c24e54275570b145a2158ca46beb88332f25660d24f8cfac"
+    },
+    "plugins/codex/ai-slop-thresher/skills/ai-slop-thresher/SKILL.md": {
+      "bytes": 9145,
+      "sha256": "c286b555ef09b6aad44b58885bee1a8f8919ebba9ece34880e8c4f4ce18d7d53"
+    },
+    "plugins/codex/ai-slop-thresher/skills/ai-slop-thresher/agents/openai.yaml": {
+      "bytes": 300,
+      "sha256": "da55cd85de865d735eb44e87164ab4b84d6f1302bdf244af270e799026f958e3"
+    },
+    "plugins/codex/ai-slop-thresher/skills/ai-slop-thresher/references/design-sources.md": {
+      "bytes": 4102,
+      "sha256": "25188a459c60d1f9e4dd079d3f5ec973644a5bdeb858712e106e34acc754462a"
+    },
+    "plugins/codex/ai-slop-thresher/skills/ai-slop-thresher/references/edge-cases.md": {
+      "bytes": 4770,
+      "sha256": "5bf05beb247ad6a5dc7e3d94318749c970ed6cb56c991ea8cba1de0fb422c271"
+    },
+    "plugins/codex/ai-slop-thresher/skills/thresh/SKILL.md": {
+      "bytes": 882,
+      "sha256": "c5e56ff1c821fa8ee3238e5f3b13eea1fc0613844b27f210cbe52654d212c5e9"
+    },
+    "plugins/codex/ai-slop-thresher/skills/thresh/agents/openai.yaml": {
+      "bytes": 261,
+      "sha256": "bcdd0a263399e56eb27b1b49098c39d1200333a0fa2910e0e90d5ed3ce297dc1"
+    },
+    "research/package-validation-current.json": {
+      "bytes": 705,
+      "sha256": "7a34fd47cbbe0ec108295f12ad44a743146e201125ff7a36b1166f1568725aea"
+    },
+    "scripts/distribute.py": {
+      "bytes": 19548,
+      "sha256": "28db41a95a73cced1a30294dcd8a41cf19c7404de8058f97e0e1692846248975"
+    },
+    "skills/ai-slop-thresher/SKILL.md": {
+      "bytes": 9145,
+      "sha256": "c286b555ef09b6aad44b58885bee1a8f8919ebba9ece34880e8c4f4ce18d7d53"
+    },
+    "skills/ai-slop-thresher/references/design-sources.md": {
+      "bytes": 4102,
+      "sha256": "25188a459c60d1f9e4dd079d3f5ec973644a5bdeb858712e106e34acc754462a"
+    },
+    "skills/ai-slop-thresher/references/edge-cases.md": {
+      "bytes": 4770,
+      "sha256": "5bf05beb247ad6a5dc7e3d94318749c970ed6cb56c991ea8cba1de0fb422c271"
+    },
+    "skills/thresh/SKILL.md": {
+      "bytes": 882,
+      "sha256": "c5e56ff1c821fa8ee3238e5f3b13eea1fc0613844b27f210cbe52654d212c5e9"
+    },
+    "tests/test_distribution.py": {
+      "bytes": 20729,
+      "sha256": "5abb14b9d3c8b9f1a63b0ada9818748b7dd9181092dd5e487b3789a9563001d4"
+    },
+    "tests/test_legacy_report.py": {
+      "bytes": 928,
+      "sha256": "d14da83a483bdf6ffa1cc4a265c88b6cb6fdd0c6ebbeaaffc129199ccaf35973"
+    }
+  },
+  "scope": "Implementation, generated plugin, user docs and selected evaluation evidence. Final review responses and the report are added afterward; the workbench ZIP will be rebuilt to include them."
+}

@@ -5,13 +5,13 @@
 <h1 align="center">AI Slop 탈곡기:<br>이 글은 흥미롭지 않습니다.</h1>
 
 <p align="center">
-  한국어 초안의 상투어, 과잉 설명과 반복 수사를 줄이는 Codex 스킬입니다.<br>
+  한국어 초안의 상투어, 과잉 설명과 반복 수사를 줄이는 에이전트 스킬입니다.<br>
   원문의 사실과 말투를 유지하며 문장을 다듬습니다.
 </p>
 
 <p align="center">
-  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.1.0"><img src="https://img.shields.io/badge/status-released-f3a6ca" alt="상태: 공개 릴리즈"></a>
-  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.1.0"><img src="https://img.shields.io/badge/release-v1.1.0-315BFF" alt="릴리즈: v1.1.0"></a>
+  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.2.0"><img src="https://img.shields.io/badge/status-released-f3a6ca" alt="상태: 공개 릴리즈"></a>
+  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.2.0"><img src="https://img.shields.io/badge/release-v1.2.0-315BFF" alt="릴리즈: v1.2.0"></a>
   <a href="#편집-기준"><img src="https://img.shields.io/badge/language-Korean-2f80ed" alt="윤문 대상 언어: 한국어"></a>
   <a href="#확인한-범위"><img src="https://img.shields.io/badge/checks-fixtures_passed-8a78d6" alt="검사: 저장된 가상 예문 검사 통과"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache_2.0-3aa675" alt="라이선스: Apache-2.0"></a>
@@ -23,7 +23,9 @@
   <a href="#사용법">사용법</a> · <a href="#라이선스">라이선스</a>
 </p>
 
-설치 후 Codex에 다듬을 글과 함께 입력하세요.
+**v1.2.0**은 공통 스킬과 Codex 플러그인을 분리하고, 불필요한 부정·재정의 수사를 줄이는 기준을 추가한 릴리즈입니다. 설치는 아래의 하네스별 절차를 따르세요.
+
+Codex에서는 설치 후 다듬을 글과 함께 입력하세요. 다른 하네스에서는 해당 스킬 호출 문법을 사용하세요.
 
 ```text
 $thresh 아래 글의 뜻과 말투를 유지하면서 자연스럽게 다듬어 주세요.
@@ -45,28 +47,25 @@ $thresh 아래 글의 뜻과 말투를 유지하면서 자연스럽게 다듬어
 
 ## 설치
 
-스킬 전용 API 키나 Python 설치는 필요하지 않습니다. Codex가 스킬 지침을 읽고 글을 다듬습니다.
-
-1. [v1.1.0 스킬 ZIP](https://github.com/Burntgogi/ai-slop-thresher/releases/download/v1.1.0/ai-slop-thresher.zip)을 내려받아 압축을 풉니다.
-2. `ai-slop-thresher`와 `thresh` 두 폴더를 Codex가 읽는 같은 스킬 디렉터리에 넣습니다.
-3. Codex에서 `$thresh` 또는 `$ai-slop-thresher`를 호출합니다. 새 스킬이 보이지 않으면 Codex를 다시 시작합니다.
-
-현재 [Codex 공식 안내](https://learn.chatgpt.com/docs/build-skills)의 개인 스킬 경로는 `~/.agents/skills`입니다. 폴더 구조는 다음과 같습니다.
+공통 지침은 `skills/`, Codex 전용 표시 정보는 `integrations/codex/`, 생성된 Codex 플러그인은 `plugins/codex/ai-slop-thresher/`에 있습니다. 공통 스킬에는 Codex manifest와 `agents/openai.yaml`이 들어 있지 않습니다.
 
 ```text
-~/.agents/skills/
-├── ai-slop-thresher/
-│   ├── SKILL.md
-│   ├── agents/openai.yaml
-│   └── references/
-│       ├── edge-cases.md
-│       └── design-sources.md
-└── thresh/
-    ├── SKILL.md
-    └── agents/openai.yaml
+skills/                            # 하네스 중립 원본 두 스킬
+integrations/codex/agents/          # Codex 전용 메타데이터
+plugins/codex/ai-slop-thresher/     # 원본에서 생성하는 플러그인
+.agents/plugins/marketplace.json   # Codex 로컬 마켓플레이스
 ```
 
-기존 Codex 환경에서 `~/.codex/skills`의 스킬을 이미 인식하고 있다면 그 경로를 유지해도 됩니다. 같은 이름을 두 곳에 중복 설치하면 선택 목록에 함께 나타날 수 있습니다.
+수동 설치에는 Python이 필요하지 않습니다. portable ZIP의 두 스킬 폴더를 같은 스킬 디렉터리에 놓으세요. Codex 플러그인 설치와 Claude Code·OpenCode·Cursor의 경로, 안전한 설치 스크립트 사용법은 [하네스별 설치 안내](docs/installation.md)에 있습니다. 스크립트에는 Python 3.10 이상이 필요하며 기본 실행은 쓰기 없는 미리보기입니다.
+
+```powershell
+python scripts/distribute.py install --target codex
+python scripts/distribute.py install --target claude-code
+python scripts/distribute.py install --target opencode
+python scripts/distribute.py install --target cursor
+```
+
+경로를 확인한 뒤 선택한 명령에 `--apply`를 붙이면 설치합니다. 이미 같은 이름의 스킬이 있으면 덮어쓰지 않습니다. Codex에서는 플러그인과 스킬 직접 설치 중 한 방식을 선택하세요.
 
 ## 사용법
 
@@ -89,14 +88,17 @@ $thresh 아래 글의 뜻과 말투를 유지하면서 자연스럽게 다듬어
 | 문맥에 맞지 않는 접속사와 같은 뜻의 수식어 나열 | 실제 원인, 대조와 시간 순서 |
 | 불필요한 쉼표, 강조용 작은따옴표와 장식 서식 | 직접 인용, 코드, URL, 날짜와 수치 표기 |
 | 이미 한 말을 되풀이하는 설명과 마무리 | 독자에게 필요한 조건, 근거, 절차와 예시 |
+| 앞 문장을 부정하고 같은 내용을 다시 정의하는 반복 수사 | 오류 정정, 책임, 피해, 원인 구별, 위험과 불확실성 |
 
 가능성을 사실로 단정하거나 원문에 없는 경험을 보태지 않습니다. 이미 자연스러운 문장은 유지합니다. 자세한 규칙은 [SKILL.md](skills/ai-slop-thresher/SKILL.md)에 있습니다.
 
 ## 확인한 범위
 
-초기 지침을 만든 뒤 5회 개선했고, 기본 예문 12개와 추가 예문 8개의 적용 전후를 기록했습니다. 저장된 결과의 문자 검사와 자체 의미 검토를 수행했습니다. 상단의 `checks` 배지는 저장된 예문의 문자 검사 결과를 나타냅니다.
+v1.0.0 제작 당시 지침을 5회 개선했고, 기본 예문 12개와 추가 예문 8개의 적용 전후를 기록했습니다. 저장된 결과의 문자 검사와 자체 의미 검토를 수행했습니다. 상단의 `checks` 배지는 이 기존 예문의 문자 검사 결과를 나타냅니다.
 
 원문과 윤문은 같은 에이전트가 작성한 가상 자료입니다. 독립 평가나 AI 탐지기 통과율을 측정한 결과는 아닙니다. 실제 문서에서는 수치, 조건과 인용을 원문과 대조해 주세요.
+
+1.2.0 제작 당시 후보의 실제 에이전트 출력, 별도 개선 5회와 Codex·Dot·Muse 감수 범위는 [이번 개선 보고서](reports/improvement-20260930.md)에 기록합니다. 별도 Codex 에이전트도 같은 모델 계열을 사용하므로 독립 인간 평가나 모델 간 일반화 근거로 보지 않습니다.
 
 ## 참고한 프로젝트
 
@@ -126,4 +128,4 @@ Apache-2.0으로 배포합니다. [LICENSE](LICENSE)에 전체 조건을, [NOTIC
 
 [릴리즈 노트](RELEASE_NOTES.md) · [변경 이력](CHANGELOG.md) · [제작 보고서](reports/ai-slop-thresher-report.md) · [20개 적용 전후 사례](reports/comparisons.md) · [재검증 방법](docs/verification.md)
 
-[화면 구성과 참고 자료](docs/github-frontpage.md) · [README·릴리즈 노트 윤문 기록](reports/document-editing.md) · [전체 제작 자료 ZIP](https://github.com/Burntgogi/ai-slop-thresher/releases/download/v1.1.0/ai-slop-thresher-workbench.zip)
+[화면 구성과 참고 자료](docs/github-frontpage.md) · [README·릴리즈 노트 윤문 기록](reports/document-editing.md) · [전체 제작 자료 ZIP](https://github.com/Burntgogi/ai-slop-thresher/releases/download/v1.2.0/ai-slop-thresher-workbench.zip)

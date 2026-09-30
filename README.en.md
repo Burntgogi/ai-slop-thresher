@@ -5,13 +5,13 @@
 <h1 align="center">AI Slop Thresher:<br>This Text Is Not Interesting.</h1>
 
 <p align="center">
-  A Codex skill that cuts stock phrases, repeated praise, and needless explanation from Korean drafts.<br>
+  An agent skill that cuts stock phrases, repeated praise, and needless explanation from Korean drafts.<br>
   It edits sentences while preserving the original facts and voice.
 </p>
 
 <p align="center">
-  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.1.0"><img src="https://img.shields.io/badge/status-released-f3a6ca" alt="Status: released"></a>
-  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.1.0"><img src="https://img.shields.io/badge/release-v1.1.0-315BFF" alt="Release: v1.1.0"></a>
+  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.2.0"><img src="https://img.shields.io/badge/status-released-f3a6ca" alt="Status: released"></a>
+  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.2.0"><img src="https://img.shields.io/badge/release-v1.2.0-315BFF" alt="Release: v1.2.0"></a>
   <a href="#editing-rules"><img src="https://img.shields.io/badge/language-Korean-2f80ed" alt="Editing language: Korean"></a>
   <a href="#validation-scope"><img src="https://img.shields.io/badge/checks-fixtures_passed-8a78d6" alt="Checks: saved synthetic fixtures passed"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache_2.0-3aa675" alt="License: Apache-2.0"></a>
@@ -25,7 +25,9 @@
 
 The skill's instructions and evaluation examples are in Korean. This page explains how to use it on Korean text.
 
-After installation, paste your draft into Codex with a request such as:
+**v1.2.0** separates portable skills from the Codex plugin and adds guidance for unnecessary negation and reframing. Use the harness-specific installation instructions below.
+
+In Codex, paste your draft with a request such as the following. Use your harness's invocation syntax elsewhere:
 
 ```text
 $thresh Edit the Korean text below for natural phrasing. Preserve its meaning and tone.
@@ -60,28 +62,25 @@ After:
 
 ## Install
 
-The skill needs no separate API key or Python installation. Codex reads the instructions and edits your text.
-
-1. Download and extract the [v1.1.0 skill ZIP](https://github.com/Burntgogi/ai-slop-thresher/releases/download/v1.1.0/ai-slop-thresher.zip).
-2. Place the `ai-slop-thresher` and `thresh` folders together in a skills directory that Codex reads.
-3. Invoke `$thresh` or `$ai-slop-thresher` in Codex. Restart Codex if the new skills do not appear.
-
-The [Codex documentation](https://learn.chatgpt.com/docs/build-skills) lists `~/.agents/skills` as the personal skills directory:
+Shared instructions live in `skills/`; Codex presentation metadata lives in `integrations/codex/`. The generated plugin lives in `plugins/codex/ai-slop-thresher/`. Portable skills contain no Codex manifest or `agents/openai.yaml`.
 
 ```text
-~/.agents/skills/
-├── ai-slop-thresher/
-│   ├── SKILL.md
-│   ├── agents/openai.yaml
-│   └── references/
-│       ├── edge-cases.md
-│       └── design-sources.md
-└── thresh/
-    ├── SKILL.md
-    └── agents/openai.yaml
+skills/                            # Shared canonical skills
+integrations/codex/agents/          # Codex presentation metadata
+plugins/codex/ai-slop-thresher/     # Generated Codex plugin
+.agents/plugins/marketplace.json   # Codex local marketplace
 ```
 
-If your existing Codex setup already discovers skills in `~/.codex/skills`, you can keep using that directory. Installing the same skill in both locations may create duplicate entries in the skill picker.
+Manual installation needs no Python: place both portable skill folders together in a supported skills directory. See the [harness installation guide](docs/installation.md) for Codex plugins, Claude Code, OpenCode, Cursor, and generic destinations. The installation script needs Python 3.10+ and previews changes by default:
+
+```powershell
+python scripts/distribute.py install --target codex
+python scripts/distribute.py install --target claude-code
+python scripts/distribute.py install --target opencode
+python scripts/distribute.py install --target cursor
+```
+
+After reviewing the destination, add `--apply` to the selected command to install. Existing skill directories are never overwritten. In Codex, choose either plugin installation or direct skill installation.
 
 ## Usage
 
@@ -104,14 +103,17 @@ By default, the skill returns only the edited text. It does not append a work su
 | Misplaced connectors and strings of similar modifiers | Actual causes, contrasts, and sequences of events |
 | Unnecessary commas, emphasis quotes, and decorative formatting | Direct quotations, code, URLs, dates, and numerical notation |
 | Explanations and endings that repeat an earlier point | Conditions, evidence, steps, and examples the reader needs |
+| Repeated negation that restates the same point | Corrections, responsibility, harm, actual distinctions, risk, and uncertainty |
 
 The instructions forbid turning possibilities into facts or inventing personal experiences. Sentences that already read naturally stay as they are. See [SKILL.md](skills/ai-slop-thresher/SKILL.md) for the full rules in Korean.
 
 ## Validation scope
 
-The initial instructions went through five improvement rounds. The project records original and edited text for 12 core examples and eight additional examples. Checks cover required text and protected values in saved outputs, alongside a review of meaning by the same agent.
+During v1.0.0 development, the initial instructions went through five improvement rounds. The project records original and edited text for 12 core examples and eight additional examples. Checks cover required text and protected values in saved outputs, alongside a review of meaning by the same agent.
 
 The originals and edits are synthetic examples written by the same agent. They have not undergone independent evaluation, and no AI detector pass rate was measured. The `checks` badge refers to checks on the saved examples. For real documents, compare numbers, conditions, and quotations with the original.
+
+The [development improvement report](reports/improvement-20260930.md) records fresh agent outputs, five further improvement rounds, and the scope of Codex, Dot, and Muse reviews. The separate Codex evaluator uses the same model family; this is not independent human evaluation or evidence of cross-model generalization.
 
 ## References
 
@@ -143,4 +145,4 @@ The detailed documentation below is in Korean.
 
 [Release notes](RELEASE_NOTES.md) · [Changelog](CHANGELOG.md) · [Development report](reports/ai-slop-thresher-report.md) · [20 original and edited examples](reports/comparisons.md) · [Verification guide](docs/verification.md)
 
-[Layout and design sources](docs/github-frontpage.md) · [README and release notes editing record](reports/document-editing.md) · [Full project ZIP](https://github.com/Burntgogi/ai-slop-thresher/releases/download/v1.1.0/ai-slop-thresher-workbench.zip)
+[Layout and design sources](docs/github-frontpage.md) · [README and release notes editing record](reports/document-editing.md) · [Full project ZIP](https://github.com/Burntgogi/ai-slop-thresher/releases/download/v1.2.0/ai-slop-thresher-workbench.zip)

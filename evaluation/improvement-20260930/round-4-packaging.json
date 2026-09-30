@@ -1,0 +1,86 @@
+{
+  "round": 4,
+  "scope": "packaging frontmatter consistency",
+  "baseline_probes": [
+    {
+      "probe": "canonical_1.2.0_alias_1.1.0",
+      "before": "accepted",
+      "operation": "package dry-run",
+      "files": 7
+    },
+    {
+      "probe": "canonical_1.2.0_alias_1.1.0",
+      "before": "accepted",
+      "operation": "install dry-run"
+    },
+    {
+      "probe": "wrong_alias_canonical_skill",
+      "before": "accepted",
+      "operation": "portable_files"
+    },
+    {
+      "probe": "version_only_in_body",
+      "before": "accepted",
+      "operation": "version",
+      "observed_version": "9.9.9"
+    }
+  ],
+  "after": [
+    {
+      "probe": "canonical_1.2.0_alias_1.1.0",
+      "operation": "package dry-run",
+      "after": "rejected",
+      "reason": "canonical and alias metadata.version must match"
+    },
+    {
+      "probe": "canonical_1.2.0_alias_1.1.0",
+      "operation": "install dry-run",
+      "after": "rejected",
+      "reason": "canonical and alias metadata.version must match"
+    },
+    {
+      "probe": "wrong_alias_canonical_skill",
+      "operation": "portable_files",
+      "after": "rejected",
+      "reason": "alias canonical_skill must be ai-slop-thresher"
+    },
+    {
+      "probe": "version_only_in_body",
+      "operation": "version",
+      "after": "rejected",
+      "reason": "metadata.version must be a release semantic version: ai-slop-thresher"
+    },
+    {
+      "probe": "body_version_with_valid_frontmatter",
+      "operation": "version",
+      "after": "accepted_valid_frontmatter_only",
+      "observed_version": "1.2.0"
+    },
+    {
+      "probe": "valid_matching_skills",
+      "operation": "codex apply into temporary directory",
+      "after": "accepted",
+      "codex_metadata_present": true,
+      "alias_reference_resolves": true
+    }
+  ],
+  "evidence_utc": "2026-09-30T12:58:27.966701+00:00",
+  "before_source_preserved_before_edit": true,
+  "source_hashes": {
+    "evaluation/improvement-20260930/round-4/packaging-before/distribute.py": "0bd6e86a565f27ddc6e7881aadcc87983b028e7fc61734100929bf7bab6ff80b",
+    "evaluation/improvement-20260930/round-4/packaging-before/test_distribution.py": "cdae49a6aef0a2fe56afd929a35372bc5b8b53e470d59cfea2cacd01a0896d89",
+    "scripts/distribute.py": "1b4275c2891d46bb255b882be47d69204fa89a3c268e21dd98dda897ceabc833",
+    "tests/test_distribution.py": "cb13f755d0b81bf925271c3745b09d512b67c99bc0129fbf24720c63f332469f"
+  },
+  "tests": {
+    "command": "python -O -m unittest discover -s tests -p test_distribution.py -v",
+    "run": 29,
+    "passed": 26,
+    "skipped": 3,
+    "failed": 0,
+    "skip_reason": "Windows symlink creation privileges unavailable; Windows junction test passed",
+    "python": "3.13.5",
+    "platform": "Windows"
+  },
+  "validation_scope": "Project flat single-line YAML fields and two-space metadata string map only; no new YAML dependency; no harness UI installation or model-quality claim."
+}

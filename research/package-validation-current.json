@@ -1,0 +1,25 @@
+{
+  "version": "1.2.0",
+  "portable_skill_files": 4,
+  "codex_projection_files": 10,
+  "references_resolve": true,
+  "archive_bytes_match_sources": true,
+  "checks_active_under_python_O": true,
+  "packages": [
+    {
+      "file": "ai-slop-thresher-portable.zip",
+      "bytes": 16461,
+      "sha256": "8a1c63859cd67192c08b6672f3efe24ff538d023c1bdebf0e70665b82f44996a"
+    },
+    {
+      "file": "ai-slop-thresher-codex-plugin.zip",
+      "bytes": 17767,
+      "sha256": "d340704d9c75df2ec03271790a57f8f2654bbaa92fb04b05b187318d35e69bb2"
+    },
+    {
+      "file": "ai-slop-thresher.zip",
+      "bytes": 16461,
+      "sha256": "8a1c63859cd67192c08b6672f3efe24ff538d023c1bdebf0e70665b82f44996a"
+    }
+  ]
+}
