@@ -27,6 +27,8 @@ The skill's instructions and evaluation examples are in Korean. This page explai
 
 **v1.2.0** separates portable skills from the Codex plugin and adds guidance for unnecessary negation and reframing. Use the harness-specific installation instructions below.
 
+**Try both versions on the same draft and choose the experience you prefer.** v1.2.0 remains the default; satisfied v1.1.0 users can keep it. Overall style superiority has not been established. The Korean [version selection guide](docs/version-choice.md) explains comparison and switching, and the [final review](reports/final-review-20261001.md) includes one additional document, both edits, and the actual three-party discussion outcome.
+
 In Codex, paste your draft with a request such as the following. Use your harness's invocation syntax elsewhere:
 
 ```text
