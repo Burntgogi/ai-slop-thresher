@@ -1,0 +1,25 @@
+{
+  "frozen_at_utc": "2026-10-02T12:43:48.502268+00:00",
+  "source_kind": "new synthetic notice authored without candidate files, before editors",
+  "source_designer_exposure": "source first read after final instruction cleanup",
+  "one_generation_per_arm": true,
+  "source_sha256": "ce852a7110a37d1f6cb99aee44392093320f3b30184bd3be04e7b91de2c466c2",
+  "request_sha256": "bfa78fdfe86bd4aa1f5cfa16192d52a644815ff02e6fccee60a7cf6e8631288e",
+  "meaning_inventory_sha256": "25f22f58d6a5829da3cb3c7b922e4a62618cca1a67ccaca3643819be42d81d03",
+  "arms": {
+    "one": {
+      "version": "1.2.0",
+      "skill_sha256": {
+        "SKILL.md": "c286b555ef09b6aad44b58885bee1a8f8919ebba9ece34880e8c4f4ce18d7d53",
+        "references/edge-cases.md": "5bf05beb247ad6a5dc7e3d94318749c970ed6cb56c991ea8cba1de0fb422c271"
+      }
+    },
+    "two": {
+      "version": "1.2.1",
+      "skill_sha256": {
+        "SKILL.md": "640fd646d011ffbad406014111b63fa4b660d6cb86dd1ed5456b8edc8e10ccec",
+        "references/edge-cases.md": "f17604c85a1e07b81f4a189bee424061a2d504bb841a8bca58867d456572cd7c"
+      }
+    }
+  }
+}

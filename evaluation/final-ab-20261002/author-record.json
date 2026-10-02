@@ -1,0 +1,27 @@
+{
+  "task": "Synthetic Korean municipal culture-center notice",
+  "original_file": "original.md",
+  "sha256": "ce852a7110a37d1f6cb99aee44392093320f3b30184bd3be04e7b91de2c466c2",
+  "original_modified_after_first_save": false,
+  "anything_other_than_prompt_read": false,
+  "invented_facts": [
+    "Fictional municipality: 해온시; fictional facility: 누리문화센터 다목적홀",
+    "Monthly collective review replaces first-come-first-served booking for use from 2026-11-01",
+    "Applicants must be individuals resident in 해온시 or organizations with principal offices there",
+    "Eligible uses: cultural/art activities, resident meetings, nonprofit educational events; product sales and party promotion excluded",
+    "Maximum two bookings per applicant or organization per month; setup and cleanup included in booked time",
+    "November applications: 2026-10-12 09:00 through 2026-10-19 18:00",
+    "Online facility-booking menu or weekday in-person reception at first-floor desk, 09:00–18:00",
+    "Application and event plan required; address evidence for individuals; registration or lease copy for organizations",
+    "No priority difference between online and in-person applications",
+    "Individual SMS result notification on 2026-10-23",
+    "Conflicting applications assessed by resident participants, event purpose, and preceding three months of use; equal conditions resolved by public draw",
+    "Fee: KRW 30000 per basic two hours, KRW 10000 per additional hour, KRW 5000 for projector",
+    "Selected applicants must pay by 2026-10-27 18:00 for confirmation",
+    "Previously approved November bookings honored",
+    "Stage-light repair dates unresolved; possible restrictions with affected applicants contacted first",
+    "Subsequent monthly schedules published in the first week of the preceding month",
+    "Fictional inquiry: facilities operations team, 031-8042-6170, weekdays 09:00–18:00"
+  ],
+  "execution_limitations": "No external sources, skills, reference notices, evaluations, reports or network were read; no factual verification of invented details was performed."
+}

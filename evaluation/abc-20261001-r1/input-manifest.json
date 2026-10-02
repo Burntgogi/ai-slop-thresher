@@ -1,0 +1,31 @@
+{
+  "frozen_at_utc": "2026-10-01T06:21:57.016636+00:00",
+  "unit": "one synthetic notice, one generation per version, three outputs",
+  "source_reused_from": "evaluation/document-ab-20261001/original.md",
+  "source_sha256": "94981eae0cff96cb396210d1a9fd84fcc77d562ca5f0f3d82d5918dc8fd41eb2",
+  "input_exposed_during_design": true,
+  "generator_model_id_temperature_seed": "not exposed; inherited runtime settings",
+  "arms": {
+    "alpha": {
+      "version": "1.1.0",
+      "skill_sha256": {
+        "SKILL.md": "e3c0efc1b179d82f670bce79a34aa3b93906fa28ac93398f16421a37fcca6edc",
+        "references/edge-cases.md": "509b6dd4de4022f1ca6a144d2f038d3b43e0d861fee5a55feb618b745b09718f"
+      }
+    },
+    "beta": {
+      "version": "1.2.0",
+      "skill_sha256": {
+        "SKILL.md": "c286b555ef09b6aad44b58885bee1a8f8919ebba9ece34880e8c4f4ce18d7d53",
+        "references/edge-cases.md": "5bf05beb247ad6a5dc7e3d94318749c970ed6cb56c991ea8cba1de0fb422c271"
+      }
+    },
+    "gamma": {
+      "version": "1.2.1",
+      "skill_sha256": {
+        "SKILL.md": "875dec8193589877dde01729adbd9e902f55f04e5b691a56c744816d57d88fd7",
+        "references/edge-cases.md": "f17604c85a1e07b81f4a189bee424061a2d504bb841a8bca58867d456572cd7c"
+      }
+    }
+  }
+}

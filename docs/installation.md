@@ -19,7 +19,7 @@ plugins/codex/ai-slop-thresher/       생성된 Codex 플러그인
 
 Python 3.10 이상이면 설치·빌드 스크립트를 실행할 수 있다. 외부 Python 패키지는 필요하지 않다. 아래 명령은 저장소 루트에서 실행한다.
 
-v1.2.0을 기본으로 유지하지만 모든 글의 문체가 이전보다 좋아졌다고 보장하지 않는다. 기존·새 버전을 같은 원문으로 비교하고 더 만족스러운 것을 고르는 방법은 [버전 선택 안내](version-choice.md)에 있다. 두 버전을 동일한 스킬 경로에 동시에 설치하지 않는다.
+현재 배포는 v1.2.1이다. 이전 버전과의 전환·복구는 [버전 선택 안내](version-choice.md)를 따른다. 두 버전을 동일한 스킬 경로에 동시에 설치하지 않는다.
 
 ## Codex 플러그인
 
@@ -82,7 +82,7 @@ python scripts/distribute.py install --target generic --destination /path/to/ski
 
 ```sh
 python scripts/distribute.py package             # 계획만 출력
-python scripts/distribute.py package --apply     # dist/의 배포 ZIP 생성
+python scripts/distribute.py package --output ../portable-candidate --apply  # 새 폴더에 생성
 ```
 
 | 파일 | 포함 내용 |
@@ -92,12 +92,14 @@ python scripts/distribute.py package --apply     # dist/의 배포 ZIP 생성
 | `dist/ai-slop-thresher.zip` | 기존 다운로드 이름. portable ZIP과 동일한 바이트 |
 | `dist/ai-slop-thresher-workbench.zip` | 전체 작업·평가 자료. 아래 호환 패키징 명령으로 생성 |
 
-portable ZIP은 상위 디렉터리에 두 스킬 폴더가 놓이는 기존 구조를 유지한다. Codex ZIP의 압축 루트는 플러그인 자체이며 `.codex-plugin/`와 `skills/`가 같은 위치에 있다. 두 ZIP 모두 `LICENSE`, `NOTICE`, `ATTRIBUTIONS.md`를 포함한다. ZIP 내부 파일과 원본의 바이트 일치 및 상대 참조를 검사하며 ZIP 타임스탬프를 고정한다. 같은 원본과 같은 운영체제·Python·압축 라이브러리 환경에서 재패키징하면 같은 체크섬을 얻는다. 운영체제별 ZIP 메타데이터나 압축 라이브러리 버전이 다르면 내부 파일이 같아도 ZIP 체크섬은 달라질 수 있다. `package --apply`는 위의 지정된 ZIP 파일을 갱신한다.
+공개 배포물은 GitHub 릴리즈에서 받는다. 저장소 루트의 기존 `dist/`는 이전 릴리즈 기록이며 현재 소스와의 일치를 뜻하지 않는다. 새 ZIP은 명시한 출력 폴더에 만든다.
+
+portable ZIP은 상위 디렉터리에 두 스킬 폴더가 놓이는 기존 구조를 유지한다. Codex ZIP의 압축 루트는 플러그인 자체이며 `.codex-plugin/`와 `skills/`가 같은 위치에 있다. 두 ZIP 모두 `LICENSE`, `NOTICE`, `ATTRIBUTIONS.md`를 포함한다. ZIP 내부 파일과 원본의 바이트 일치 및 상대 참조를 검사하며 ZIP 타임스탬프를 고정한다. 같은 원본과 같은 운영체제·Python·압축 라이브러리 환경에서 재패키징하면 같은 체크섬을 얻는다. 운영체제별 ZIP 메타데이터나 압축 라이브러리 버전이 다르면 내부 파일이 같아도 ZIP 체크섬은 달라질 수 있다. `package --apply`는 명시한 새 `--output` 폴더에 ZIP을 생성하며 기존 ZIP을 덮어쓰지 않는다. 검사는 [재검증 안내](verification.md)의 읽기 전용 명령으로 수행한다.
 
 기존 평가 흐름에서는 다음 명령을 사용할 수 있다. 이 명령은 배포물 생성이 목적이므로 파일을 쓴다.
 
 ```sh
-python evaluation/package_artifacts.py
+python -B evaluation/package_artifacts.py --output ../release-candidate --apply
 python -m unittest discover -s tests -p test_distribution.py -v
 ```
 

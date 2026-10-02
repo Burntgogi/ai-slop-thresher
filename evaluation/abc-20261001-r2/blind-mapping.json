@@ -1,0 +1,17 @@
+{
+  "A": {
+    "arm": "gamma",
+    "version": "1.2.1",
+    "output_sha256": "da0ea08cb3edeab4d20e616be6ebb6590e4520f03d8b9ca9bb4159aa17d16046"
+  },
+  "B": {
+    "arm": "alpha",
+    "version": "1.1.0",
+    "output_sha256": "ffdec61b62de12a9dd6ae837cbb66c5ae7579b280c2c0942140717d76666366e"
+  },
+  "C": {
+    "arm": "beta",
+    "version": "1.2.0",
+    "output_sha256": "eaac4488010d9097857d56178ab9b759eb2c9cb0ad350febd45f464dc13e1779"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "version": "1.2.1",
+  "date_kst": "2026-10-02",
+  "method": "Creator-authored manual regression examples under the finalized instructions; not independent generation, new A/B or performance scoring.",
+  "skill_sha256": "a356b6efd592fc34cdf7f806174bb9897f918740187f70a774bb00f7e32b1fc9",
+  "cases": [
+    {
+      "id": "R01",
+      "source": "PDF 업로드, OCR 추출, CSV 내보내기를 지원합니다. 보고서는 최대 20개까지만 처리할 수 있습니다. 최대 20개까지만 처리하는 것이 흥미로운 점입니다.",
+      "review_example": "PDF 업로드, OCR 추출, CSV 내보내기를 지원합니다. 보고서는 최대 20개까지만 처리할 수 있습니다.",
+      "judgment": "meaning preserved in manual comparison",
+      "reason": "사용자가 지정한 반복 흥미 반응만 삭제했다. 세 기능과 최대 20개 제한을 유지했다. 이전 N16 판정을 다시 채점하지 않는다."
+    },
+    {
+      "id": "R02",
+      "source": "정곡을 찔렀습니다. 사용자 설정 문제가 아닙니다. 제가 배포한 코드가 원인이며 복구는 오후 3시에 끝났습니다.",
+      "review_example": "사용자 설정 문제가 아닙니다. 제가 배포한 코드가 원인이며 복구는 오후 3시에 끝났습니다.",
+      "judgment": "meaning preserved in manual comparison",
+      "reason": "칭찬만 삭제했다. 사용자 면책·원인·책임과 완료 시각은 보존했다."
+    },
+    {
+      "id": "R03",
+      "source": "재미있는 부분입니다. 알림 서비스는 신청 후 7일 이내이고 이용 기록이 없는 경우에만 취소할 수 있습니다.",
+      "review_example": "알림 서비스는 신청 후 7일 이내이고 이용 기록이 없는 경우에만 취소할 수 있습니다.",
+      "judgment": "meaning preserved in manual comparison",
+      "reason": "반응만 제거하고 원문의 이내이고와 경우에만을 유지해 기간과 미이용이라는 두 조건을 보존한다. 이전 저장 예시의 시간 표현 변경을 이번 확인문에 재사용하지 않았다."
+    },
+    {
+      "id": "R04",
+      "source": "흥미롭습니다. 효과가 없다는 뜻은 아닙니다. 표본 8건이라 효과를 입증하지 못했습니다.",
+      "review_example": "효과가 없다는 뜻은 아닙니다. 표본 8건이라 효과를 입증하지 못했습니다.",
+      "judgment": "meaning preserved in manual comparison",
+      "reason": "반응만 삭제했다. 무효와 미입증의 구분 및 표본 수를 남겼다."
+    },
+    {
+      "id": "R05",
+      "source": "이 소설은 결말의 시점 전환이 흥미로워 다시 읽고 싶었다.",
+      "review_example": "이 소설은 결말의 시점 전환이 흥미로워 다시 읽고 싶었다.",
+      "judgment": "meaning preserved in manual comparison",
+      "reason": "감상과 재독 이유가 내용이어서 유지했다."
+    },
+    {
+      "id": "R06",
+      "source": "담당자는 \"흥미롭습니다. 정곡을 찔렀습니다.\"라고 답했다.",
+      "review_example": "담당자는 \"흥미롭습니다. 정곡을 찔렀습니다.\"라고 답했다.",
+      "judgment": "meaning preserved in manual comparison",
+      "reason": "실제 발화를 기록하는 인용이므로 그대로 보존했다."
+    },
+    {
+      "id": "S01",
+      "source": "신청자 한 명 또는 한 단체는 같은 달에 두 차례까지 예약할 수 있습니다.",
+      "review_example": "개인·단체별로 월 두 차례까지 예약할 수 있습니다.",
+      "judgment": "meaning preserved in manual comparison",
+      "reason": "개인·단체 각각의 월별 한도와 두 차례까지라는 상한을 유지한다. 단위가 사라지는 축약은 채택하지 않는다."
+    },
+    {
+      "id": "S02",
+      "source": "오류는 복구됐다. 그러나 실패한 요청은 자동 재시도되지 않는다.",
+      "review_example": "오류는 복구됐다. 그러나 실패한 요청은 자동 재시도되지 않는다.",
+      "judgment": "meaning preserved in manual comparison",
+      "reason": "복구와 남은 예외 사이의 실제 역접을 보존한다. 접속사 수를 줄이기 위한 삭제는 하지 않는다."
+    },
+    {
+      "id": "S03",
+      "source": "이미 승인받은 11월 대관은 기존 승인 내용대로 이용할 수 있습니다. 다만 무대 조명 보수 일정이 아직 확정되지 않아 일부 날짜에는 조명 사용이 제한될 수 있습니다. 해당 날짜가 정해지면 신청자에게 먼저 연락드리겠습니다. 이후 월의 접수 일정은 전월 첫째 주에 누리집에 게시합니다. 자세한 사항은 시설운영팀(031-8042-6170, 평일 오전 9시~오후 6시)으로 문의해 주시기 바랍니다.",
+      "review_example": "이미 승인받은 11월 대관은 기존 승인 내용대로 이용할 수 있습니다. 다만 무대 조명 보수 일정이 아직 확정되지 않아 일부 날짜에는 조명 사용이 제한될 수 있습니다. 해당 날짜가 정해지면 신청자에게 먼저 연락드리겠습니다.\n\n이후 월의 접수 일정은 전월 첫째 주에 누리집에 게시합니다. 자세한 사항은 시설운영팀(031-8042-6170, 평일 오전 9시~오후 6시)으로 문의해 주시기 바랍니다.",
+      "judgment": "meaning preserved in manual comparison",
+      "reason": "기존 승인 내용·미확정 조명 보수·제한 가능성·해당 날짜 확정 시 먼저 연락한다는 약속을 한 문단에 유지한다. 다음 달 접수·문의는 별도 문단으로 묶는다. 문장 내용과 순서는 유지해 해당 날짜의 선행 대상과 F15~F19의 의미를 보존한다."
+    }
+  ],
+  "latest_notice_source_sha256": "ce852a7110a37d1f6cb99aee44392093320f3b30184bd3be04e7b91de2c466c2",
+  "latest_notice_meaning_inventory": "evaluation/final-ab-20261002/meaning-inventory.json",
+  "limits": [
+    "기존 사람 평가의 출력은 새 지침 변경 전 후보이며 소급해 바꾸지 않는다.",
+    "S03은 문단 묶음 확인으로, 다른 순서의 문장을 재배열한 새 모델 실행을 입증하지 않는다.",
+    "기존 사례와 제작자 수동 검토이므로 독립 품질 평가가 아니다."
+  ]
+}

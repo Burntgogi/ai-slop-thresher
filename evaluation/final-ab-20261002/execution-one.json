@@ -1,0 +1,46 @@
+{
+  "arm": "one",
+  "inputs": [
+    {
+      "path": "H:\\work2\\Dot_Muse\\workspaces\\ai-slop-thresher\\evaluation\\final-ab-20261002\\arms\\one\\ai-slop-thresher\\SKILL.md",
+      "sha256": "c286b555ef09b6aad44b58885bee1a8f8919ebba9ece34880e8c4f4ce18d7d53"
+    },
+    {
+      "path": "H:\\work2\\Dot_Muse\\workspaces\\ai-slop-thresher\\evaluation\\final-ab-20261002\\arms\\one\\ai-slop-thresher\\references\\edge-cases.md",
+      "sha256": "5bf05beb247ad6a5dc7e3d94318749c970ed6cb56c991ea8cba1de0fb422c271"
+    },
+    {
+      "path": "H:\\work2\\Dot_Muse\\workspaces\\ai-slop-thresher\\evaluation\\final-ab-20261002\\original.md",
+      "sha256": "ce852a7110a37d1f6cb99aee44392093320f3b30184bd3be04e7b91de2c466c2"
+    },
+    {
+      "path": "H:\\work2\\Dot_Muse\\workspaces\\ai-slop-thresher\\evaluation\\final-ab-20261002\\request.txt",
+      "sha256": "bfa78fdfe86bd4aa1f5cfa16192d52a644815ff02e6fccee60a7cf6e8631288e"
+    }
+  ],
+  "output": {
+    "path": "H:\\work2\\Dot_Muse\\workspaces\\ai-slop-thresher\\evaluation\\final-ab-20261002\\output-one.md",
+    "sha256": "e87819c185b15e993f48a237ba9eefb95ca6baa31ec8afbaeeba270b292a5a3a"
+  },
+  "files_actually_read": [
+    "H:\\work2\\Dot_Muse\\workspaces\\ai-slop-thresher\\evaluation\\final-ab-20261002\\arms\\one\\ai-slop-thresher\\SKILL.md",
+    "H:\\work2\\Dot_Muse\\workspaces\\ai-slop-thresher\\evaluation\\final-ab-20261002\\arms\\one\\ai-slop-thresher\\references\\edge-cases.md",
+    "H:\\work2\\Dot_Muse\\workspaces\\ai-slop-thresher\\evaluation\\final-ab-20261002\\original.md",
+    "H:\\work2\\Dot_Muse\\workspaces\\ai-slop-thresher\\evaluation\\final-ab-20261002\\request.txt",
+    "H:\\work2\\Dot_Muse\\workspaces\\ai-slop-thresher\\evaluation\\final-ab-20261002\\output-one.md"
+  ],
+  "read_details": "The four inputs were loaded as text and hashed; the saved output was read only for SHA256 hashing. No other files were read.",
+  "restrictions": [
+    "Read only the specified skill, its edge cases, original.md, and request.txt as input.",
+    "Did not read other arms, prior notices, outputs or reports, meaning inventory, input manifest, author record, or installed skills.",
+    "Did not browse or delegate.",
+    "Did not inspect parent conversation.",
+    "Saved the first finished edited notice once and did not modify it afterward."
+  ],
+  "limitations": [
+    "No external fact verification; the original notice supplied all factual content."
+  ],
+  "output_saved_once": true,
+  "output_write_count": 1,
+  "deviations": []
+}

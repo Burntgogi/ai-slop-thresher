@@ -2,7 +2,7 @@
 name: thresh
 description: AI Slop 탈곡기의 짧은 호출 이름. 사용자가 thresh로 한국어 글의 AI 말투·과잉 설명·불필요한 부정과 재정의 표현을 다듬도록 요청할 때 ai-slop-thresher의 지침을 적용한다. 호출 문법은 하네스에 따른다.
 metadata:
-  version: "1.2.0"
+  version: "1.2.1"
   canonical_skill: "ai-slop-thresher"
 ---
 

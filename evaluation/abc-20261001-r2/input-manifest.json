@@ -1,0 +1,34 @@
+{
+  "frozen_at_utc": "2026-10-01T06:28:16.341697+00:00",
+  "unit": "one notice, one new generation per version, three outputs",
+  "follows": "abc-20261001-r1; candidate refined after a meaning-preservation concern",
+  "held_out": false,
+  "same_candidate_as_r1": false,
+  "postprocessing_allowed": false,
+  "source_sha256": "94981eae0cff96cb396210d1a9fd84fcc77d562ca5f0f3d82d5918dc8fd41eb2",
+  "request_sha256": "142b739cabcc0c911dbfe863c1dcfafb4deb845f2d7c4bfdb4085dd79f2a0911",
+  "meaning_inventory_sha256": "b5f03c09d1ca2a0196f2fca46d11ba139acfefa3f3d1b88b3d8aea6de9c66ce9",
+  "arms": {
+    "alpha": {
+      "version": "1.1.0",
+      "skill_sha256": {
+        "SKILL.md": "e3c0efc1b179d82f670bce79a34aa3b93906fa28ac93398f16421a37fcca6edc",
+        "references/edge-cases.md": "509b6dd4de4022f1ca6a144d2f038d3b43e0d861fee5a55feb618b745b09718f"
+      }
+    },
+    "beta": {
+      "version": "1.2.0",
+      "skill_sha256": {
+        "SKILL.md": "c286b555ef09b6aad44b58885bee1a8f8919ebba9ece34880e8c4f4ce18d7d53",
+        "references/edge-cases.md": "5bf05beb247ad6a5dc7e3d94318749c970ed6cb56c991ea8cba1de0fb422c271"
+      }
+    },
+    "gamma": {
+      "version": "1.2.1",
+      "skill_sha256": {
+        "SKILL.md": "97109332d49c18ebe9766a497c9b351651b419f7b00aaa8a33434b2baff4bd1f",
+        "references/edge-cases.md": "f17604c85a1e07b81f4a189bee424061a2d504bb841a8bca58867d456572cd7c"
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "randomization": "SystemRandom shuffle once; fixed after saving",
+  "mapping": {
+    "X": {
+      "arm": "two",
+      "version": "1.2.1",
+      "output_sha256": "9bd15990adcbdfd9f97c07bf71f907308ac5470da856066219942eb91d083b57"
+    },
+    "Y": {
+      "arm": "one",
+      "version": "1.2.0",
+      "output_sha256": "e87819c185b15e993f48a237ba9eefb95ca6baa31ec8afbaeeba270b292a5a3a"
+    }
+  }
+}

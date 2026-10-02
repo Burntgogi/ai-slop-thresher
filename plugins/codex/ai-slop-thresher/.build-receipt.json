@@ -1,12 +1,12 @@
 {
   "skills/ai-slop-thresher/references/design-sources.md": "25188a459c60d1f9e4dd079d3f5ec973644a5bdeb858712e106e34acc754462a",
-  "skills/ai-slop-thresher/references/edge-cases.md": "5bf05beb247ad6a5dc7e3d94318749c970ed6cb56c991ea8cba1de0fb422c271",
-  "skills/ai-slop-thresher/SKILL.md": "c286b555ef09b6aad44b58885bee1a8f8919ebba9ece34880e8c4f4ce18d7d53",
-  "skills/thresh/SKILL.md": "c5e56ff1c821fa8ee3238e5f3b13eea1fc0613844b27f210cbe52654d212c5e9",
+  "skills/ai-slop-thresher/references/edge-cases.md": "ab9a16a71067fbe62f9641c85636b1717739fc70afff6479c0670a15a2a3f3b2",
+  "skills/ai-slop-thresher/SKILL.md": "a356b6efd592fc34cdf7f806174bb9897f918740187f70a774bb00f7e32b1fc9",
+  "skills/thresh/SKILL.md": "3bea7afd5365bba379ac14fdd89e9880f7bbbf05a857d61a0edf4a2ea5497f6f",
   "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
   "NOTICE": "2b497d57ae1cb755c24e54275570b145a2158ca46beb88332f25660d24f8cfac",
   "ATTRIBUTIONS.md": "6ae1ecdd5fa6f6bc027e93778150d5dc421aa9b2c4f47ae304935260d6459070",
   "skills/ai-slop-thresher/agents/openai.yaml": "da55cd85de865d735eb44e87164ab4b84d6f1302bdf244af270e799026f958e3",
   "skills/thresh/agents/openai.yaml": "bcdd0a263399e56eb27b1b49098c39d1200333a0fa2910e0e90d5ed3ce297dc1",
-  ".codex-plugin/plugin.json": "0dc8fec3bc8edb862ed36f4f30735721a749d61066015b9c1e00a98d84c5cc5b"
+  ".codex-plugin/plugin.json": "fa3f3923b2c8942e8a4d1f604b6bd7e1b8b2fc628cf65b94305678a55607436d"
 }

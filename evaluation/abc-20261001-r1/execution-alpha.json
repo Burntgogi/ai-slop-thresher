@@ -1,0 +1,24 @@
+{
+  "arm": "alpha",
+  "encoding": "UTF-8 without BOM",
+  "files_actually_read": [
+    "evaluation/abc-20261001-r1/arms/alpha/ai-slop-thresher/SKILL.md",
+    "evaluation/abc-20261001-r1/arms/alpha/ai-slop-thresher/references/edge-cases.md",
+    "evaluation/abc-20261001-r1/original.md",
+    "evaluation/abc-20261001-r1/request.txt"
+  ],
+  "sha256": {
+    "evaluation/abc-20261001-r1/original.md": "94981eae0cff96cb396210d1a9fd84fcc77d562ca5f0f3d82d5918dc8fd41eb2",
+    "evaluation/abc-20261001-r1/request.txt": "142b739cabcc0c911dbfe863c1dcfafb4deb845f2d7c4bfdb4085dd79f2a0911",
+    "evaluation/abc-20261001-r1/arms/alpha/ai-slop-thresher/SKILL.md": "e3c0efc1b179d82f670bce79a34aa3b93906fa28ac93398f16421a37fcca6edc",
+    "evaluation/abc-20261001-r1/arms/alpha/ai-slop-thresher/references/edge-cases.md": "509b6dd4de4022f1ca6a144d2f038d3b43e0d861fee5a55feb618b745b09718f",
+    "evaluation/abc-20261001-r1/output-alpha.md": "19694db8b930764081d6c3a0502b2d43e44f70510d723e90417a2748ab815e4b"
+  },
+  "restrictions_violated": false,
+  "violations": [],
+  "execution_limitations": [],
+  "output_hash_method": "SHA256 of exact UTF-8 bytes written, computed in memory before saving",
+  "output_saved_once": true,
+  "network_used": false,
+  "delegation_used": false
+}

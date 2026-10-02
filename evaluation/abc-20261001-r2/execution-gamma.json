@@ -1,0 +1,24 @@
+{
+  "arm": "gamma",
+  "workspace_root": "H:/work2/Dot_Muse/workspaces/ai-slop-thresher",
+  "files_actually_read": [
+    "evaluation/abc-20261001-r2/original.md",
+    "evaluation/abc-20261001-r2/request.txt",
+    "evaluation/abc-20261001-r2/arms/gamma/ai-slop-thresher/SKILL.md",
+    "evaluation/abc-20261001-r2/arms/gamma/ai-slop-thresher/references/edge-cases.md"
+  ],
+  "sha256": {
+    "evaluation/abc-20261001-r2/original.md": "94981eae0cff96cb396210d1a9fd84fcc77d562ca5f0f3d82d5918dc8fd41eb2",
+    "evaluation/abc-20261001-r2/request.txt": "142b739cabcc0c911dbfe863c1dcfafb4deb845f2d7c4bfdb4085dd79f2a0911",
+    "evaluation/abc-20261001-r2/arms/gamma/ai-slop-thresher/SKILL.md": "97109332d49c18ebe9766a497c9b351651b419f7b00aaa8a33434b2baff4bd1f",
+    "evaluation/abc-20261001-r2/arms/gamma/ai-slop-thresher/references/edge-cases.md": "f17604c85a1e07b81f4a189bee424061a2d504bb841a8bca58867d456572cd7c",
+    "evaluation/abc-20261001-r2/output-gamma.md": "da0ea08cb3edeab4d20e616be6ebb6590e4520f03d8b9ca9bb4159aa17d16046"
+  },
+  "restrictions_violated": false,
+  "restriction_violations": [],
+  "execution_limitations": [],
+  "network_used": false,
+  "delegated": false,
+  "output_saved_once": true,
+  "output_revised_after_saving": false
+}

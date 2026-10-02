@@ -1,0 +1,24 @@
+{
+  "arm": "beta",
+  "workspace_root": "H:/work2/Dot_Muse/workspaces/ai-slop-thresher",
+  "sha256": {
+    "evaluation/abc-20261001-r2/original.md": "94981eae0cff96cb396210d1a9fd84fcc77d562ca5f0f3d82d5918dc8fd41eb2",
+    "evaluation/abc-20261001-r2/request.txt": "142b739cabcc0c911dbfe863c1dcfafb4deb845f2d7c4bfdb4085dd79f2a0911",
+    "evaluation/abc-20261001-r2/arms/beta/ai-slop-thresher/SKILL.md": "c286b555ef09b6aad44b58885bee1a8f8919ebba9ece34880e8c4f4ce18d7d53",
+    "evaluation/abc-20261001-r2/arms/beta/ai-slop-thresher/references/edge-cases.md": "5bf05beb247ad6a5dc7e3d94318749c970ed6cb56c991ea8cba1de0fb422c271",
+    "evaluation/abc-20261001-r2/output-beta.md": "eaac4488010d9097857d56178ab9b759eb2c9cb0ad350febd45f464dc13e1779"
+  },
+  "files_actually_read": [
+    "evaluation/abc-20261001-r2/original.md",
+    "evaluation/abc-20261001-r2/request.txt",
+    "evaluation/abc-20261001-r2/arms/beta/ai-slop-thresher/SKILL.md",
+    "evaluation/abc-20261001-r2/arms/beta/ai-slop-thresher/references/edge-cases.md"
+  ],
+  "restrictions_violated": false,
+  "restriction_violations": [],
+  "execution_limitations": [],
+  "output_saved_once": true,
+  "output_modified_after_save": false,
+  "network_used": false,
+  "delegated": false
+}

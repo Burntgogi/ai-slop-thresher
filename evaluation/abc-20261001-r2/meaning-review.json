@@ -1,0 +1,331 @@
+{
+  "reviewer": "Codex creator, aware of version mapping and design intent",
+  "method": "manual full-document source comparison; recorded excerpts are anchors, not an automated semantic proof",
+  "claims": [
+    {
+      "id": "F01",
+      "description": "목적·기간·120건",
+      "arm": "alpha",
+      "evidence": "편리하게 확인하고 예약 과정에서 발생할 수 있는 문제",
+      "judgment": "주의: 목적·기간·수는 유지했지만 원문의 보다라는 비교 정도를 생략했다."
+    },
+    {
+      "id": "F01",
+      "description": "목적·기간·120건",
+      "arm": "beta",
+      "evidence": "더 편리하게 확인하고 예약 과정에서 발생할 수 있는 문제",
+      "judgment": "보존"
+    },
+    {
+      "id": "F01",
+      "description": "목적·기간·120건",
+      "arm": "gamma",
+      "evidence": "더 편리하게 확인하고, 예약 과정에서 발생할 수 있는 문제",
+      "judgment": "보존"
+    },
+    {
+      "id": "F02",
+      "description": "원인·이용자 면책",
+      "arm": "alpha",
+      "evidence": "시스템 동기화 오류",
+      "judgment": "보존"
+    },
+    {
+      "id": "F02",
+      "description": "원인·이용자 면책",
+      "arm": "beta",
+      "evidence": "시스템 동기화 오류",
+      "judgment": "보존"
+    },
+    {
+      "id": "F02",
+      "description": "원인·이용자 면책",
+      "arm": "gamma",
+      "evidence": "시스템 동기화 오류",
+      "judgment": "보존"
+    },
+    {
+      "id": "F03",
+      "description": "사과·운영 문제 인식·점검",
+      "arm": "alpha",
+      "evidence": "시스템 운영상의 문제로 보고",
+      "judgment": "보존"
+    },
+    {
+      "id": "F03",
+      "description": "사과·운영 문제 인식·점검",
+      "arm": "beta",
+      "evidence": "시스템 운영상의 문제로 보고",
+      "judgment": "보존"
+    },
+    {
+      "id": "F03",
+      "description": "사과·운영 문제 인식·점검",
+      "arm": "gamma",
+      "evidence": "시스템 운영상의 문제로 보고",
+      "judgment": "보존"
+    },
+    {
+      "id": "F04",
+      "description": "8건 중 6건 완료·2건 미처리",
+      "arm": "alpha",
+      "evidence": "나머지 2건은 아직 처리되지 않았습니다",
+      "judgment": "보존"
+    },
+    {
+      "id": "F04",
+      "description": "8건 중 6건 완료·2건 미처리",
+      "arm": "beta",
+      "evidence": "나머지 2건은 아직 처리되지 않았습니다",
+      "judgment": "보존"
+    },
+    {
+      "id": "F04",
+      "description": "8건 중 6건 완료·2건 미처리",
+      "arm": "gamma",
+      "evidence": "나머지 2건은 아직 처리되지 않았습니다",
+      "judgment": "보존"
+    },
+    {
+      "id": "F05",
+      "description": "연락 시한·안내 예정·완료 보장 없음",
+      "arm": "alpha",
+      "evidence": "2026년 10월 1일 오후 6시까지",
+      "judgment": "보존"
+    },
+    {
+      "id": "F05",
+      "description": "연락 시한·안내 예정·완료 보장 없음",
+      "arm": "beta",
+      "evidence": "2026년 10월 1일 오후 6시까지",
+      "judgment": "보존"
+    },
+    {
+      "id": "F05",
+      "description": "연락 시한·안내 예정·완료 보장 없음",
+      "arm": "gamma",
+      "evidence": "2026년 10월 1일 오후 6시까지",
+      "judgment": "보존"
+    },
+    {
+      "id": "F06",
+      "description": "추가 확인 가능성",
+      "arm": "alpha",
+      "evidence": "추가 확인이 필요할 수 있으니",
+      "judgment": "보존"
+    },
+    {
+      "id": "F06",
+      "description": "추가 확인 가능성",
+      "arm": "beta",
+      "evidence": "추가 확인이 필요할 수 있으니",
+      "judgment": "보존"
+    },
+    {
+      "id": "F06",
+      "description": "추가 확인 가능성",
+      "arm": "gamma",
+      "evidence": "추가 확인이 필요할 수 있으니",
+      "judgment": "보존"
+    },
+    {
+      "id": "F07",
+      "description": "시범 기간 무료·10월 5일 이후 월 2,000원·선택",
+      "arm": "alpha",
+      "evidence": "월 2,000원의 선택 서비스",
+      "judgment": "보존"
+    },
+    {
+      "id": "F07",
+      "description": "시범 기간 무료·10월 5일 이후 월 2,000원·선택",
+      "arm": "beta",
+      "evidence": "월 2,000원의 선택 서비스",
+      "judgment": "보존"
+    },
+    {
+      "id": "F07",
+      "description": "시범 기간 무료·10월 5일 이후 월 2,000원·선택",
+      "arm": "gamma",
+      "evidence": "월 2,000원의 선택 서비스",
+      "judgment": "보존"
+    },
+    {
+      "id": "F08",
+      "description": "대출 무료 유지",
+      "arm": "alpha",
+      "evidence": "도서 대출 자체는 계속 무료입니다",
+      "judgment": "보존"
+    },
+    {
+      "id": "F08",
+      "description": "대출 무료 유지",
+      "arm": "beta",
+      "evidence": "도서 대출 자체는 계속 무료입니다",
+      "judgment": "보존"
+    },
+    {
+      "id": "F08",
+      "description": "대출 무료 유지",
+      "arm": "gamma",
+      "evidence": "도서 대출 자체는 계속 무료입니다",
+      "judgment": "보존"
+    },
+    {
+      "id": "F09",
+      "description": "취소 시한·이용 기록 없음·두 조건 제한",
+      "arm": "alpha",
+      "evidence": "이용 기록이 없는 경우에만 취소할 수 있습니다",
+      "judgment": "보존"
+    },
+    {
+      "id": "F09",
+      "description": "취소 시한·이용 기록 없음·두 조건 제한",
+      "arm": "beta",
+      "evidence": "이용 기록이 없는 경우에만 취소할 수 있습니다",
+      "judgment": "보존"
+    },
+    {
+      "id": "F09",
+      "description": "취소 시한·이용 기록 없음·두 조건 제한",
+      "arm": "gamma",
+      "evidence": "이용 기록이 없는 경우에만 취소할 수 있습니다",
+      "judgment": "보존"
+    },
+    {
+      "id": "F10",
+      "description": "신청일·기록·요금·조건 확인과 조건 안내 예정",
+      "arm": "alpha",
+      "evidence": "신청 조건을 충분히 이해할 수 있도록",
+      "judgment": "보존"
+    },
+    {
+      "id": "F10",
+      "description": "신청일·기록·요금·조건 확인과 조건 안내 예정",
+      "arm": "beta",
+      "evidence": "신청 조건을 충분히 이해할 수 있도록",
+      "judgment": "보존"
+    },
+    {
+      "id": "F10",
+      "description": "신청일·기록·요금·조건 확인과 조건 안내 예정",
+      "arm": "gamma",
+      "evidence": "신청 조건을 충분히 이해할 수 있도록",
+      "judgment": "보존"
+    },
+    {
+      "id": "F11",
+      "description": "120건 표본의 효과 입증 한계",
+      "arm": "alpha",
+      "evidence": "이 표본만으로 시스템의 개선 효과를 확정할 수는 없습니다",
+      "judgment": "보존"
+    },
+    {
+      "id": "F11",
+      "description": "120건 표본의 효과 입증 한계",
+      "arm": "beta",
+      "evidence": "이 표본만으로 시스템의 개선 효과를 확정할 수는 없습니다",
+      "judgment": "보존"
+    },
+    {
+      "id": "F11",
+      "description": "120건 표본의 효과 입증 한계",
+      "arm": "gamma",
+      "evidence": "이 표본만으로 시스템의 개선 효과를 확정할 수는 없습니다",
+      "judgment": "보존"
+    },
+    {
+      "id": "F12",
+      "description": "운영자의 먼저 확인시키는 절차 평가",
+      "arm": "alpha",
+      "evidence": "예약 내역을 이용자에게 먼저 확인시키는 절차",
+      "judgment": "보존"
+    },
+    {
+      "id": "F12",
+      "description": "운영자의 먼저 확인시키는 절차 평가",
+      "arm": "beta",
+      "evidence": "예약 내역을 이용자에게 먼저 확인시키는 절차",
+      "judgment": "보존"
+    },
+    {
+      "id": "F12",
+      "description": "운영자의 먼저 확인시키는 절차 평가",
+      "arm": "gamma",
+      "evidence": "예약 내역을 이용자에게 먼저 확인시키는 절차",
+      "judgment": "보존"
+    },
+    {
+      "id": "F13",
+      "description": "온라인 안내 보완·대면 절차 유지",
+      "arm": "alpha",
+      "evidence": "대면 창구의 확인 절차",
+      "judgment": "보존"
+    },
+    {
+      "id": "F13",
+      "description": "온라인 안내 보완·대면 절차 유지",
+      "arm": "beta",
+      "evidence": "대면 창구의 확인 절차",
+      "judgment": "보존"
+    },
+    {
+      "id": "F13",
+      "description": "온라인 안내 보완·대면 절차 유지",
+      "arm": "gamma",
+      "evidence": "대면 창구의 확인 절차",
+      "judgment": "보존"
+    },
+    {
+      "id": "F14",
+      "description": "향후 점검·보완 검토 약속",
+      "arm": "alpha",
+      "evidence": "앞으로도 운영 결과를 살펴보고",
+      "judgment": "보존"
+    },
+    {
+      "id": "F14",
+      "description": "향후 점검·보완 검토 약속",
+      "arm": "beta",
+      "evidence": "앞으로도 운영 결과를 살펴보고",
+      "judgment": "보존"
+    },
+    {
+      "id": "F14",
+      "description": "향후 점검·보완 검토 약속",
+      "arm": "gamma",
+      "evidence": "앞으로도 운영 결과를 살펴보고",
+      "judgment": "보존"
+    },
+    {
+      "id": "F15",
+      "description": "신청 전 안내 확인 요청",
+      "arm": "alpha",
+      "evidence": "신청 전에 해당 내용을 살펴봐 주시기 바랍니다",
+      "judgment": "보존"
+    },
+    {
+      "id": "F15",
+      "description": "신청 전 안내 확인 요청",
+      "arm": "beta",
+      "evidence": "신청 전에 해당 내용을 살펴봐 주시기 바랍니다",
+      "judgment": "보존"
+    },
+    {
+      "id": "F15",
+      "description": "신청 전 안내 확인 요청",
+      "arm": "gamma",
+      "evidence": "신청 전에 해당 내용을 살펴봐 주시기 바랍니다",
+      "judgment": "보존"
+    }
+  ],
+  "format": {
+    "all_three": "Title, formal register, prose paragraphs preserved; no new facts identified in this review"
+  },
+  "notes": {
+    "alpha": "F01 contains a degree-of-comparison caution, not a fabricated fact.",
+    "gamma": "F09 removed the repeated two-conditions-both explanation while conjunction and only-condition remain; not counted as a lost condition.",
+    "shared": "Service-is-within-seven-days wording remains awkward across all three; no version resolves every readability issue."
+  },
+  "independent_judgment": false,
+  "human_preference_status": "pending"
+}

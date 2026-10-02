@@ -1,0 +1,75 @@
+{
+  "received_date_kst": "2026-10-02",
+  "source": "User-relayed three human comments plus direct user preference; not independently collected by Codex",
+  "comparison": "abc-20261001-r2/comparison-blind.html",
+  "mapping": {
+    "A": {
+      "arm": "gamma",
+      "version": "1.2.1",
+      "output_sha256": "da0ea08cb3edeab4d20e616be6ebb6590e4520f03d8b9ca9bb4159aa17d16046"
+    },
+    "B": {
+      "arm": "alpha",
+      "version": "1.1.0",
+      "output_sha256": "ffdec61b62de12a9dd6ae837cbb66c5ae7579b280c2c0942140717d76666366e"
+    },
+    "C": {
+      "arm": "beta",
+      "version": "1.2.0",
+      "output_sha256": "eaac4488010d9097857d56178ab9b759eb2c9cb0ad350febd45f464dc13e1779"
+    }
+  },
+  "reported_tally": {
+    "A": 0,
+    "B": 1,
+    "C": 2,
+    "respondents": 3
+  },
+  "comments": [
+    {
+      "respondent": "갑",
+      "preference": "B",
+      "comment": "사람이 쓰는 공지 기준으로는 B인데 다른쪽의 단락이 좀 나은경우가있어보이네요"
+    },
+    {
+      "respondent": "을",
+      "preference": "C",
+      "comment": "전체적으로 C의 전개가 보기 좋았습니다. llm으로는 문장 하나하나를 아주 상세하게 다듬는 것보다는 구성의 틀을 잡는 게 효율적인 것 같습니다."
+    },
+    {
+      "respondent": "병",
+      "preference": "C",
+      "comment": "C가 제일 보기 좋은 것 같습니다. 특히 '중복 예약이 발생한 경위와 예약 정보가 반영되는 과정을 점검하고 있습니다.' 이 부분이 다른 것보다 읽기 편해용."
+    }
+  ],
+  "direct_user": {
+    "preference": "C",
+    "comment": "나도 C의 구성이 제일 간결하면서도 명확하다고 느낀다."
+  },
+  "combined_observed_tally": {
+    "A": 0,
+    "B": 1,
+    "C": 3,
+    "respondents": 4
+  },
+  "prior_review_state": {
+    "status": "pending",
+    "comparison": "comparison-blind.html",
+    "question_channel": "request_user_input_async",
+    "options": [
+      "동률",
+      "A 선호",
+      "B 선호",
+      "C 선호"
+    ],
+    "default_option_not_submitted_automatically": true,
+    "previous_comments_counted_as_current_votes": false
+  },
+  "interpretation_limits": [
+    "One notice, convenience sample, no numerical ratings",
+    "Paragraph/reading preferences do not establish semantic accuracy",
+    "The general efficiency claim about LLM use is respondent opinion, not a measured result",
+    "No global version superiority or statistical inference"
+  ],
+  "raw_outputs_and_comparison_preserved": true
+}

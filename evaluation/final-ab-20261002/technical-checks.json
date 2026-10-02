@@ -1,0 +1,100 @@
+{
+  "date_kst": "2026-10-02",
+  "skill_format": {
+    "ai-slop-thresher": {
+      "valid": true,
+      "message": "Skill is valid!"
+    },
+    "thresh": {
+      "valid": true,
+      "message": "Skill is valid!"
+    }
+  },
+  "projection": {
+    "operation": "check",
+    "files": 10,
+    "projection_matches_source": true,
+    "local_references_resolve": true,
+    "marketplace_path_resolves": true
+  },
+  "diff_whitespace_check": "pass",
+  "protected_existing_files_unchanged": 269,
+  "old_release_and_candidate_verification": {
+    "C:\\work\\human\\dist": {
+      "verified": true,
+      "archives": [
+        "ai-slop-thresher.zip",
+        "ai-slop-thresher-workbench.zip"
+      ],
+      "source_bytes_checked": false,
+      "scope": "v1.1.0의 기존 2종 목록에 대한 체크섬·CRC 확인; 현행 4종 검사기 대상과 구별"
+    },
+    "H:\\work2\\Dot_Muse\\release-candidates\\ai-slop-thresher-v1.2.1": {
+      "verified": true,
+      "files_written": 0,
+      "archives": [
+        "ai-slop-thresher-codex-plugin.zip",
+        "ai-slop-thresher-portable.zip",
+        "ai-slop-thresher-workbench.zip",
+        "ai-slop-thresher.zip"
+      ],
+      "source_bytes_checked": false,
+      "scope": "Recorded checksum consistency, not authenticity or semantic quality."
+    },
+    "H:\\work2\\Dot_Muse\\release-candidates\\ai-slop-thresher-v1.2.1-abc-r2": {
+      "verified": true,
+      "files_written": 0,
+      "archives": [
+        "ai-slop-thresher-codex-plugin.zip",
+        "ai-slop-thresher-portable.zip",
+        "ai-slop-thresher-workbench.zip",
+        "ai-slop-thresher.zip"
+      ],
+      "source_bytes_checked": false,
+      "scope": "Recorded checksum consistency, not authenticity or semantic quality."
+    },
+    "H:\\work2\\Dot_Muse\\release-candidates\\ai-slop-thresher-v1.2.1-feedback-r3": {
+      "verified": true,
+      "files_written": 0,
+      "archives": [
+        "ai-slop-thresher-codex-plugin.zip",
+        "ai-slop-thresher-portable.zip",
+        "ai-slop-thresher-workbench.zip",
+        "ai-slop-thresher.zip"
+      ],
+      "source_bytes_checked": false,
+      "scope": "Recorded checksum consistency, not authenticity or semantic quality."
+    },
+    "H:\\work2\\Dot_Muse\\workspaces\\ai-slop-thresher\\dist": {
+      "verified": true,
+      "files_written": 0,
+      "archives": [
+        "ai-slop-thresher-codex-plugin.zip",
+        "ai-slop-thresher-portable.zip",
+        "ai-slop-thresher-workbench.zip",
+        "ai-slop-thresher.zip"
+      ],
+      "source_bytes_checked": false,
+      "scope": "Recorded checksum consistency, not authenticity or semantic quality."
+    }
+  },
+  "git_heads": {
+    "H:\\work2\\Dot_Muse\\workspaces\\ai-slop-thresher": "c15c4cbbf33c0ea957750f90314103e0f2affa30",
+    "C:\\work\\human": "1ce5dddaff01c4353a71bbaf2abcb03f66dd4965"
+  },
+  "installed_version": "1.2.0",
+  "installed_skill_sha256": "c286b555ef09b6aad44b58885bee1a8f8919ebba9ece34880e8c4f4ce18d7d53",
+  "candidate_skill_sha256": "640fd646d011ffbad406014111b63fa4b660d6cb86dd1ed5456b8edc8e10ccec",
+  "previous_unittest_result": {
+    "passed": 38,
+    "skipped": 3,
+    "total": 41,
+    "not_rerun_for_instruction_only_change": true,
+    "source_report": "reports/release-readiness-20261001.md"
+  },
+  "files_written_by_this_check": [
+    "evaluation/final-ab-20261002/technical-checks.json"
+  ],
+  "scope": "이번 결과는 새 평가 폴더에만 저장. 기존 파일 검증은 읽기 전용.",
+  "check_adjustment": "C:의 과거 v1.1.0 ZIP은 2종이므로 현행 4종 검사기에서 목록 거부됨. 기존 목록의 체크섬·CRC만 별도 확인했으며 배포물과 검사기는 수정하지 않음."
+}

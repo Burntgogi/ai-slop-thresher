@@ -353,8 +353,10 @@ class DistributionTests(unittest.TestCase):
         self.assertFalse(output.exists())
         self.assertTrue(result["dry_run"])
         first = distribution.package(root=self.source, output=output, apply=True)
-        second = distribution.package(root=self.source, output=output, apply=True)
-        self.assertEqual(first, second)
+        second = distribution.package(root=self.source, output=self.base / "second-archives", apply=True)
+        self.assertEqual(first["packages"], second["packages"])
+        with self.assertRaisesRegex(distribution.DistributionError, "existing archive"):
+            distribution.package(root=self.source, output=output, apply=True)
         with zipfile.ZipFile(output / "ai-slop-thresher-portable.zip") as archive:
             self.assertFalse(any("agents/" in name or ".codex-plugin" in name for name in archive.namelist()))
             self.assertTrue(all(name in archive.namelist() for name in distribution.LEGAL))

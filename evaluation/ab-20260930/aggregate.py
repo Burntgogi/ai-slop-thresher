@@ -1,4 +1,5 @@
 """Verify frozen evidence and unblind the recorded judgments; no text scoring."""
+import argparse
 import hashlib
 import json
 import zipfile
@@ -16,11 +17,12 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def write(name, value):
-    (HERE / name).write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+def write(output, name, value):
+    with (output / name).open("x", encoding="utf-8", newline="\n") as stream:
+        stream.write(json.dumps(value, ensure_ascii=False, indent=2) + "\n")
 
 
-def main():
+def main(output=None):
     experiment = read("experiment-manifest.json")
     raw_cases = read("inputs.json")
     cases = {c["id"]: c for c in raw_cases}
@@ -143,12 +145,23 @@ def main():
                                   "semantic_pass": value["semantic_pass"], "request_pass": value["request_pass"], "issues": value["issues"], "evidence": value["evidence"]}
                                  for row in rows for tag, value in row["versions"].items() if not (value["semantic_pass"] and value["request_pass"])],
               "scope": "Recorded blinded agent judgments on synthetic cases, repeated within the same Codex harness; not independent human or cross-model performance."}
-    write("unblinded-results.json", rows)
-    write("summary.json", result)
     hashes = {p.relative_to(HERE).as_posix(): digest(p) for p in sorted(HERE.rglob("*")) if p.is_file() and p.name != "integrity.json" and "__pycache__" not in p.parts}
-    write("integrity.json", {"inventory_kind": "Post-evaluation inventory, not independently signed proof of generation", "sha256": hashes, "frozen_inputs_match": True, "output_pairs_match_originals": True, "coverage_verified": True})
+    if output is not None:
+        output = Path(output).resolve()
+        if output.is_relative_to(HERE) or output.exists():
+            raise RuntimeError("results require a new directory outside the frozen A/B tree")
+        output.mkdir(parents=True)
+        write(output, "unblinded-results.json", rows)
+        write(output, "summary.json", result)
+        write(output, "integrity.json", {"inventory_kind": "Post-evaluation inventory, not independently signed proof of generation", "sha256": hashes, "frozen_inputs_match": True, "output_pairs_match_originals": True, "coverage_verified": True})
     print(json.dumps(result, ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", type=Path)
+    parser.add_argument("--apply", action="store_true")
+    args = parser.parse_args()
+    if args.apply and args.output is None:
+        parser.error("--apply requires --output")
+    main(args.output if args.apply else None)

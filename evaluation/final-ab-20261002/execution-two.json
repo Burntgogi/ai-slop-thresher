@@ -1,0 +1,51 @@
+{
+  "arm": "two",
+  "workspace": "H:/work2/Dot_Muse/workspaces/ai-slop-thresher",
+  "evaluation_directory": "evaluation/final-ab-20261002",
+  "loaded_inputs": [
+    {
+      "path": "arms/two/ai-slop-thresher/SKILL.md",
+      "sha256": "640fd646d011ffbad406014111b63fa4b660d6cb86dd1ed5456b8edc8e10ccec"
+    },
+    {
+      "path": "arms/two/ai-slop-thresher/references/edge-cases.md",
+      "sha256": "f17604c85a1e07b81f4a189bee424061a2d504bb841a8bca58867d456572cd7c"
+    },
+    {
+      "path": "original.md",
+      "sha256": "ce852a7110a37d1f6cb99aee44392093320f3b30184bd3be04e7b91de2c466c2"
+    },
+    {
+      "path": "request.txt",
+      "sha256": "bfa78fdfe86bd4aa1f5cfa16192d52a644815ff02e6fccee60a7cf6e8631288e"
+    }
+  ],
+  "output": {
+    "path": "output-two.md",
+    "sha256": "9bd15990adcbdfd9f97c07bf71f907308ac5470da856066219942eb91d083b57",
+    "encoding": "UTF-8 without BOM"
+  },
+  "files_actually_read": [
+    "arms/two/ai-slop-thresher/SKILL.md",
+    "arms/two/ai-slop-thresher/references/edge-cases.md",
+    "original.md",
+    "request.txt",
+    "output-two.md"
+  ],
+  "output_read_scope": "SHA256 computation only",
+  "restrictions": [
+    "Read only the four specified inputs for editing.",
+    "Did not read other arms, prior notices, outputs, reports, parent conversation, meaning inventory, input manifest, author record, or installed skills.",
+    "Did not browse or delegate.",
+    "Wrote only the requested notice and execution record.",
+    "Saved the first finished notice exactly once and made no later modifications."
+  ],
+  "limitations": [
+    "No external factual verification was performed, as required.",
+    "Editing judgments relied solely on the four specified inputs."
+  ],
+  "output_saved_once": true,
+  "output_save_count": 1,
+  "output_modified_after_save": false,
+  "deviations": []
+}

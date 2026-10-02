@@ -348,6 +348,8 @@ def archive_bytes(files):
 
 
 def package(root=ROOT, output=None, apply=False):
+    if apply and output is None:
+        raise DistributionError("package --apply requires an explicit new --output directory")
     portable = portable_files(root)
     plugin = plugin_files(root)
     output = plain_path(output or Path(root) / "dist")
@@ -355,15 +357,14 @@ def package(root=ROOT, output=None, apply=False):
     # Existing portable download name remains available, with identical bytes.
     archives["ai-slop-thresher.zip"] = archives["ai-slop-thresher-portable.zip"]
     if apply:
-        output.mkdir(parents=True, exist_ok=True)
+        if output.exists():
+            raise DistributionError(f"refusing existing archive output: {output}")
+        output.mkdir(parents=True)
         plain_path(output)
         for name, data in archives.items():
             file = plain_path(output / name)
-            if file.exists() and not file.is_file():
-                raise DistributionError(f"archive destination is not a regular file: {file}")
-        for name, data in archives.items():
-            file = plain_path(output / name)
-            file.write_bytes(data)
+            with file.open("xb") as stream:
+                stream.write(data)
     return {"operation": "package", "dry_run": not apply, "output": str(output), "portable_files": len(portable), "plugin_files": len(plugin), "packages": [{"file": name, "bytes": len(data), "sha256": digest(data)} for name, data in archives.items()]}
 
 

@@ -1,0 +1,31 @@
+{
+  "arm": "beta",
+  "encoding": "UTF-8 without BOM",
+  "hash_algorithm": "SHA256",
+  "sha256": {
+    "original.md": "94981eae0cff96cb396210d1a9fd84fcc77d562ca5f0f3d82d5918dc8fd41eb2",
+    "request.txt": "142b739cabcc0c911dbfe863c1dcfafb4deb845f2d7c4bfdb4085dd79f2a0911",
+    "arms/beta/ai-slop-thresher/SKILL.md": "c286b555ef09b6aad44b58885bee1a8f8919ebba9ece34880e8c4f4ce18d7d53",
+    "arms/beta/ai-slop-thresher/references/edge-cases.md": "5bf05beb247ad6a5dc7e3d94318749c970ed6cb56c991ea8cba1de0fb422c271",
+    "output-beta.md": "b348937ab5b3638771c2c08b183a67d06a747b86110675bbe7c37885307dbc5d"
+  },
+  "files_actually_read": [
+    "arms/beta/ai-slop-thresher/SKILL.md",
+    "arms/beta/ai-slop-thresher/references/edge-cases.md",
+    "original.md",
+    "request.txt",
+    "output-beta.md"
+  ],
+  "output_read_purpose": "SHA256 calculation only",
+  "restrictions_violated": false,
+  "violations": [],
+  "execution_limitations": [],
+  "created_files": [
+    "output-beta.md",
+    "execution-beta.json"
+  ],
+  "output_saved_once": true,
+  "output_modified_after_save": false,
+  "network_used": false,
+  "delegation_used": false
+}

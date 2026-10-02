@@ -5,19 +5,37 @@
 저장소 또는 전체 제작 자료 ZIP의 압축을 푼 폴더에서 Python 3으로 실행하세요.
 
 ```powershell
-python evaluation/run_checks.py
-python evaluation/improvement-20260930/record.py verify
-python -m unittest discover -s tests -v
-python evaluation/package_artifacts.py
+python -B evaluation/run_checks.py
+python -B evaluation/improvement-20260930/record.py verify
+python -B evaluation/ab-20260930/aggregate.py
+python -B scripts/verify_release.py --artifacts dist
+python -B scripts/distribute.py check
+python -B -m unittest discover -s tests -v
 ```
 
-첫 명령은 과거 제작의 5회 개선 과정과 추가 예문의 문자 검사를 다시 실행합니다. 두 번째는 2026-09-30 후보의 다섯 회차 입력·출력·검토 기록의 해시와 완결성을 확인합니다. 세 번째는 임시 디렉터리 설치·패키징과 역사 자료 보호를 검사합니다. 마지막은 현재 후보의 portable·Codex 플러그인·전체 자료 ZIP을 재생성하고 소스와 바이트 단위로 대조합니다.
+앞의 세 명령은 저장된 예문, 개선 기록과 A/B 입력·출력·판정을 읽어 검사하고 결과만 출력합니다. 기록을 다시 쓰거나 새로운 윤문을 생성하지 않습니다. ZIP 검사는 기록된 체크섬과 ZIP 무결성을 확인하며 파일을 쓰지 않습니다. 플러그인 검사는 현재 소스와 생성물의 일치 여부를 확인합니다. 단위 테스트는 임시 디렉터리의 설치·패키징과 실패 대조군을 검사합니다. Python 캐시 파일 생성을 피하려고 -B를 사용합니다.
+
+현재 소스가 미공개 후보로 바뀌어도 기존 dist의 ZIP은 원래 체크섬으로 검사합니다. 같은 후보 소스와 ZIP의 내부 바이트까지 대조하려면 verify_release.py --artifacts <후보 폴더> --source .를 사용합니다. 이전 릴리즈가 현재 후보와 다르다는 이유로 훼손됐다고 판단하지 않습니다. 체크섬 검사는 출처 인증이나 윤문 품질의 증명이 아닙니다.
+
+## 후보 재빌드
+
+다음 명령은 검사와 별도의 생성 작업입니다. 출력은 소스 밖의 존재하지 않는 새 폴더를 지정합니다. 기본 실행은 계획만 출력하고 --apply에서만 ZIP 4개, SHA256SUMS와 build-report.json을 만듭니다. 기존 소스의 plugins/, research/, dist/는 쓰지 않습니다.
+
+```powershell
+python -B evaluation/package_artifacts.py --output ../release-candidates/v1.2.1
+python -B evaluation/package_artifacts.py --output ../release-candidates/v1.2.1 --apply
+python -B scripts/verify_release.py --artifacts ../release-candidates/v1.2.1 --source .
+```
+
+Git 체크아웃에서는 추적된 탈곡기 파일을 포함합니다. 미커밋 새 파일은 자동 포함하지 않고 --include scripts/verify_release.py처럼 소스 상대 경로를 명시합니다. 전체 작업 ZIP에는 포함 목록을 저장해 압축을 푼 자료에서도 Git 없이 재빌드할 수 있습니다. 협업 도구의 코드·DB·로컬 원응답은 탈곡기 배포 범위에 포함하지 않습니다.
+
+단독 portable·Codex ZIP을 생성하는 scripts/distribute.py package --apply도 새 --output 폴더가 필요합니다. 저장된 사례 검사나 A/B 재집계 결과를 파일로 보관할 경우에만 --apply --output <평가 원본 밖의 새 폴더>를 지정합니다. 기존 검사 JSON과 판정은 덮어쓰지 않습니다. 생성물 자체의 갱신은 scripts/distribute.py build --apply로 따로 수행합니다.
 
 `evaluation/build_report.py`는 v1.1.0 당시 보고서 생성기입니다. 현재 후보에서 실행하면 과거 버전으로 잘못 표시되는 것을 막기 위해 파일을 쓰기 전에 중단합니다. 과거 보고서와 평가 원본을 현재 후보의 결과로 다시 쓰지 않습니다.
 
 이 명령들은 새 윤문을 생성하지 않습니다. 새로운 글을 평가하려면 원문과 스킬 지침으로 수정문을 만든 뒤 의미와 문체를 별도로 비교해야 합니다.
 
-현재 후보의 프로토콜과 한계는 [새 개선 기록](../evaluation/improvement-20260930/protocol.md), 삼자 감수와 요약은 [이번 보고서](../reports/improvement-20260930.md)에 있습니다. 이전 JSON은 당시 배포 기록이며, 새 배포 검증은 `research/package-validation-current.json`과 `research/bundle-checksum-current.json`을 확인하세요. 설치 방법은 [하네스별 안내](installation.md)에 있습니다.
+v1.2.0 당시 프로토콜과 삼자 감수는 [개선 기록](../evaluation/improvement-20260930/protocol.md)과 [당시 보고서](../reports/improvement-20260930.md)에 있습니다. v1.2.1의 문서 A/B/C와 한계는 [가독성 개선 보고서](../reports/abc-readability-20261001.md)에 기록합니다. 저장소의 기존 research JSON은 당시 배포 기록입니다. 새 후보의 파일 검증은 새 출력 폴더의 SHA256SUMS·build-report.json·readiness-check.json을 확인하세요. 설치 방법은 [하네스별 안내](installation.md)에 있습니다.
 
 ## 검증 기록
 

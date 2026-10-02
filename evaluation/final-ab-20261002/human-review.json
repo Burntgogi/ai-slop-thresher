@@ -1,0 +1,13 @@
+{
+  "status": "received",
+  "fixture": "final-ab-20261002",
+  "preference": "X",
+  "reason": "대체로 X가 나은데, 일부 X가 Y에 비해 설명이 길어지는 부분이 있다 (두 번째 문단) 핵심만 간추리고 과도한 조사 접속사 사용을 줄이면서 전체 문맥 구조를 기승전결 혹은 논리적 구조로 다듬는 (그저 내용을 나열하는 것이 아닌 문맥상에 적절한 위치를 찾아 배열하는 논리 구조의 적용) 이 필요할 거 같지만, 언어학적으로 살펴서 규칙을 적용해야 되니 어렵지 않을까 생각해본다. 검토해 보라.",
+  "prior_votes_reused": false,
+  "preferred_version": "1.2.1",
+  "qualified_preference": true,
+  "respondents": 1,
+  "feedback_record": "feedback-linguistic-20261002.json",
+  "previous_status": "pending",
+  "release_or_install_approval_inferred": false
+}

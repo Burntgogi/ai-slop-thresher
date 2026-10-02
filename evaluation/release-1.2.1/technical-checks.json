@@ -1,0 +1,93 @@
+{
+  "date_kst": "2026-10-02",
+  "version": "1.2.1",
+  "results": {
+    "unittest": {
+      "exit_code": 0,
+      "total": 41,
+      "passed": 38,
+      "skipped": 3,
+      "skip_reason": "Windows symbolic-link privilege not available"
+    },
+    "saved_fixtures": {
+      "round_1": {
+        "evaluated": 3,
+        "passed": 3,
+        "failed": 0
+      },
+      "round_2": {
+        "evaluated": 5,
+        "passed": 5,
+        "failed": 0
+      },
+      "round_3": {
+        "evaluated": 8,
+        "passed": 8,
+        "failed": 0
+      },
+      "round_4": {
+        "evaluated": 11,
+        "passed": 11,
+        "failed": 0
+      },
+      "round_5": {
+        "evaluated": 12,
+        "passed": 12,
+        "failed": 0
+      },
+      "transfer": {
+        "evaluated": 8,
+        "passed": 8,
+        "failed": 0
+      },
+      "negative_controls": [
+        {
+          "name": "changed_amount",
+          "case": "C05",
+          "expected_failure_caught": true
+        },
+        {
+          "name": "changed_command",
+          "case": "C06",
+          "expected_failure_caught": true
+        },
+        {
+          "name": "changed_quote",
+          "case": "C07",
+          "expected_failure_caught": true
+        },
+        {
+          "name": "dropped_feature",
+          "case": "C09",
+          "expected_failure_caught": true
+        }
+      ],
+      "all_checks_passed": true,
+      "limits": "Checks inspect saved text only; all outputs and semantic reviews were authored by the same agent."
+    },
+    "projection": {
+      "operation": "check",
+      "files": 10,
+      "projection_matches_source": true,
+      "local_references_resolve": true,
+      "marketplace_path_resolves": true
+    },
+    "canonical_format": {
+      "exit_code": 0,
+      "message": "Skill is valid!"
+    },
+    "alias_format": {
+      "exit_code": 0,
+      "message": "Skill is valid!"
+    },
+    "whitespace": {
+      "exit_code": 0,
+      "message": "pass"
+    }
+  },
+  "protected_existing_files_unchanged": 211,
+  "skill_sha256": "a356b6efd592fc34cdf7f806174bb9897f918740187f70a774bb00f7e32b1fc9",
+  "edge_cases_sha256": "ab9a16a71067fbe62f9641c85636b1717739fc70afff6479c0670a15a2a3f3b2",
+  "new_ab_generations": 0,
+  "limits": "Saved-fixture checks are not new model generations or independent semantic proof."
+}

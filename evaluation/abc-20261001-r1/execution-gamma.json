@@ -1,0 +1,27 @@
+{
+  "arm": "gamma",
+  "workspace_root": "H:/work2/Dot_Muse/workspaces/ai-slop-thresher",
+  "sha256": {
+    "evaluation/abc-20261001-r1/original.md": "94981eae0cff96cb396210d1a9fd84fcc77d562ca5f0f3d82d5918dc8fd41eb2",
+    "evaluation/abc-20261001-r1/request.txt": "142b739cabcc0c911dbfe863c1dcfafb4deb845f2d7c4bfdb4085dd79f2a0911",
+    "evaluation/abc-20261001-r1/arms/gamma/ai-slop-thresher/SKILL.md": "875dec8193589877dde01729adbd9e902f55f04e5b691a56c744816d57d88fd7",
+    "evaluation/abc-20261001-r1/arms/gamma/ai-slop-thresher/references/edge-cases.md": "f17604c85a1e07b81f4a189bee424061a2d504bb841a8bca58867d456572cd7c",
+    "evaluation/abc-20261001-r1/output-gamma.md": "dc2f287f6f4632700f672ff108cb1aa75a844bb6bc3fa4d3f1f47b7d27ef2d74"
+  },
+  "files_actually_read": [
+    "evaluation/abc-20261001-r1/original.md",
+    "evaluation/abc-20261001-r1/request.txt",
+    "evaluation/abc-20261001-r1/arms/gamma/ai-slop-thresher/SKILL.md",
+    "evaluation/abc-20261001-r1/arms/gamma/ai-slop-thresher/references/edge-cases.md"
+  ],
+  "restrictions_violated": false,
+  "restriction_violations": [],
+  "execution_limitations": [],
+  "output_hash_method": "SHA256 of the exact UTF-8 bytes written; output was not reread or changed after saving.",
+  "network_used": false,
+  "delegation_used": false,
+  "created_files": [
+    "evaluation/abc-20261001-r1/output-gamma.md",
+    "evaluation/abc-20261001-r1/execution-gamma.json"
+  ]
+}
