@@ -20,6 +20,13 @@ def main(output=None):
             case["bound_numbers"] = bindings.pop(case["id"])
             assert not unbound_numbers(case["source"], case["bound_numbers"]), case["id"]
     assert not bindings, f"Unknown binding cases: {sorted(bindings)}"
+    # Accepted alternative wordings must name real anchors of real cases.
+    alternatives = json.loads((root / "anchor-alternatives.json").read_text(encoding="utf-8"))["cases"]
+    for case in cases + transfer:
+        if case["id"] in alternatives:
+            assert set(alternatives[case["id"]]) <= set(case["anchors"]), case["id"]
+            case["anchor_alternatives"] = alternatives.pop(case["id"])
+    assert not alternatives, f"Unknown alternative cases: {sorted(alternatives)}"
     summary = {}
     results = {}
     # The comparison report shows final-results.json, so check those texts directly.

@@ -1,0 +1,43 @@
+{
+  "description": "Wordings accepted in place of a literal anchor. Added after the 2026-10-07 execution comparison, where these anchors failed only on equivalent wording. The frozen cases.json stays unchanged.",
+  "cases": {
+    "C04": {
+      "아니다": [
+        "않는다",
+        "않았다"
+      ]
+    },
+    "C08": {
+      "유료 전환 전에 해지할 수": [
+        "유료로 전환되기 전에 해지할 수"
+      ]
+    },
+    "C12": {
+      "1. 이메일로": [
+        "1. 계정 생성: 이메일로"
+      ],
+      "2. 받은 메일에서 인증 링크": [
+        "2. 인증: 받은 메일에서 인증 링크",
+        "2. 인증: 받은 메일의 인증 링크"
+      ],
+      "3. 인증을 마친 뒤 로그인": [
+        "3. 로그인: 인증을 마친 뒤 로그인"
+      ]
+    },
+    "T03": {
+      "변경 사항을 확인할 수": [
+        "변경 사항을 미리 확인할 수"
+      ]
+    },
+    "T07": {
+      "다운로드한 파일을 열어": [
+        "다운로드한 파일을 여세요"
+      ]
+    },
+    "T08": {
+      "출처나 비교 수치가 제시되어 있지 않습니다": [
+        "출처나 비교 수치가 제시되지 않았습니다"
+      ]
+    }
+  }
+}

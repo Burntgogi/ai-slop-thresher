@@ -3,6 +3,7 @@
 import argparse
 import json
 import re
+from difflib import SequenceMatcher
 from pathlib import Path
 
 
@@ -51,8 +52,10 @@ def metrics(text, protected):
 
 def check_case(case, output):
     failures = []
+    # anchor_alternatives lists wordings accepted in place of a literal anchor.
+    alternatives = case.get("anchor_alternatives", {})
     for span in case.get("anchors", []):
-        if span not in output:
+        if not any(option in output for option in [span, *alternatives.get(span, [])]):
             failures.append({"type": "missing_anchor", "value": span})
     for span in case.get("protected", []):
         if span not in output:
@@ -60,9 +63,23 @@ def check_case(case, output):
     old_numbers, new_numbers = numbers(case["source"]), numbers(output)
     if old_numbers - new_numbers:
         failures.append({"type": "missing_numbers", "values": sorted(old_numbers - new_numbers)})
-    if new_numbers - old_numbers and not case.get("allow_new_step_numbers", False):
-        failures.append({"type": "new_numbers", "values": sorted(new_numbers - old_numbers)})
+    added = new_numbers - old_numbers - set(case.get("allow_new_numbers", []))
+    if added and not case.get("allow_new_step_numbers", False):
+        failures.append({"type": "new_numbers", "values": sorted(added)})
     failures.extend(unbound_numbers(output, case.get("bound_numbers", [])))
+    for span in case.get("forbidden", []):
+        if span in output:
+            failures.append({"type": "forbidden_wording", "value": span})
+    for group in case.get("required_any", []):
+        if not any(option in output for option in group):
+            failures.append({"type": "missing_any", "values": group})
+    for rule in case.get("min_pattern", []):
+        if len(re.findall(rule["pattern"], output)) < rule["count"]:
+            failures.append({"type": "pattern_below_minimum", "pattern": rule["pattern"], "count": rule["count"]})
+    if "min_similarity" in case:
+        ratio = SequenceMatcher(None, case["source"], output).ratio()
+        if ratio < case["min_similarity"]:
+            failures.append({"type": "over_edited", "similarity": round(ratio, 2)})
     after = metrics(output, case.get("protected", []))
     if not case.get("allow_decorative_format", False):
         for key in ("dash_marks_in_editable_text", "bold_spans_in_editable_text"):

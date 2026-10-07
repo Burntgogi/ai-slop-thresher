@@ -110,5 +110,83 @@
     },
     "output": "A 항목이 10개이고 B 항목이 20개다.",
     "expect": "pass"
+  },
+  {
+    "name": "accepted_alternative_wording",
+    "note": "대안으로 지정한 같은 뜻의 표현은 통과.",
+    "case": {
+      "id": "R06",
+      "source": "이 결과는 효과를 입증한 것은 아니다.",
+      "anchors": [
+        "아니다"
+      ],
+      "anchor_alternatives": {
+        "아니다": [
+          "않는다"
+        ]
+      }
+    },
+    "output": "이 결과는 효과를 입증하지는 않는다.",
+    "expect": "pass"
+  },
+  {
+    "name": "forbidden_condition_merge",
+    "note": "두 조건을 하나로 합친 금지 표현.",
+    "case": {
+      "id": "R07",
+      "source": "7일 이내이고 이용 기록이 없는 경우에만 가능하다.",
+      "forbidden": [
+        "7일 이내에 이용 기록"
+      ]
+    },
+    "output": "7일 이내에 이용 기록이 없는 경우에만 가능하다.",
+    "expect": "fail",
+    "failure_type": "forbidden_wording"
+  },
+  {
+    "name": "missing_exclusive_limit",
+    "note": "배타 조건 만이 사라짐.",
+    "case": {
+      "id": "R08",
+      "source": "14일 이내에만 환불된다.",
+      "required_any": [
+        [
+          "이내에만",
+          "까지만"
+        ]
+      ]
+    },
+    "output": "14일 이내에 환불된다.",
+    "expect": "fail",
+    "failure_type": "missing_any"
+  },
+  {
+    "name": "weakened_possibility",
+    "note": "가능성 표현이 두 번에서 한 번으로 줄어듦.",
+    "case": {
+      "id": "R09",
+      "source": "지연이 생길 수 있고 오류가 발생할 가능성도 있다.",
+      "min_pattern": [
+        {
+          "pattern": "수 있|가능성",
+          "count": 2
+        }
+      ]
+    },
+    "output": "지연이 생길 수 있고 오류도 발생한다.",
+    "expect": "fail",
+    "failure_type": "pattern_below_minimum"
+  },
+  {
+    "name": "over_edited_natural_text",
+    "note": "이미 자연스러운 글을 크게 고쳐 씀.",
+    "case": {
+      "id": "R10",
+      "source": "회의에서 다음 분기 일정과 예산을 정했다.",
+      "min_similarity": 0.85
+    },
+    "output": "다음 분기를 위한 일정 계획과 예산 편성이 회의 자리에서 확정되었다.",
+    "expect": "fail",
+    "failure_type": "over_edited"
   }
 ]
