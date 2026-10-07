@@ -1,0 +1,114 @@
+[
+  {
+    "name": "dropped_repeated_value",
+    "note": "같은 숫자가 두 대상에 쓰일 때 한쪽 값이 사라짐. 숫자 집합 검사만으로는 통과했던 감사 재현 사례.",
+    "case": {
+      "id": "R01",
+      "source": "A 항목은 10개, B 항목은 10개다.",
+      "bound_numbers": [
+        {
+          "subject": "A 항목",
+          "values": [
+            "10"
+          ]
+        },
+        {
+          "subject": "B 항목",
+          "values": [
+            "10"
+          ]
+        }
+      ]
+    },
+    "output": "A 항목은 10개, B 항목은 개다.",
+    "expect": "fail",
+    "failure_type": "unbound_numbers"
+  },
+  {
+    "name": "swapped_values",
+    "note": "두 대상의 수치가 뒤바뀜.",
+    "case": {
+      "id": "R02",
+      "source": "A 항목은 10개, B 항목은 20개다.",
+      "bound_numbers": [
+        {
+          "subject": "A 항목",
+          "values": [
+            "10"
+          ]
+        },
+        {
+          "subject": "B 항목",
+          "values": [
+            "20"
+          ]
+        }
+      ]
+    },
+    "output": "A 항목은 20개, B 항목은 10개다.",
+    "expect": "fail",
+    "failure_type": "unbound_numbers"
+  },
+  {
+    "name": "reversed_change",
+    "note": "변화의 방향이 뒤집힘.",
+    "case": {
+      "id": "R03",
+      "source": "작성 시간은 30분에서 10분으로 줄었다.",
+      "bound_numbers": [
+        {
+          "subject": "작성 시간",
+          "values": [
+            "30",
+            "10"
+          ]
+        }
+      ]
+    },
+    "output": "작성 시간은 10분에서 30분으로 줄었다.",
+    "expect": "fail",
+    "failure_type": "unbound_numbers"
+  },
+  {
+    "name": "removed_repeated_total",
+    "note": "같은 총수량을 두 번 설명한 문장에서 한 번만 남긴 정상 편집.",
+    "case": {
+      "id": "R04",
+      "source": "총 수량은 120개다. 다시 말해 총 수량은 120개로 확정됐다.",
+      "bound_numbers": [
+        {
+          "subject": "총 수량",
+          "values": [
+            "120"
+          ]
+        }
+      ]
+    },
+    "output": "총 수량은 120개로 확정됐다.",
+    "expect": "pass"
+  },
+  {
+    "name": "rephrased_but_bound",
+    "note": "문장을 고쳐 써도 대상과 값의 관계가 유지되면 통과.",
+    "case": {
+      "id": "R05",
+      "source": "A 항목은 10개, B 항목은 20개다.",
+      "bound_numbers": [
+        {
+          "subject": "A 항목",
+          "values": [
+            "10"
+          ]
+        },
+        {
+          "subject": "B 항목",
+          "values": [
+            "20"
+          ]
+        }
+      ]
+    },
+    "output": "A 항목이 10개이고 B 항목이 20개다.",
+    "expect": "pass"
+  }
+]

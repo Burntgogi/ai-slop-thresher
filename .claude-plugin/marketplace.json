@@ -1,0 +1,16 @@
+{
+  "name": "ai-slop-thresher",
+  "description": "AI Slop 탈곡기 Claude Code 플러그인 마켓플레이스",
+  "owner": {
+    "name": "Burntgogi",
+    "url": "https://github.com/Burntgogi"
+  },
+  "plugins": [
+    {
+      "name": "ai-slop-thresher",
+      "source": "./",
+      "description": "한국어 윤문 스킬 ai-slop-thresher와 단축 호출 thresh",
+      "category": "writing"
+    }
+  ]
+}

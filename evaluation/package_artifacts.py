@@ -19,7 +19,7 @@ LOCAL_ONLY = {
 }
 ROOT_FILES = {"README.md", "README.en.md", "RELEASE_NOTES.md", "CHANGELOG.md",
               *distribution.LEGAL, ".gitignore", ".gitattributes"}
-FOLDERS = {"skills", "integrations", "plugins", "scripts", "tests", ".agents",
+FOLDERS = {"skills", "integrations", "plugins", "scripts", "tests", ".agents", ".claude-plugin",
            "reports", "evaluation", "research", "assets", "docs"}
 
 

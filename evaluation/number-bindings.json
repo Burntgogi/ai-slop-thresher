@@ -1,0 +1,74 @@
+{
+  "description": "Subject-value relations checked on top of the frozen fixtures. Each subject must be followed in the same sentence, before another listed subject, by its values in order. Kept separate so the historical cases.json stays unchanged.",
+  "cases": {
+    "C01": [
+      {
+        "subject": "작성 시간",
+        "values": [
+          "30",
+          "10"
+        ]
+      }
+    ],
+    "C02": [
+      {
+        "subject": "결제 오류",
+        "values": [
+          "2"
+        ]
+      }
+    ],
+    "C04": [
+      {
+        "subject": "설문",
+        "values": [
+          "40",
+          "18"
+        ]
+      },
+      {
+        "subject": "응답률",
+        "values": [
+          "20%"
+        ]
+      }
+    ],
+    "C05": [
+      {
+        "subject": "수령 후",
+        "values": [
+          "7"
+        ]
+      },
+      {
+        "subject": "배송비",
+        "values": [
+          "3,000"
+        ]
+      }
+    ],
+    "C08": [
+      {
+        "subject": "요금제",
+        "values": [
+          "30",
+          "9,900"
+        ]
+      }
+    ],
+    "T02": [
+      {
+        "subject": "응답 시간",
+        "values": [
+          "12"
+        ]
+      },
+      {
+        "subject": "표본",
+        "values": [
+          "8"
+        ]
+      }
+    ]
+  }
+}

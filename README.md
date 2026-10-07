@@ -56,6 +56,7 @@ skills/                            # 하네스 중립 원본 두 스킬
 integrations/codex/agents/          # Codex 전용 메타데이터
 plugins/codex/ai-slop-thresher/     # 원본에서 생성하는 플러그인
 .agents/plugins/marketplace.json   # Codex 로컬 마켓플레이스
+.claude-plugin/                    # Claude Code 플러그인·마켓플레이스
 ```
 
 수동 설치에는 Python이 필요하지 않습니다. portable ZIP의 두 스킬 폴더를 같은 스킬 디렉터리에 놓으세요. Codex 플러그인 설치와 Claude Code·OpenCode·Cursor의 경로, 안전한 설치 스크립트 사용법은 [하네스별 설치 안내](docs/installation.md)에 있습니다. 스크립트에는 Python 3.10 이상이 필요하며 기본 실행은 쓰기 없는 미리보기입니다.
@@ -68,6 +69,8 @@ python scripts/distribute.py install --target cursor
 ```
 
 경로를 확인한 뒤 선택한 명령에 `--apply`를 붙이면 설치합니다. 이미 같은 이름의 스킬이 있으면 덮어쓰지 않습니다. Codex에서는 플러그인과 스킬 직접 설치 중 한 방식을 선택하세요.
+
+Claude Code에서는 플러그인으로도 설치할 수 있습니다. `/plugin marketplace add Burntgogi/ai-slop-thresher`로 저장소를 추가한 뒤 `/plugin install ai-slop-thresher@ai-slop-thresher`를 실행하고 `/ai-slop-thresher:thresh`로 호출합니다. 짧은 `/thresh`가 필요하면 `--target claude-code` 직접 설치를 사용하세요. Gemini CLI, GitHub Copilot, Amp, Goose와 Windsurf는 Codex와 같은 `~/.agents/skills`를 읽습니다.
 
 ## 사용법
 

@@ -6,8 +6,29 @@ import re
 from pathlib import Path
 
 
+NUMBER = r"(?<![A-Za-z0-9])[-+]?\d+(?:,\d{3})*(?:\.\d+)?%?"
+
+
 def numbers(text):
-    return set(re.findall(r"(?<![A-Za-z0-9])[-+]?\d+(?:,\d{3})*(?:\.\d+)?%?", text))
+    return set(re.findall(NUMBER, text))
+
+
+def unbound_numbers(text, bindings):
+    """Each subject must be followed, in the same sentence and before another subject, by its values in order."""
+    subjects = [b["subject"] for b in bindings]
+    failures = []
+    for binding in bindings:
+        bound = False
+        for sentence in re.split(r"(?<=[.!?])\s+|\n", text):
+            for match in re.finditer(re.escape(binding["subject"]), sentence):
+                segment = sentence[match.end():]
+                ends = [segment.find(s) for s in subjects if s != binding["subject"] and s in segment]
+                tokens = iter(re.findall(NUMBER, segment[:min(ends)] if ends else segment))
+                if all(value in tokens for value in binding["values"]):
+                    bound = True
+        if not bound:
+            failures.append({"type": "unbound_numbers", "subject": binding["subject"], "values": binding["values"]})
+    return failures
 
 
 def editable(text, protected):
@@ -41,6 +62,7 @@ def check_case(case, output):
         failures.append({"type": "missing_numbers", "values": sorted(old_numbers - new_numbers)})
     if new_numbers - old_numbers and not case.get("allow_new_step_numbers", False):
         failures.append({"type": "new_numbers", "values": sorted(new_numbers - old_numbers)})
+    failures.extend(unbound_numbers(output, case.get("bound_numbers", [])))
     after = metrics(output, case.get("protected", []))
     if not case.get("allow_decorative_format", False):
         for key in ("dash_marks_in_editable_text", "bold_spans_in_editable_text"):
