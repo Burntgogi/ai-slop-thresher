@@ -47,10 +47,10 @@ python scripts/distribute.py check
 
 ```sh
 codex plugin marketplace add Burntgogi/ai-slop-thresher --ref v1.2.3
-codex plugin add ai-slop-thresher@ai-slop-thresher
+codex plugin add ai-slop-thresher@ai-slop-thresher-local
 ```
 
-`--ref`에는 설치할 릴리즈 태그를 쓴다. `main`은 아직 릴리즈하지 않은 변경을 담을 수 있다. 내려받은 저장소에서는 `codex plugin marketplace add .`로 등록할 수 있으며 이때 카탈로그 이름은 `ai-slop-thresher-local`이다. 본 저장소의 Python 스크립트는 Codex 설정을 수정하지 않는다. 플러그인 방식과 아래의 직접 스킬 설치를 함께 사용하면 같은 이름이 중복 표시될 수 있으므로 한 방식을 선택한다.
+`--ref`에는 설치할 릴리즈 태그를 쓴다. `main`은 아직 릴리즈하지 않은 변경을 담을 수 있다. Codex는 저장소의 `.agents/plugins/marketplace.json`을 읽으므로 GitHub에서 추가해도 카탈로그 이름은 `ai-slop-thresher-local`이다. 내려받은 저장소에서는 `codex plugin marketplace add .`로 같은 카탈로그를 등록할 수 있다. 본 저장소의 Python 스크립트는 Codex 설정을 수정하지 않는다. 플러그인 방식과 아래의 직접 스킬 설치를 함께 사용하면 같은 이름이 중복 표시될 수 있으므로 한 방식을 선택한다.
 
 ## Claude Code 플러그인
 

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="source-sha256" content="b861c2643102e329d015b0ec4f40ae10e598d729c3c41f33d339e6cd649ded2f"><title>English · AI Slop Thresher</title><style>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="source-sha256" content="15b2c4cc5c35d2baef01478287a08acf4a322d3533384e0a41bd22f60e3c3021"><title>English · AI Slop Thresher</title><style>
 :root { color-scheme: light; --ink:#1f2328; --muted:#59636e; --line:#d1d9e0; --canvas:#f6f8fa; --paper:#fff; --link:#0969da; }
 * { box-sizing:border-box; }
 body { margin:0; color:var(--ink); background:var(--canvas); font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","Malgun Gothic",sans-serif; }
@@ -114,7 +114,7 @@ python scripts/distribute.py install --target opencode
 python scripts/distribute.py install --target cursor
 </code></pre>
 <p>After reviewing the destination, add <code>--apply</code> to the selected command to install. Existing skill directories are never overwritten. In Codex, choose either plugin installation or direct skill installation.</p>
-<p>Claude Code can also install the skills as a plugin. Add the repository with <code>/plugin marketplace add Burntgogi/ai-slop-thresher</code>, run <code>/plugin install ai-slop-thresher@ai-slop-thresher</code>, and invoke <code>/ai-slop-thresher:thresh</code>. For the short <code>/thresh</code>, use the <code>--target claude-code</code> direct installation instead. In the Codex CLI, run <code>codex plugin marketplace add Burntgogi/ai-slop-thresher --ref v1.2.3</code>, then <code>codex plugin add ai-slop-thresher@ai-slop-thresher</code>. On Windows, if you see <code>Filename too long</code>, run <code>git config --global core.longpaths true</code>. Gemini CLI, GitHub Copilot, Amp, Goose, and Windsurf read the same <code>~/.agents/skills</code> directory as Codex.</p>
+<p>Claude Code can also install the skills as a plugin. Add the repository with <code>/plugin marketplace add Burntgogi/ai-slop-thresher</code>, run <code>/plugin install ai-slop-thresher@ai-slop-thresher</code>, and invoke <code>/ai-slop-thresher:thresh</code>. For the short <code>/thresh</code>, use the <code>--target claude-code</code> direct installation instead. In the Codex CLI, run <code>codex plugin marketplace add Burntgogi/ai-slop-thresher --ref v1.2.3</code>, then <code>codex plugin add ai-slop-thresher@ai-slop-thresher-local</code>. On Windows, if you see <code>Filename too long</code>, run <code>git config --global core.longpaths true</code>. Gemini CLI, GitHub Copilot, Amp, Goose, and Windsurf read the same <code>~/.agents/skills</code> directory as Codex.</p>
 <h2 id="usage">Usage</h2>
 <p><code>$thresh</code> and <code>$ai-slop-thresher</code> apply the same editing instructions. The <code>thresh</code> shortcut reads the main skill, so install both folders together.</p>
 <table>

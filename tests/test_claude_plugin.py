@@ -30,6 +30,18 @@ class ClaudePluginTests(unittest.TestCase):
         codex = read_json(".agents/plugins/marketplace.json")["plugins"]
         self.assertEqual(codex[0]["source"]["path"], "./" + distribution.PLUGIN_DIR)
 
+    def test_documented_install_ids_match_the_catalogs(self):
+        # Codex reads .agents/plugins/marketplace.json, Claude Code reads .claude-plugin/marketplace.json.
+        codex = f"codex plugin add ai-slop-thresher@{read_json('.agents/plugins/marketplace.json')['name']}"
+        claude = f"/plugin install ai-slop-thresher@{read_json('.claude-plugin/marketplace.json')['name']}"
+        for doc in ("README.md", "README.en.md", "docs/installation.md"):
+            text = (ROOT / doc).read_text(encoding="utf-8")
+            with self.subTest(doc=doc):
+                self.assertIn(codex, text)
+                self.assertIn(claude, text)
+                self.assertNotIn("codex plugin add ai-slop-thresher@ai-slop-thresher`", text)
+                self.assertNotIn("codex plugin add ai-slop-thresher@ai-slop-thresher\n", text)
+
     def test_repository_root_is_a_marketplace_not_a_plugin(self):
         # A root plugin.json would make Claude Code copy the whole repository into its cache.
         self.assertFalse((ROOT / ".claude-plugin/plugin.json").exists())
