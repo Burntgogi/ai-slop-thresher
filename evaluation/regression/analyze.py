@@ -41,7 +41,8 @@ def main():
             for path in sorted(folder.glob(f"{case['id']}-*.txt"), key=lambda p: int(p.stem.rsplit("-", 1)[1])):
                 output = path.read_text(encoding="utf-8").strip()
                 events = path.with_suffix(".events.jsonl")
-                contaminated = events.exists() and bool(re.search(r"\.codex[\\/]+skills|\.claude[\\/]+skills", events.read_text(encoding="utf-8"), re.I))
+                # Installed copies: ~/.codex/skills, ~/.claude/skills, ~/.agents/skills, or a plugin cache.
+                contaminated = events.exists() and bool(re.search(r"\.(codex|claude|agents)[\\/]+skills|plugins[\\/]+cache", events.read_text(encoding="utf-8"), re.I))
                 result = check_case(case, output)
                 rows.append({"id": case["id"], "ref": ref, "run": int(path.stem.rsplit("-", 1)[1]), "pass": result["passed"],
                              "fails": [describe(f) for f in result["failures"]], "len_ratio": round(len(output) / len(case["source"]), 2),

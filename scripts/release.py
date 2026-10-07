@@ -29,8 +29,11 @@ distribution = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(distribution)
 
 
-def git(*args):
-    return subprocess.run(["git", "-C", str(ROOT), *args], capture_output=True, text=True, encoding="utf-8").stdout
+def git(*args, check=True):
+    done = subprocess.run(["git", "-C", str(ROOT), *args], capture_output=True, text=True, encoding="utf-8")
+    if check and done.returncode:
+        raise SystemExit(f"git {' '.join(args)} failed: {done.stderr.strip()}")
+    return done.stdout if check else done
 
 
 def number(tag):
@@ -71,17 +74,23 @@ def preflight(tag):
         distribution.check_plugin(ROOT)
     except distribution.DistributionError as error:
         problems.append(f"plugin projection: {error}")
-    if git("ls-remote", "--tags", "origin", f"refs/tags/{tag}").strip():
+    remote = git("ls-remote", "--tags", "origin", f"refs/tags/{tag}", check=False)
+    if remote.returncode:
+        problems.append("could not reach origin to check the tag")
+    elif remote.stdout.strip():
         problems.append(f"{tag} already exists on origin")
+    for readme in ("README.md", "README.en.md"):
+        if f"--ref {tag}" not in (ROOT / readme).read_text(encoding="utf-8"):
+            problems.append(f"{readme} Codex install command does not pin --ref {tag}")
     return {"tag": tag, "ok": not problems, "problems": problems}
 
 
-def body(tag):
-    """RELEASE_NOTES.md with relative links pinned to the tag, as on earlier releases."""
+def body(tag, text=None):
+    """RELEASE_NOTES.md with relative links pinned to the tag, as on earlier releases. Images keep their links."""
     number(tag)
     base = f"https://github.com/{REPOSITORY}/blob/{tag}/"
-    text = (ROOT / "RELEASE_NOTES.md").read_text(encoding="utf-8")
-    return re.sub(r"\]\((?![a-z][a-z0-9+.-]*:|#)([^)]+)\)", lambda m: f"]({base}{m.group(1)})", text)
+    text = (ROOT / "RELEASE_NOTES.md").read_text(encoding="utf-8") if text is None else text
+    return re.sub(r"(?<!!)\[([^\]]*)\]\((?![a-z][a-z0-9+.-]*:|#)([^)]+)\)", lambda m: f"[{m.group(1)}]({base}{m.group(2)})", text)
 
 
 def fetch(url):
@@ -107,8 +116,11 @@ def verify_published(tag, artifacts):
                 problems.append("published SHA256SUMS differs from the local candidate")
         elif hashlib.sha256(data).hexdigest() != expected.get(asset["name"]):
             problems.append(f"{asset['name']} checksum differs")
-    if (release.get("body") or "").replace("\r\n", "\n").strip() != body(tag).strip():
-        problems.append("release body differs from RELEASE_NOTES.md at this checkout")
+    # Compare with the notes as tagged, so later edits on main do not fail an old release.
+    tagged = git("show", f"{tag}:RELEASE_NOTES.md", check=False)
+    notes = tagged.stdout if tagged.returncode == 0 else None
+    if (release.get("body") or "").replace("\r\n", "\n").strip() != body(tag, notes).strip():
+        problems.append("release body differs from RELEASE_NOTES.md" + (" at the tag" if notes is not None else " at this checkout"))
     return {"tag": tag, "url": release.get("html_url"), "ok": not problems, "problems": problems}
 
 

@@ -52,9 +52,13 @@ class ClaudePluginTests(unittest.TestCase):
     def test_host_frontmatter_cannot_override_source_fields(self):
         data = (ROOT / "skills/thresh/SKILL.md").read_bytes()
         with self.assertRaisesRegex(distribution.DistributionError, "already in source"):
-            distribution.with_frontmatter(data, {"description": "x"}, "thresh")
-        with self.assertRaisesRegex(distribution.DistributionError, "invalid host frontmatter"):
-            distribution.with_frontmatter(data, {"bad key": "x"}, "thresh")
+            distribution.with_frontmatter(data, {"description": '"x"'}, "thresh")
+        for extra in ({"bad key": "true"}, {"argument-hint": "[unquoted]"}, {"argument-hint": "a: b"},
+                      {"argument-hint": '"line\rbreak"'}, {"argument-hint": '"say \\"hi\\""'}):
+            with self.subTest(extra=extra), self.assertRaisesRegex(distribution.DistributionError, "invalid host frontmatter"):
+                distribution.with_frontmatter(data, extra, "thresh")
+        accepted = distribution.with_frontmatter(data, {"argument-hint": '"[글 또는 파일]"', "disable-model-invocation": "true"}, "thresh")
+        self.assertIn('\nargument-hint: "[글 또는 파일]"\ndisable-model-invocation: true\n---', accepted.decode("utf-8"))
 
 
 if __name__ == "__main__":

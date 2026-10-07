@@ -101,7 +101,7 @@ python scripts/distribute.py install --target cursor
 
 After reviewing the destination, add `--apply` to the selected command to install. Existing skill directories are never overwritten. In Codex, choose either plugin installation or direct skill installation.
 
-Claude Code can also install the skills as a plugin. Add the repository with `/plugin marketplace add Burntgogi/ai-slop-thresher`, run `/plugin install ai-slop-thresher@ai-slop-thresher`, and invoke `/ai-slop-thresher:thresh`. For the short `/thresh`, use the `--target claude-code` direct installation instead. In the Codex CLI, run `codex plugin marketplace add Burntgogi/ai-slop-thresher --ref main`, then `codex plugin add ai-slop-thresher@ai-slop-thresher`. On Windows, if you see `Filename too long`, run `git config --global core.longpaths true`. Gemini CLI, GitHub Copilot, Amp, Goose, and Windsurf read the same `~/.agents/skills` directory as Codex.
+Claude Code can also install the skills as a plugin. Add the repository with `/plugin marketplace add Burntgogi/ai-slop-thresher`, run `/plugin install ai-slop-thresher@ai-slop-thresher`, and invoke `/ai-slop-thresher:thresh`. For the short `/thresh`, use the `--target claude-code` direct installation instead. In the Codex CLI, run `codex plugin marketplace add Burntgogi/ai-slop-thresher --ref v1.2.3`, then `codex plugin add ai-slop-thresher@ai-slop-thresher`. On Windows, if you see `Filename too long`, run `git config --global core.longpaths true`. Gemini CLI, GitHub Copilot, Amp, Goose, and Windsurf read the same `~/.agents/skills` directory as Codex.
 
 ## Usage
 

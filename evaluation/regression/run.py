@@ -28,7 +28,9 @@ PROMPT = ("이 폴더의 skills/ai-slop-thresher/SKILL.md를 읽고 그 지침(�
 
 def prepare(work, ref):
     target = work / label(ref)
-    if (target / "skills").exists():
+    if ref == "WORKTREE" and (target / "skills").exists():
+        shutil.rmtree(target / "skills")  # always compare the current instructions
+    elif (target / "skills").exists():
         return target
     target.mkdir(parents=True, exist_ok=True)
     if ref == "WORKTREE":
@@ -55,6 +57,9 @@ def run_one(args, folder, case, n):
             break
         out.with_suffix(".err").write_text(done.stderr[-3000:], encoding="utf-8")
         time.sleep(20)
+    else:
+        if out.exists():  # a partial answer must not count as a finished run on resume
+            out.replace(out.with_suffix(".failed.txt"))
     print(folder.name, case["id"], n, round(time.time() - started), flush=True)
 
 

@@ -176,7 +176,9 @@ def with_frontmatter(data, extra, name):
         raise DistributionError(f"missing or unterminated frontmatter: {name}")
     lines = []
     for key, value in extra.items():
-        if not re.fullmatch(r"[a-zA-Z][a-zA-Z0-9-]*", key) or not isinstance(value, str) or "\n" in value:
+        # Only YAML-safe scalars: true/false or a double-quoted string without quotes, backslashes or line breaks.
+        if not re.fullmatch(r"[a-zA-Z][a-zA-Z0-9-]*", key) or not isinstance(value, str) \
+                or not re.fullmatch(r'true|false|"[^"\\\r\n]*"', value):
             raise DistributionError(f"invalid host frontmatter field: {name}: {key}")
         if re.search(rf"(?m)^{re.escape(key)}:", match.group(2)):
             raise DistributionError(f"host frontmatter field already in source: {name}: {key}")

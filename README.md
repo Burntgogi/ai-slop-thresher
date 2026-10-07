@@ -86,7 +86,7 @@ python scripts/distribute.py install --target cursor
 
 경로를 확인한 뒤 선택한 명령에 `--apply`를 붙이면 설치합니다. 이미 같은 이름의 스킬이 있으면 덮어쓰지 않습니다. Codex에서는 플러그인과 스킬 직접 설치 중 한 방식을 선택하세요.
 
-Claude Code에서는 플러그인으로도 설치할 수 있습니다. `/plugin marketplace add Burntgogi/ai-slop-thresher`로 저장소를 추가한 뒤 `/plugin install ai-slop-thresher@ai-slop-thresher`를 실행하고 `/ai-slop-thresher:thresh`로 호출합니다. 짧은 `/thresh`가 필요하면 `--target claude-code` 직접 설치를 사용하세요. Codex CLI에서는 `codex plugin marketplace add Burntgogi/ai-slop-thresher --ref main` 뒤 `codex plugin add ai-slop-thresher@ai-slop-thresher`로 설치합니다. Windows에서 `Filename too long` 오류가 나면 `git config --global core.longpaths true`를 설정하세요. Gemini CLI, GitHub Copilot, Amp, Goose와 Windsurf는 Codex와 같은 `~/.agents/skills`를 읽습니다.
+Claude Code에서는 플러그인으로도 설치할 수 있습니다. `/plugin marketplace add Burntgogi/ai-slop-thresher`로 저장소를 추가한 뒤 `/plugin install ai-slop-thresher@ai-slop-thresher`를 실행하고 `/ai-slop-thresher:thresh`로 호출합니다. 짧은 `/thresh`가 필요하면 `--target claude-code` 직접 설치를 사용하세요. Codex CLI에서는 `codex plugin marketplace add Burntgogi/ai-slop-thresher --ref v1.2.3` 뒤 `codex plugin add ai-slop-thresher@ai-slop-thresher`로 설치합니다. Windows에서 `Filename too long` 오류가 나면 `git config --global core.longpaths true`를 설정하세요. Gemini CLI, GitHub Copilot, Amp, Goose와 Windsurf는 Codex와 같은 `~/.agents/skills`를 읽습니다.
 
 ## 사용법
 

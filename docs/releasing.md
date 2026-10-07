@@ -7,7 +7,7 @@
 1. 두 SKILL.md의 `metadata.version`, `integrations/codex/plugin.json`, `integrations/claude-code/plugin.json`의 버전을 함께 올린다. 하나라도 다르면 테스트가 실패한다.
 2. 편집 지침 본문을 바꿨다면 이전 태그와 새 지침을 Codex로 실행해 비교한다. [실행 비교 도구](../evaluation/regression/README.md)를 쓰고 결과를 `evaluation/regression-YYYYMMDD/`에 남긴다.
 3. `python -B scripts/distribute.py build --apply`로 플러그인 폴더를 다시 만든다.
-4. `CHANGELOG.md`에 `## X.Y.Z` 항목, `docs/releases/vX.Y.Z.md`, `RELEASE_NOTES.md`, 두 README의 배지와 다운로드 링크를 고친다.
+4. `CHANGELOG.md`에 `## X.Y.Z` 항목, `docs/releases/vX.Y.Z.md`, `RELEASE_NOTES.md`, 두 README의 배지와 다운로드 링크, Codex 설치 명령의 `--ref` 태그를 고친다. `docs/installation.md`의 `--ref`와 현재 배포 번호도 함께 고친다.
 5. `node evaluation/build_frontpage.cjs`로 미리보기를 다시 만든다. marked 패키지가 필요하며 저장소 밖의 임시 폴더에 설치해 `NODE_PATH`로 지정해도 된다.
 
 ## 2. 검사
@@ -17,6 +17,7 @@ python -B -m unittest discover -s tests -v
 python -B evaluation/run_checks.py
 python -B scripts/distribute.py check
 claude plugin validate --strict .
+claude plugin validate --strict plugins/ai-slop-thresher
 python -B scripts/release.py preflight vX.Y.Z
 ```
 
@@ -34,9 +35,11 @@ Codex 플러그인 ZIP은 공개 디렉터리 제출용이라 Claude 전용 설�
 
 ## 4. 공개
 
-푸시, 태그, 릴리즈 작성은 작성자가 직접 실행한다.
+푸시, 태그, 릴리즈 작성은 작성자가 직접 실행한다. 릴리즈 브랜치에서 작업했다면 먼저 `main`에 병합한다.
 
 ```powershell
+git switch main
+git merge --ff-only release/X.Y.Z
 git push origin main
 git tag -a vX.Y.Z -m "AI Slop 탈곡기 vX.Y.Z"
 git push origin vX.Y.Z

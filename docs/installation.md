@@ -46,11 +46,11 @@ python scripts/distribute.py check
 이 저장소의 `.agents/plugins/marketplace.json`은 저장소 루트 기준 `./plugins/ai-slop-thresher`를 가리킨다. 저장소 카탈로그를 사용하는 Codex 데스크톱 앱에서는 앱을 다시 시작하고 Plugins Directory에서 **AI Slop 탈곡기 로컬 배포** 소스를 선택해 설치한다. CLI에서는 다음처럼 카탈로그를 등록하고 설치한다.
 
 ```sh
-codex plugin marketplace add Burntgogi/ai-slop-thresher --ref main
+codex plugin marketplace add Burntgogi/ai-slop-thresher --ref v1.2.3
 codex plugin add ai-slop-thresher@ai-slop-thresher
 ```
 
-내려받은 저장소에서는 `codex plugin marketplace add .`로 등록할 수 있으며 이때 카탈로그 이름은 `ai-slop-thresher-local`이다. 본 저장소의 Python 스크립트는 Codex 설정을 수정하지 않는다. 플러그인 방식과 아래의 직접 스킬 설치를 함께 사용하면 같은 이름이 중복 표시될 수 있으므로 한 방식을 선택한다.
+`--ref`에는 설치할 릴리즈 태그를 쓴다. `main`은 아직 릴리즈하지 않은 변경을 담을 수 있다. 내려받은 저장소에서는 `codex plugin marketplace add .`로 등록할 수 있으며 이때 카탈로그 이름은 `ai-slop-thresher-local`이다. 본 저장소의 Python 스크립트는 Codex 설정을 수정하지 않는다. 플러그인 방식과 아래의 직접 스킬 설치를 함께 사용하면 같은 이름이 중복 표시될 수 있으므로 한 방식을 선택한다.
 
 ## Claude Code 플러그인
 

@@ -188,5 +188,43 @@
     "output": "다음 분기를 위한 일정 계획과 예산 편성이 회의 자리에서 확정되었다.",
     "expect": "fail",
     "failure_type": "over_edited"
+  },
+  {
+    "name": "negation_reversed_despite_alternative",
+    "note": "대안 표현이 다른 부정 어미에 걸려 입증하지 않는다는 주장이 뒤집힌 출력을 통과시키지 않는지 확인.",
+    "case": {
+      "id": "R11",
+      "source": "이 결과는 효과를 입증하는 것은 아니다.",
+      "anchors": [
+        "아니다"
+      ],
+      "anchor_alternatives": {
+        "아니다": [
+          "입증하지는 않는다",
+          "입증하지 않는다"
+        ]
+      }
+    },
+    "output": "일부는 응답하지 않았다. 이 결과는 효과를 입증한다.",
+    "expect": "fail",
+    "failure_type": "missing_anchor"
+  },
+  {
+    "name": "prohibition_reversed",
+    "note": "앞 절의 다른 부정이 금지 문장을 대신 충족하지 않는지 확인.",
+    "case": {
+      "id": "R12",
+      "source": "승인 없이는 연결할 수 없으며 개인 자료를 옮기는 용도로는 사용하지 않아야 합니다.",
+      "required_any": [
+        [
+          "사용하지 않아야",
+          "사용하지 말아야",
+          "사용해서는 안"
+        ]
+      ]
+    },
+    "output": "승인 없이는 연결할 수 없습니다. 개인 자료를 옮기는 용도로도 사용할 수 있습니다.",
+    "expect": "fail",
+    "failure_type": "missing_any"
   }
 ]
