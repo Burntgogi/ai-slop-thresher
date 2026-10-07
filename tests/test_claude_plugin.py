@@ -21,6 +21,11 @@ class ClaudePluginTests(unittest.TestCase):
         self.assertEqual(plugin["name"], "ai-slop-thresher")
         self.assertEqual(plugin["version"], distribution.version(ROOT))
 
+    def test_every_distribution_shares_one_version(self):
+        # One release number for the skills, the Codex plugin and the Claude Code plugin.
+        codex = json.loads((ROOT / "integrations/codex/plugin.json").read_text(encoding="utf-8"))
+        self.assertEqual({manifest("plugin.json")["version"], codex["version"]}, {distribution.version(ROOT)})
+
     def test_marketplace_points_to_repository_root(self):
         entries = manifest("marketplace.json")["plugins"]
         self.assertEqual(len(entries), 1)
