@@ -54,7 +54,8 @@ def source_names(root, include):
 def build_artifacts(root=ROOT, output=None, apply=False, include=()):
     root = distribution.plain_path(root).resolve()
     portable = distribution.portable_files(root)
-    plugin = distribution.plugin_files(root)
+    plugin = distribution.plugin_files(root)  # repo projection shared by Codex and Claude Code
+    codex_store = distribution.plugin_files(root, claude=False)
     selected = source_names(root, include)
     destination = distribution.plain_path(output).resolve() if output is not None else None
     if apply and destination is None:
@@ -67,10 +68,10 @@ def build_artifacts(root=ROOT, output=None, apply=False, include=()):
     if not apply:
         return result
     archives = {"ai-slop-thresher-portable.zip": distribution.archive_bytes(portable),
-                "ai-slop-thresher-codex-plugin.zip": distribution.archive_bytes(plugin)}
+                "ai-slop-thresher-codex-plugin.zip": distribution.archive_bytes(codex_store)}
     archives["ai-slop-thresher.zip"] = archives["ai-slop-thresher-portable.zip"]
     files = {name: (root / name).read_bytes() for name in selected}
-    prefix = "plugins/codex/ai-slop-thresher/"
+    prefix = distribution.PLUGIN_DIR + "/"
     for name in list(files):
         if name.startswith(prefix):
             del files[name]
@@ -79,7 +80,7 @@ def build_artifacts(root=ROOT, output=None, apply=False, include=()):
     files["research/build-inputs.json"] = (json.dumps({"files": selected}, indent=2)+"\n").encode()
     files["research/package-validation-current.json"] = (json.dumps({
         "version": result["version"], "portable_skill_files": len(portable)-len(distribution.LEGAL),
-        "codex_projection_files": len(plugin), "references_resolve": True,
+        "plugin_projection_files": len(plugin), "codex_store_files": len(codex_store), "references_resolve": True,
         "archive_bytes_match_sources": True,
         "packages": [{"file": name, "bytes": len(data), "sha256": distribution.digest(data)}
                      for name, data in archives.items()],

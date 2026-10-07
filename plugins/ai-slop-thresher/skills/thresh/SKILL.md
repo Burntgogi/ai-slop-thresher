@@ -4,6 +4,8 @@ description: AI Slop 탈곡기의 짧은 호출 이름. 사용자가 thresh를 �
 metadata:
   version: "1.2.2"
   canonical_skill: "ai-slop-thresher"
+argument-hint: "[다듬을 글 또는 파일 경로]"
+disable-model-invocation: true
 ---
 
 # AI Slop 탈곡기 단축 호출

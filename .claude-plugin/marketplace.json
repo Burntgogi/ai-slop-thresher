@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "ai-slop-thresher",
-      "source": "./",
+      "source": "./plugins/ai-slop-thresher",
       "description": "한국어 윤문 스킬 ai-slop-thresher와 단축 호출 thresh",
       "category": "writing"
     }

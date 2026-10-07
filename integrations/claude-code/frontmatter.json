@@ -1,0 +1,9 @@
+{
+  "ai-slop-thresher": {
+    "argument-hint": "\"[다듬을 글 또는 파일 경로]\""
+  },
+  "thresh": {
+    "argument-hint": "\"[다듬을 글 또는 파일 경로]\"",
+    "disable-model-invocation": "true"
+  }
+}

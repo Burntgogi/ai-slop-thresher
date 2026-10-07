@@ -1,4 +1,4 @@
-"""Claude Code plugin manifests stay in step with the portable skills; no live installation."""
+"""One plugin directory serves Codex and Claude Code; manifests stay in step with the skills."""
 
 import importlib.util
 import json
@@ -11,38 +11,50 @@ distribution = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(distribution)
 
 
-def manifest(name):
-    return json.loads((ROOT / ".claude-plugin" / name).read_text(encoding="utf-8"))
+def read_json(relative):
+    return json.loads((ROOT / relative).read_text(encoding="utf-8"))
 
 
 class ClaudePluginTests(unittest.TestCase):
-    def test_plugin_version_matches_skills(self):
-        plugin = manifest("plugin.json")
-        self.assertEqual(plugin["name"], "ai-slop-thresher")
-        self.assertEqual(plugin["version"], distribution.version(ROOT))
-
     def test_every_distribution_shares_one_version(self):
         # One release number for the skills, the Codex plugin and the Claude Code plugin.
-        codex = json.loads((ROOT / "integrations/codex/plugin.json").read_text(encoding="utf-8"))
-        self.assertEqual({manifest("plugin.json")["version"], codex["version"]}, {distribution.version(ROOT)})
+        versions = {read_json("integrations/claude-code/plugin.json")["version"],
+                    read_json("integrations/codex/plugin.json")["version"]}
+        self.assertEqual(versions, {distribution.version(ROOT)})
 
-    def test_marketplace_points_to_repository_root(self):
-        entries = manifest("marketplace.json")["plugins"]
-        self.assertEqual(len(entries), 1)
-        self.assertEqual(entries[0]["name"], manifest("plugin.json")["name"])
-        self.assertEqual(entries[0]["source"], "./")
+    def test_both_marketplaces_point_to_the_shared_projection(self):
+        claude = read_json(".claude-plugin/marketplace.json")["plugins"]
+        self.assertEqual(len(claude), 1)
+        self.assertEqual(claude[0]["name"], read_json("integrations/claude-code/plugin.json")["name"])
+        self.assertEqual(claude[0]["source"], "./" + distribution.PLUGIN_DIR)
+        codex = read_json(".agents/plugins/marketplace.json")["plugins"]
+        self.assertEqual(codex[0]["source"]["path"], "./" + distribution.PLUGIN_DIR)
 
-    def test_root_skills_are_the_portable_pair(self):
-        # Claude Code discovers skills/<name>/SKILL.md at the plugin root.
-        found = sorted(p.parent.name for p in (ROOT / "skills").glob("*/SKILL.md"))
-        self.assertEqual(found, sorted(distribution.SKILLS))
-        distribution.portable_files(ROOT)  # Rejects Codex metadata and broken links.
-
-    def test_no_unintended_plugin_components_at_root(self):
-        # These root entries would be loaded as extra Claude Code plugin components.
+    def test_repository_root_is_a_marketplace_not_a_plugin(self):
+        # A root plugin.json would make Claude Code copy the whole repository into its cache.
+        self.assertFalse((ROOT / ".claude-plugin/plugin.json").exists())
         for name in ("commands", "agents", "hooks", "output-styles", "bin", "workflows", "themes", "monitors",
                      "settings.json", ".mcp.json", ".lsp.json"):
-            self.assertFalse((ROOT / name).exists(), name)
+            self.assertFalse((ROOT / distribution.PLUGIN_DIR / name).exists(), name)
+
+    def test_projection_carries_claude_only_frontmatter(self):
+        files = distribution.plugin_files(ROOT)
+        thresh = files["skills/thresh/SKILL.md"].decode("utf-8").split("\n---", 1)[0]
+        self.assertIn("\ndisable-model-invocation: true", thresh)
+        self.assertIn(".claude-plugin/plugin.json", files)
+        # The portable skill and the Codex store package keep only Agent Skills fields.
+        portable = (ROOT / "skills/thresh/SKILL.md").read_text(encoding="utf-8")
+        self.assertNotIn("disable-model-invocation", portable)
+        store = distribution.plugin_files(ROOT, claude=False)
+        self.assertEqual(store["skills/thresh/SKILL.md"], (ROOT / "skills/thresh/SKILL.md").read_bytes())
+        self.assertFalse(any(name.startswith(".claude-plugin/") for name in store))
+
+    def test_host_frontmatter_cannot_override_source_fields(self):
+        data = (ROOT / "skills/thresh/SKILL.md").read_bytes()
+        with self.assertRaisesRegex(distribution.DistributionError, "already in source"):
+            distribution.with_frontmatter(data, {"description": "x"}, "thresh")
+        with self.assertRaisesRegex(distribution.DistributionError, "invalid host frontmatter"):
+            distribution.with_frontmatter(data, {"bad key": "x"}, "thresh")
 
 
 if __name__ == "__main__":

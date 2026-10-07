@@ -6,6 +6,7 @@ metadata:
   english_name: "AI Slop Thresher"
   english_tagline: "This Text Is Not Interesting."
   short_name: "thresh"
+argument-hint: "[다듬을 글 또는 파일 경로]"
 ---
 
 # AI Slop 탈곡기: 이 글은 흥미롭지 않습니다.

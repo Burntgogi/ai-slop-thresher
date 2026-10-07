@@ -26,6 +26,9 @@ TARGETS = {
     "cursor": {"user": ".cursor/skills", "project": ".cursor/skills"},
 }
 RECEIPT = ".build-receipt.json"
+# One plugin directory serves Codex (.codex-plugin) and Claude Code (.claude-plugin).
+PLUGIN_DIR = "plugins/ai-slop-thresher"
+CLAUDE_DIR = "integrations/claude-code"
 
 
 class DistributionError(ValueError):
@@ -165,7 +168,42 @@ def version(root=ROOT):
     return metadata["version"]
 
 
-def plugin_files(root=ROOT):
+def with_frontmatter(data, extra, name):
+    """Append host-only frontmatter fields (flat string values) before the closing fence."""
+    body = data.decode("utf-8")
+    match = re.match(r"\A---(\r?\n)(.*?)\r?\n---", body, re.DOTALL)
+    if not match:
+        raise DistributionError(f"missing or unterminated frontmatter: {name}")
+    lines = []
+    for key, value in extra.items():
+        if not re.fullmatch(r"[a-zA-Z][a-zA-Z0-9-]*", key) or not isinstance(value, str) or "\n" in value:
+            raise DistributionError(f"invalid host frontmatter field: {name}: {key}")
+        if re.search(rf"(?m)^{re.escape(key)}:", match.group(2)):
+            raise DistributionError(f"host frontmatter field already in source: {name}: {key}")
+        lines.append(f"{key}: {value}")
+    newline = match.group(1)
+    insert = match.end(2)
+    return (body[:insert] + "".join(newline + line for line in lines) + body[insert:]).encode("utf-8")
+
+
+def claude_files(root=ROOT):
+    """Claude Code manifest and per-skill frontmatter, kept apart from the portable skills."""
+    folder = Path(root) / CLAUDE_DIR
+    manifest_path = plain_path(folder / "plugin.json")
+    if not manifest_path.is_file():
+        return {}, {}
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if manifest.get("name") != "ai-slop-thresher":
+        raise DistributionError("Claude Code manifest must identify ai-slop-thresher")
+    overlay_path = plain_path(folder / "frontmatter.json")
+    overlay = json.loads(overlay_path.read_text(encoding="utf-8")) if overlay_path.is_file() else {}
+    if set(overlay) - set(SKILLS):
+        raise DistributionError("Claude Code frontmatter names an unknown skill")
+    return {".claude-plugin/plugin.json": manifest_path.read_bytes()}, overlay
+
+
+def plugin_files(root=ROOT, claude=True):
+    """Files of plugins/ai-slop-thresher. claude=False gives the Codex-only store package."""
     portable = portable_files(root)
     files = {key if key in LEGAL else f"skills/{key}": data for key, data in portable.items()}
     for name in SKILLS:
@@ -196,6 +234,11 @@ def plugin_files(root=ROOT):
             name = relative[2:]
             files[name] = plain_path(Path(root) / name).read_bytes()
     files[".codex-plugin/plugin.json"] = (json.dumps(manifest, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
+    if claude:
+        manifests, overlay = claude_files(root)
+        files.update(manifests)
+        for name, extra in overlay.items():
+            files[f"skills/{name}/SKILL.md"] = with_frontmatter(files[f"skills/{name}/SKILL.md"], extra, name)
     validate_links(files)
     return files
 
@@ -210,7 +253,7 @@ def write_files(folder, files):
 
 def build_plugin(root=ROOT, output=None, apply=False):
     files = plugin_files(root)
-    output = plain_path(output or Path(root) / "plugins/codex/ai-slop-thresher")
+    output = plain_path(output or Path(root) / PLUGIN_DIR)
     # An interrupted/failed restoration is never adopted or deleted on retry.
     # These random sibling names do not identify a particular output, so block
     # conservatively until the user restores or relocates the preserved backup.
@@ -277,7 +320,7 @@ def build_plugin(root=ROOT, output=None, apply=False):
 
 def check_plugin(root=ROOT, output=None):
     expected = plugin_files(root)
-    actual = read_tree(output or Path(root) / "plugins/codex/ai-slop-thresher")
+    actual = read_tree(output or Path(root) / PLUGIN_DIR)
     receipt = actual.pop(RECEIPT, None)
     if actual != expected or receipt is None:
         raise DistributionError("Codex projection is stale; run build --apply")
@@ -286,10 +329,15 @@ def check_plugin(root=ROOT, output=None):
     marketplace_path = plain_path(Path(root) / ".agents/plugins/marketplace.json")
     marketplace = json.loads(marketplace_path.read_text(encoding="utf-8"))
     entries = marketplace.get("plugins", [])
-    if len(entries) != 1 or entries[0].get("source") != {"source": "local", "path": "./plugins/codex/ai-slop-thresher"}:
-        raise DistributionError("marketplace must point to the repo Codex projection")
+    if len(entries) != 1 or entries[0].get("source") != {"source": "local", "path": "./" + PLUGIN_DIR}:
+        raise DistributionError("marketplace must point to the repo plugin projection")
     if not plain_path(Path(root) / entries[0]["source"]["path"]).is_dir():
         raise DistributionError("marketplace plugin directory is missing")
+    claude_market = plain_path(Path(root) / ".claude-plugin/marketplace.json")
+    if claude_market.is_file():
+        claude_entries = json.loads(claude_market.read_text(encoding="utf-8")).get("plugins", [])
+        if len(claude_entries) != 1 or claude_entries[0].get("source") != "./" + PLUGIN_DIR:
+            raise DistributionError("Claude Code marketplace must point to the repo plugin projection")
     return {"operation": "check", "files": len(expected), "projection_matches_source": True, "local_references_resolve": True, "marketplace_path_resolves": True}
 
 
@@ -366,7 +414,7 @@ def package(root=ROOT, output=None, apply=False):
     if apply and output is None:
         raise DistributionError("package --apply requires an explicit new --output directory")
     portable = portable_files(root)
-    plugin = plugin_files(root)
+    plugin = plugin_files(root, claude=False)
     output = plain_path(output or Path(root) / "dist")
     archives = {"ai-slop-thresher-portable.zip": archive_bytes(portable), "ai-slop-thresher-codex-plugin.zip": archive_bytes(plugin)}
     # Existing portable download name remains available, with identical bytes.

@@ -40,7 +40,7 @@ class DistributionTests(unittest.TestCase):
             (self.source / name).write_text("Legal notice\n", encoding="utf-8")
         market = self.source / ".agents/plugins"
         market.mkdir(parents=True)
-        (market / "marketplace.json").write_text(json.dumps({"plugins": [{"source": {"source": "local", "path": "./plugins/codex/ai-slop-thresher"}}]}), encoding="utf-8")
+        (market / "marketplace.json").write_text(json.dumps({"plugins": [{"source": {"source": "local", "path": "./plugins/ai-slop-thresher"}}]}), encoding="utf-8")
 
     def tearDown(self):
         self.temp.cleanup()
@@ -258,6 +258,16 @@ class DistributionTests(unittest.TestCase):
         marketplace.write_text(json.dumps({"plugins": [{"source": {"source": "local", "path": "../../wrong"}}]}), encoding="utf-8")
         with self.assertRaises(distribution.DistributionError):
             distribution.check_plugin(root=self.source)
+
+    def test_check_rejects_claude_marketplace_outside_projection(self):
+        distribution.build_plugin(root=self.source, apply=True)
+        distribution.check_plugin(root=self.source)
+        claude = self.source / ".claude-plugin/marketplace.json"
+        claude.parent.mkdir()
+        for source in ("./", "./plugins/other"):
+            claude.write_text(json.dumps({"plugins": [{"name": "ai-slop-thresher", "source": source}]}), encoding="utf-8")
+            with self.subTest(source=source), self.assertRaisesRegex(distribution.DistributionError, "Claude Code marketplace"):
+                distribution.check_plugin(root=self.source)
 
     def test_build_rejects_unmanaged_output(self):
         output = self.base / "unmanaged"
