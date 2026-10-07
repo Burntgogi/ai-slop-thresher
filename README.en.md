@@ -10,8 +10,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.2.1"><img src="https://img.shields.io/badge/status-released-f3a6ca" alt="Status: released"></a>
-  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.2.1"><img src="https://img.shields.io/badge/release-v1.2.1-315BFF" alt="Release: v1.2.1"></a>
+  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.2.2"><img src="https://img.shields.io/badge/status-released-f3a6ca" alt="Status: released"></a>
+  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.2.2"><img src="https://img.shields.io/badge/release-v1.2.2-315BFF" alt="Release: v1.2.2"></a>
   <a href="#editing-rules"><img src="https://img.shields.io/badge/language-Korean-2f80ed" alt="Editing language: Korean"></a>
   <a href="#validation-scope"><img src="https://img.shields.io/badge/checks-fixtures_passed-8a78d6" alt="Checks: saved synthetic fixtures passed"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache_2.0-3aa675" alt="License: Apache-2.0"></a>
@@ -25,9 +25,9 @@
 
 The skill's instructions and evaluation examples are in Korean. This page explains how to use it on Korean text.
 
-**v1.2.1** combines the existing editing safeguards and harness-specific distribution structure with readability improvements. It removes empty praise, shortens wording while preserving conditions and per-person limits, and changes information grouping or placement only when the context warrants it.
+v1.2.2 keeps the readability improvements of v1.2.1 and gives the skills, the Codex plugin, and the Claude Code plugin one version number. It removes empty praise, shortens wording while preserving conditions and per-person limits, changes information grouping or placement only when the context warrants it, and keeps the shape of preserved quotation marks and symbols.
 
-The Korean [release notes](docs/releases/v1.2.1.md) and [final review](reports/release-finalization-20261002.md) record the verification scope and reader feedback. Comparative testing is complete; these results do not establish superiority on every text. Previous-version users can consult the [version selection guide](docs/version-choice.md).
+The Korean [release notes](docs/releases/v1.2.2.md) and [execution comparison](evaluation/regression-20261007/README.md) record the verification scope. Running the released v1.2.0 and v1.2.1 in Codex showed no loss of meaning; these results do not establish superiority on every text. Previous-version users can consult the [version selection guide](docs/version-choice.md).
 
 In Codex, paste your draft with a request such as the following. Use your harness's invocation syntax elsewhere:
 
@@ -167,4 +167,4 @@ The detailed documentation below is in Korean.
 
 [Release notes](RELEASE_NOTES.md) · [Changelog](CHANGELOG.md) · [Development report](reports/ai-slop-thresher-report.md) · [20 original and edited examples](reports/comparisons.md) · [Verification guide](docs/verification.md)
 
-[Layout and design sources](docs/github-frontpage.md) · [README and release notes editing record](reports/document-editing.md) · [Full project ZIP](https://github.com/Burntgogi/ai-slop-thresher/releases/download/v1.2.1/ai-slop-thresher-workbench.zip)
+[Layout and design sources](docs/github-frontpage.md) · [README and release notes editing record](reports/document-editing.md) · [Full project ZIP](https://github.com/Burntgogi/ai-slop-thresher/releases/download/v1.2.2/ai-slop-thresher-workbench.zip)

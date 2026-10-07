@@ -1,11 +1,11 @@
-# AI Slop 탈곡기 v1.2.1
+# AI Slop 탈곡기 v1.2.2
 
-2026년 10월 2일. 기존 윤문·의미 보존과 하네스별 배포 구조에 가독성 개선을 통합했습니다.
+2026년 10월 7일. 스킬, Codex 플러그인, Claude Code 플러그인을 하나의 번호로 묶었습니다.
 
-정보 없는 흥미·칭찬을 덜고 조건·범위·개별 적용 단위를 유지하며 표현을 압축합니다. 문맥상 필요한 경우에만 정보 묶음과 위치를 조정하고, 조사·접속 표현·쉼표는 기능을 보고 판단합니다. 실제 정정·책임·가능성과 저자의 평가는 보존합니다. 검사·재집계는 기본 실행에서 기록을 쓰지 않으며 재빌드는 명시한 새 출력 폴더에 수행합니다.
+배포된 v1.2.1을 실행해 비교하면서 찾은 따옴표 모양 변경을 고쳤고, 빠졌던 호출 단서를 되살렸습니다. 나머지 편집 규칙은 v1.2.1과 같습니다. 두 버전 모두 고정 사례와 탐침에서 의미 손실은 없었습니다.
 
-공통 스킬과 Codex 플러그인의 분리, ai-slop-thresher 정본과 thresh 별칭은 유지합니다. 배포 ZIP 4종과 SHA256SUMS를 제공합니다. [설치 안내](docs/installation.md)
+Claude Code에서는 `/plugin marketplace add Burntgogi/ai-slop-thresher`로 설치할 수 있습니다. Codex 플러그인에는 공개 디렉터리용 소개와 아이콘, 개인정보와 라이선스 안내를 넣었습니다. 단축 호출 thresh는 이름을 직접 부를 때만 쓰입니다. [설치 안내](docs/installation.md)
 
-추가 A/B는 종료했습니다. 기존 사례의 회귀 확인과 배포 검증으로 마무리했으며 모든 글에서 이전 버전보다 좋다고 주장하지 않습니다. [전체 변경 내용과 한계](docs/releases/v1.2.1.md) · [최종 검토](reports/release-finalization-20261002.md)
+모든 글에서 이전 버전보다 좋다고 주장하지 않습니다. [전체 변경 내용과 한계](docs/releases/v1.2.2.md) · [실행 비교 기록](evaluation/regression-20261007/README.md)
 
-[v1.2.0 노트](docs/releases/v1.2.0.md) · [변경 이력](CHANGELOG.md) · [LICENSE](LICENSE)
+[v1.2.1 노트](docs/releases/v1.2.1.md) · [변경 이력](CHANGELOG.md) · [LICENSE](LICENSE)

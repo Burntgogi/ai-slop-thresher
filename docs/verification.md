@@ -22,9 +22,9 @@ python -B -m unittest discover -s tests -v
 다음 명령은 검사와 별도의 생성 작업입니다. 출력은 소스 밖의 존재하지 않는 새 폴더를 지정합니다. 기본 실행은 계획만 출력하고 --apply에서만 ZIP 4개, SHA256SUMS와 build-report.json을 만듭니다. 기존 소스의 plugins/, research/, dist/는 쓰지 않습니다.
 
 ```powershell
-python -B evaluation/package_artifacts.py --output ../release-candidates/v1.2.1
-python -B evaluation/package_artifacts.py --output ../release-candidates/v1.2.1 --apply
-python -B scripts/verify_release.py --artifacts ../release-candidates/v1.2.1 --source .
+python -B evaluation/package_artifacts.py --output ../release-candidates/v1.2.2
+python -B evaluation/package_artifacts.py --output ../release-candidates/v1.2.2 --apply
+python -B scripts/verify_release.py --artifacts ../release-candidates/v1.2.2 --source .
 ```
 
 Git 체크아웃에서는 추적된 탈곡기 파일을 포함합니다. 미커밋 새 파일은 자동 포함하지 않고 --include scripts/verify_release.py처럼 소스 상대 경로를 명시합니다. 전체 작업 ZIP에는 포함 목록을 저장해 압축을 푼 자료에서도 Git 없이 재빌드할 수 있습니다. 협업 도구의 코드·DB·로컬 원응답은 탈곡기 배포 범위에 포함하지 않습니다.

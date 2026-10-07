@@ -10,8 +10,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.2.1"><img src="https://img.shields.io/badge/status-released-f3a6ca" alt="상태: 공개 릴리즈"></a>
-  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.2.1"><img src="https://img.shields.io/badge/release-v1.2.1-315BFF" alt="릴리즈: v1.2.1"></a>
+  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.2.2"><img src="https://img.shields.io/badge/status-released-f3a6ca" alt="상태: 공개 릴리즈"></a>
+  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.2.2"><img src="https://img.shields.io/badge/release-v1.2.2-315BFF" alt="릴리즈: v1.2.2"></a>
   <a href="#편집-기준"><img src="https://img.shields.io/badge/language-Korean-2f80ed" alt="윤문 대상 언어: 한국어"></a>
   <a href="#확인한-범위"><img src="https://img.shields.io/badge/checks-fixtures_passed-8a78d6" alt="검사: 저장된 가상 예문 검사 통과"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache_2.0-3aa675" alt="라이선스: Apache-2.0"></a>
@@ -23,9 +23,9 @@
   <a href="#사용법">사용법</a> · <a href="#라이선스">라이선스</a>
 </p>
 
-**v1.2.1**은 기존 윤문·의미 보존과 하네스별 배포 구조에 가독성 개선을 통합한 릴리즈입니다. 정보 없는 흥미·칭찬을 덜고, 조건과 적용 단위를 유지하며 표현을 압축합니다. 문맥상 필요한 경우에만 정보 묶음과 위치를 조정합니다.
+v1.2.2는 v1.2.1의 가독성 개선을 유지하면서 스킬, Codex 플러그인, Claude Code 플러그인을 하나의 번호로 묶은 릴리즈입니다. 정보 없는 흥미·칭찬을 덜고, 조건과 적용 단위를 유지하며 표현을 압축합니다. 문맥상 필요한 경우에만 정보 묶음과 위치를 조정하며, 보존하는 따옴표와 기호는 모양도 바꾸지 않습니다.
 
-[릴리즈 변경 내용](docs/releases/v1.2.1.md)과 [최종 검토](reports/release-finalization-20261002.md)에 확인 범위와 사용자 피드백을 기록했습니다. 추가 비교 실험은 종료했으며 모든 글에서 이전 버전보다 좋다고 주장하지 않습니다. 이전 버전 사용자는 [버전 선택 안내](docs/version-choice.md)를 참고하세요.
+[릴리즈 변경 내용](docs/releases/v1.2.2.md)과 [실행 비교 기록](evaluation/regression-20261007/README.md)에 확인 범위를 기록했습니다. 배포된 v1.2.0과 v1.2.1을 Codex로 실행한 비교에서 의미 손실은 없었으며, 모든 글에서 이전 버전보다 좋다고 주장하지 않습니다. 이전 버전 사용자는 [버전 선택 안내](docs/version-choice.md)를 참고하세요.
 
 Codex에서는 설치 후 다듬을 글과 함께 입력하세요. 다른 하네스에서는 해당 스킬 호출 문법을 사용하세요.
 
@@ -150,4 +150,4 @@ Apache-2.0으로 배포합니다. [LICENSE](LICENSE)에 전체 조건을, [NOTIC
 
 [릴리즈 노트](RELEASE_NOTES.md) · [변경 이력](CHANGELOG.md) · [제작 보고서](reports/ai-slop-thresher-report.md) · [20개 적용 전후 사례](reports/comparisons.md) · [재검증 방법](docs/verification.md)
 
-[화면 구성과 참고 자료](docs/github-frontpage.md) · [README·릴리즈 노트 윤문 기록](reports/document-editing.md) · [전체 제작 자료 ZIP](https://github.com/Burntgogi/ai-slop-thresher/releases/download/v1.2.1/ai-slop-thresher-workbench.zip)
+[화면 구성과 참고 자료](docs/github-frontpage.md) · [README·릴리즈 노트 윤문 기록](reports/document-editing.md) · [전체 제작 자료 ZIP](https://github.com/Burntgogi/ai-slop-thresher/releases/download/v1.2.2/ai-slop-thresher-workbench.zip)

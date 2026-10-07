@@ -19,7 +19,7 @@ plugins/codex/ai-slop-thresher/       생성된 Codex 플러그인
 
 Python 3.10 이상이면 설치·빌드 스크립트를 실행할 수 있다. 외부 Python 패키지는 필요하지 않다. 아래 명령은 저장소 루트에서 실행한다.
 
-현재 배포는 v1.2.1이다. 이전 버전과의 전환·복구는 [버전 선택 안내](version-choice.md)를 따른다. 두 버전을 동일한 스킬 경로에 동시에 설치하지 않는다.
+현재 배포는 v1.2.2이다. 이전 버전과의 전환·복구는 [버전 선택 안내](version-choice.md)를 따른다. 두 버전을 동일한 스킬 경로에 동시에 설치하지 않는다.
 
 ## Codex 플러그인
 
@@ -30,7 +30,7 @@ python scripts/distribute.py check
 
 `build`는 공통 원본·Codex 메타데이터·법적 고지를 복사하고 호환 형식 `.codex-plugin/plugin.json`을 만든다. 플러그인 소개와 버전은 `integrations/codex/plugin.json`에서 관리하며 그 파일이 참조하는 이미지를 패키지에 포함한다. 생성된 플러그인 파일은 직접 편집하지 않는다. `check`는 생성 파일이 현재 원본과 바이트 단위로 일치하는지, 상대 참조가 해결되는지, 카탈로그 경로가 맞는지 검사한다. 스킬이나 메타데이터를 변경한 뒤에는 다시 빌드한다.
 
-공개 디렉터리 제출용 플러그인 버전은 1.2.2이며 포함된 윤문 스킬은 1.2.1이다. 이번 플러그인 변경은 소개, 아이콘과 개인정보·라이선스 안내를 추가한 것이다. [제출 준비 안내](plugin-store-submission.md)
+스킬, Codex 플러그인, Claude Code 플러그인은 같은 버전 번호를 쓴다. `integrations/codex/plugin.json`과 `.claude-plugin/plugin.json`의 버전이 스킬의 `metadata.version`과 다르면 테스트가 실패한다. 공개 디렉터리용 개인정보와 라이선스 안내는 [plugin-privacy.md](plugin-privacy.md)와 [plugin-terms.md](plugin-terms.md)에 있다.
 
 생성물 교체와 기존 생성물 복원에 모두 실패하면 기존 파일은 출력 디렉터리 옆 `.thresher-old-*` 백업에 보존되고 오류에 그 경로가 표시된다. 같은 상위 디렉터리에 이 백업이 남아 있으면 다음 빌드는 중단한다. 스크립트는 백업을 자동으로 선택하거나 삭제하지 않는다. 내용을 확인한 뒤 비어 있는 원래 출력 경로로 복원하거나 별도 안전한 위치로 옮겨 보관한 후 다시 실행한다. 새 생성물 교체가 성공한 경우에만 이전 백업을 정리한다.
 

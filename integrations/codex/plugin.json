@@ -31,7 +31,7 @@
   "extensions": {
     "com.openai": {
       "publication": {
-        "release_notes": "Initial public directory package. Adds listing metadata, a square brand icon, and privacy and licensing information. The Korean editing skills remain at v1.2.1.",
+        "release_notes": "Initial public directory package, aligned with skills v1.2.2. Adds listing metadata, a square brand icon, and privacy and licensing information. Editing now keeps the shape of preserved quotation marks, and the thresh shortcut is for explicit invocation only.",
         "translations": {
           "ko-KR": {
             "subtitle": "뜻과 말투를 지키는 한국어 윤문",
