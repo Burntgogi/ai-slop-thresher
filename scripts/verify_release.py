@@ -39,7 +39,7 @@ def verify_release(artifacts, source=None):
     if source is not None:
         if members["ai-slop-thresher-portable.zip"] != distribution.portable_files(source):
             raise distribution.DistributionError("portable ZIP differs from the selected source")
-        if members["ai-slop-thresher-codex-plugin.zip"] != distribution.plugin_files(source):
+        if members["ai-slop-thresher-codex-plugin.zip"] != distribution.plugin_files(source, claude=False):
             raise distribution.DistributionError("Codex ZIP differs from the selected source")
     return {"verified": True, "files_written": 0, "archives": sorted(rows),
             "source_bytes_checked": source is not None,

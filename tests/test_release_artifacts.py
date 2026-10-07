@@ -46,6 +46,19 @@ class ReleaseArtifactsTests(unittest.TestCase):
         self.assertTrue(verifier.verify_release(output, self.source)["verified"])
         self.assertEqual(snapshot(output), produced)
 
+    def test_codex_zip_omits_claude_settings_and_still_verifies(self):
+        claude = self.source / "integrations/claude-code"
+        claude.mkdir(parents=True)
+        (claude / "plugin.json").write_text(json.dumps({"name": "ai-slop-thresher", "version": "1.2.0"}), encoding="utf-8")
+        (claude / "frontmatter.json").write_text(json.dumps({"thresh": {"disable-model-invocation": "true"}}), encoding="utf-8")
+        self.inventory()
+        output = self.base / "candidate"
+        builder.build_artifacts(self.source, output, apply=True)
+        with zipfile.ZipFile(output / "ai-slop-thresher-codex-plugin.zip") as archive:
+            self.assertFalse(any(name.startswith(".claude-plugin/") for name in archive.namelist()))
+            self.assertNotIn(b"disable-model-invocation", archive.read("skills/thresh/SKILL.md"))
+        self.assertTrue(verifier.verify_release(output, self.source)["verified"])
+
     def test_existing_source_or_missing_output_cannot_write(self):
         self.inventory()
         existing = self.base / "published"
