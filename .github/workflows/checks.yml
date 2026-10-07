@@ -1,0 +1,36 @@
+name: checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    env:
+      PYTHONUTF8: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Unit tests
+        run: python -B -m unittest discover -s tests -v
+      - name: Saved fixture checks
+        run: python -B evaluation/run_checks.py
+      - name: Improvement and A/B records
+        run: |
+          python -B evaluation/improvement-20260930/record.py verify
+          python -B evaluation/ab-20260930/aggregate.py
+      - name: Recorded release archives
+        run: python -B scripts/verify_release.py --artifacts dist
+      - name: Plugin projection
+        run: python -B scripts/distribute.py check
