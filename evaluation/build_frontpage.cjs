@@ -83,12 +83,15 @@ async function main() {
   };
   fs.mkdirSync(out, { recursive:true });
   for (const page of pages) {
-    const source = fs.readFileSync(path.join(root, page.input), 'utf8');
+    const raw = fs.readFileSync(path.join(root, page.input));
+    const source = raw.toString('utf8');
+    // tests/test_frontpage.py compares this hash with the Markdown to catch a stale preview.
+    const sourceHash = require('node:crypto').createHash('sha256').update(raw).digest('hex');
     const body = marked.parse(source, { gfm:true, renderer }).replace(/(href|src)="([^"]+)"/g, (_, attr, url) => attr + '="' + rewriteUrl(url) + '"');
     const nav = pages.map(item => '<a href="' + item.output + '"' + (item === page ? ' aria-current="page"' : '') + '>' + item.label + '</a>').join('');
     const isEnglish = page.lang === 'en';
     const html = `<!doctype html>
-<html lang="${page.lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${page.label} · AI Slop Thresher</title><style>${css}</style></head>
+<html lang="${page.lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="source-sha256" content="${sourceHash}"><title>${page.label} · AI Slop Thresher</title><style>${css}</style></head>
 <body><header class="site-head"><a class="site-name" href="${isEnglish ? 'index.en.html' : 'index.html'}">AI Slop Thresher</a><span class="preview-label">${isEnglish ? 'GitHub documentation preview' : 'GitHub 문서 미리보기'}</span></header>
 <main class="frame"><nav class="tabs" aria-label="${isEnglish ? 'Documentation' : '문서'}">${nav}<a class="source" href="../../${page.input}">${isEnglish ? 'Markdown source' : '원본 Markdown'}</a></nav><article class="markdown-body">${body}</article><footer class="foot">${isEnglish ? 'Local preview rendered from saved Markdown. Details may differ from GitHub.' : '저장된 Markdown을 렌더링한 로컬 미리보기입니다. GitHub의 실제 화면과 세부 서식은 다를 수 있습니다.'}</footer></main></body></html>\n`;
     fs.writeFileSync(path.join(out, page.output), html, 'utf8');
