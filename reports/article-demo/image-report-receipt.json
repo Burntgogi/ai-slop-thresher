@@ -1,0 +1,24 @@
+{
+  "created_at": "2026-09-12T05:46:15.078183+00:00",
+  "mode": "built-in image_gen",
+  "asset": "one-page-comparison.png",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "image_sha256": "ed37d2322b1e72b38aff6d4acd809e4e6425e30ad10c4b08cb339faaecf3c787",
+  "prompt": "image-report-prompt.txt",
+  "prompt_sha256": "385fc52f36c2bd29318307feff7e595458a20b0cf47add238a096a7374b05a0f",
+  "sources": [
+    "01-before.md",
+    "02-after.md",
+    "metrics.json"
+  ],
+  "review": {
+    "method": "Visual inspection of the generated image against the source articles and metrics.",
+    "paragraphs": "Nine paragraphs in each column.",
+    "figures": "1528 to 1223 characters; 28 to 24 sentences; 6 changed and 3 unchanged paragraphs.",
+    "notes": "Numbers represent text changes, not a quality score. Same-agent editing demonstration.",
+    "automated_ocr_check": false
+  }
+}

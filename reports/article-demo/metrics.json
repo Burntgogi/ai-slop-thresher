@@ -1,0 +1,129 @@
+{
+  "character_basis": "본문만 계산. 공백 포함, 제목과 줄바꿈 제외. Unicode 문자 수.",
+  "before_chars": 1528,
+  "after_chars": 1223,
+  "removed_net_chars": 305,
+  "reduction_percent": 20.0,
+  "before_sentences": 28,
+  "after_sentences": 24,
+  "before_commas": 17,
+  "after_commas": 13,
+  "paragraphs": 9,
+  "changed_paragraphs": 6,
+  "unchanged_paragraphs": [
+    "P01",
+    "P06",
+    "P08"
+  ],
+  "frozen_draft_unchanged": true,
+  "title_unchanged": true,
+  "protected_string_counts": [
+    {
+      "text": "Burntgogi",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "text": "2026년 9월 12일",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "text": "AI Slop 탈곡기: 이 글은 흥미롭지 않습니다.",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "text": "ai-slop-thresher",
+      "before": 2,
+      "after": 2
+    },
+    {
+      "text": "thresh",
+      "before": 4,
+      "after": 4
+    },
+    {
+      "text": "$thresh",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "text": "$ai-slop-thresher",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "text": "Codex",
+      "before": 3,
+      "after": 3
+    },
+    {
+      "text": "Python",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "text": "5회",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "text": "12개",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "text": "8개",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "text": "7개",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "text": "2개",
+      "before": 2,
+      "after": 2
+    },
+    {
+      "text": "v1.1.0",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "text": "Apache-2.0",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "text": "LICENSE",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "text": "NOTICE",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "text": "ATTRIBUTIONS.md",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "text": "'흥미로운 점은'",
+      "before": 1,
+      "after": 1
+    }
+  ],
+  "number_occurrences_preserved": true,
+  "quoted_text_preserved": true,
+  "diff_reconstruction_checked": true,
+  "before_sha256": "5e1b9b3dbe4d79a9eea379eb6c05dd9fd0e4652589715f394cbaab865d156be4",
+  "after_sha256": "ddb6d79567a70b7ac49eec30efa1e07e4838a24ca196e9fb1e6590aa8bd20b82",
+  "skill_sha256": "e3c0efc1b179d82f670bce79a34aa3b93906fa28ac93398f16421a37fcca6edc",
+  "semantic_review": "Same-agent review recorded in review.json; not an independent evaluation."
+}

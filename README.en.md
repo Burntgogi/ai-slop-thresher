@@ -37,6 +37,19 @@ $thresh Edit the Korean text below for natural phrasing. Preserve its meaning an
 
 ## Before and after
 
+The image below presents selected passages from the Korean article introducing the skill.
+
+<p align="center">Left, pink: before · Right, blue: after · Korean text</p>
+
+<p align="center">
+  <a href="assets/ai-slop-thresher-comparison-ko.png"><img src="assets/ai-slop-thresher-comparison-ko.png" alt="Seven Korean article excerpts before editing on the pink left and after editing on the blue right. The edits reduce repeated explanations and indirect phrasing while preserving numbers and conditions. Items 5 and 7 retain their content." width="710"></a>
+</p>
+
+Items 5 and 7 retain their content. Select the image to view it at its original size. The [full article and editing record](reports/article-demo/README.md) include the reasons for each edit in Korean.
+
+<details>
+<summary>Read a short product notice example in English</summary>
+
 These are English translations of a synthetic Korean product notice used during development. The skill was applied to the Korean original.
 
 ### Before
@@ -48,6 +61,8 @@ These are English translations of a synthetic Korean product notice used during 
 > In internal tests of the new dashboard, weekly report writing time fell from 30 minutes to 10 minutes. Reports can also be downloaded as CSV.
 
 The edit removes repeated praise and a misplaced contrast. It keeps the scope of the internal tests, both time values, and the CSV feature. The [20 full examples](reports/comparisons.md) include cases with conditions, quotations, and code.
+
+</details>
 
 <details>
 <summary>Original Korean example</summary>

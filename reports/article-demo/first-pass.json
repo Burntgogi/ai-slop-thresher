@@ -1,0 +1,11 @@
+{
+  "saved_at": "2026-09-12T05:22:17.4811877Z",
+  "stage": "First draft saved before explicitly rereading and applying the skill in this task",
+  "file": "01-before.md",
+  "sha256": "5e1b9b3dbe4d79a9eea379eb6c05dd9fd0e4652589715f394cbaab865d156be4",
+  "prompt": "Write a Korean news-style introduction to AI Slop Thresher using verified project facts. Do not apply an explicit humanizer revision pass to the first draft. Do not invent interviews, results, or features.",
+  "author": "The same Codex agent as the later edit and review",
+  "blind_comparison": false,
+  "prior_context": "This conversation already contains the skill instructions and earlier editing work. This is a tracked editing demonstration, not an independent no-skill control.",
+  "source_commit": "1ce5dddaff01c4353a71bbaf2abcb03f66dd4965"
+}
