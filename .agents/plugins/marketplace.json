@@ -1,6 +1,6 @@
 {
-  "name": "ai-slop-thresher-local",
-  "interface": {"displayName": "AI Slop 탈곡기 로컬 배포"},
+  "name": "ai-slop-thresher",
+  "interface": {"displayName": "AI Slop 탈곡기"},
   "plugins": [
     {
       "name": "ai-slop-thresher",

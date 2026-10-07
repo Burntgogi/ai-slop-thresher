@@ -1,5 +1,9 @@
 # 변경 이력
 
+## 1.2.4 · 2026년 10월 7일
+
+Codex 카탈로그 이름을 `ai-slop-thresher-local`에서 `ai-slop-thresher`로 바꿔 Codex와 Claude Code의 설치 이름을 `ai-slop-thresher@ai-slop-thresher`로 통일했습니다. v1.2.0의 로컬 배포용 이름이 GitHub 설치에도 남아 있었습니다. v1.2.3 이하로 설치한 경우의 이전 절차를 설치 안내에 적었습니다. 편집 지침은 바뀌지 않았습니다. [릴리즈 노트](docs/releases/v1.2.4.md)
+
 ## 1.2.3 · 2026년 10월 7일
 
 편집 지침 본문은 1.2.2와 같습니다. Codex와 Claude Code가 플러그인 폴더 하나 `plugins/ai-slop-thresher/`를 함께 쓰도록 바꿔 Claude Code 설치 캐시가 저장소 전체 대신 플러그인 폴더만 담습니다. Claude Code 플러그인의 thresh는 자동 선택을 끄고, 공통 스킬과 Codex 공개 디렉터리용 ZIP은 Agent Skills 필드만 유지합니다. [릴리즈 노트](docs/releases/v1.2.3.md)

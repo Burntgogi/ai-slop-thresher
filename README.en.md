@@ -10,8 +10,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.2.3"><img src="https://img.shields.io/badge/status-released-f3a6ca" alt="Status: released"></a>
-  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.2.3"><img src="https://img.shields.io/badge/release-v1.2.3-315BFF" alt="Release: v1.2.3"></a>
+  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.2.4"><img src="https://img.shields.io/badge/status-released-f3a6ca" alt="Status: released"></a>
+  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.2.4"><img src="https://img.shields.io/badge/release-v1.2.4-315BFF" alt="Release: v1.2.4"></a>
   <a href="#editing-rules"><img src="https://img.shields.io/badge/language-Korean-2f80ed" alt="Editing language: Korean"></a>
   <a href="#validation-scope"><img src="https://img.shields.io/badge/checks-fixtures_passed-8a78d6" alt="Checks: saved synthetic fixtures passed"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache_2.0-3aa675" alt="License: Apache-2.0"></a>
@@ -25,9 +25,9 @@
 
 The skill's instructions and evaluation examples are in Korean. This page explains how to use it on Korean text.
 
-v1.2.3 keeps the v1.2.2 editing instructions and improves distribution and checks, so Codex and Claude Code share one plugin folder. It removes empty praise, shortens wording while preserving conditions and per-person limits, changes information grouping or placement only when the context warrants it, and keeps the shape of preserved quotation marks and symbols.
+v1.2.4 keeps the v1.2.2 editing instructions and tidies distribution, so Codex and Claude Code share one plugin folder and one install name. It removes empty praise, shortens wording while preserving conditions and per-person limits, changes information grouping or placement only when the context warrants it, and keeps the shape of preserved quotation marks and symbols.
 
-The Korean [release notes](docs/releases/v1.2.3.md) and [execution comparison](evaluation/regression-20261007/README.md) record the verification scope. Running the released v1.2.0 and v1.2.1 in Codex showed no loss of meaning; these results do not establish superiority on every text. Previous-version users can consult the [version selection guide](docs/version-choice.md).
+The Korean [release notes](docs/releases/v1.2.4.md) and [execution comparison](evaluation/regression-20261007/README.md) record the verification scope. Running the released v1.2.0 and v1.2.1 in Codex showed no loss of meaning; these results do not establish superiority on every text. Previous-version users can consult the [version selection guide](docs/version-choice.md).
 
 In Codex, paste your draft with a request such as the following. Use your harness's invocation syntax elsewhere:
 
@@ -101,7 +101,7 @@ python scripts/distribute.py install --target cursor
 
 After reviewing the destination, add `--apply` to the selected command to install. Existing skill directories are never overwritten. In Codex, choose either plugin installation or direct skill installation.
 
-Claude Code can also install the skills as a plugin. Add the repository with `/plugin marketplace add Burntgogi/ai-slop-thresher`, run `/plugin install ai-slop-thresher@ai-slop-thresher`, and invoke `/ai-slop-thresher:thresh`. For the short `/thresh`, use the `--target claude-code` direct installation instead. In the Codex CLI, run `codex plugin marketplace add Burntgogi/ai-slop-thresher --ref v1.2.3`, then `codex plugin add ai-slop-thresher@ai-slop-thresher-local`. On Windows, if you see `Filename too long`, run `git config --global core.longpaths true`. Gemini CLI, GitHub Copilot, Amp, Goose, and Windsurf read the same `~/.agents/skills` directory as Codex.
+Claude Code can also install the skills as a plugin. Add the repository with `/plugin marketplace add Burntgogi/ai-slop-thresher`, run `/plugin install ai-slop-thresher@ai-slop-thresher`, and invoke `/ai-slop-thresher:thresh`. For the short `/thresh`, use the `--target claude-code` direct installation instead. In the Codex CLI, run `codex plugin marketplace add Burntgogi/ai-slop-thresher --ref v1.2.4`, then `codex plugin add ai-slop-thresher@ai-slop-thresher`. If you installed from the `ai-slop-thresher-local` catalog of v1.2.3 or earlier, move to the new name as described in the [installation guide](docs/installation.md#codex-플러그인). On Windows, if you see `Filename too long`, run `git config --global core.longpaths true`. Gemini CLI, GitHub Copilot, Amp, Goose, and Windsurf read the same `~/.agents/skills` directory as Codex.
 
 ## Usage
 
@@ -168,4 +168,4 @@ The detailed documentation below is in Korean.
 
 [Release notes](RELEASE_NOTES.md) · [Changelog](CHANGELOG.md) · [Development report](reports/ai-slop-thresher-report.md) · [20 original and edited examples](reports/comparisons.md) · [Verification guide](docs/verification.md)
 
-[Layout and design sources](docs/github-frontpage.md) · [README and release notes editing record](reports/document-editing.md) · [Full project ZIP](https://github.com/Burntgogi/ai-slop-thresher/releases/download/v1.2.3/ai-slop-thresher-workbench.zip)
+[Layout and design sources](docs/github-frontpage.md) · [README and release notes editing record](reports/document-editing.md) · [Full project ZIP](https://github.com/Burntgogi/ai-slop-thresher/releases/download/v1.2.4/ai-slop-thresher-workbench.zip)

@@ -24,7 +24,7 @@ plugins/ai-slop-thresher/             생성된 플러그인
 
 Python 3.10 이상이면 설치·빌드 스크립트를 실행할 수 있다. 외부 Python 패키지는 필요하지 않다. 아래 명령은 저장소 루트에서 실행한다.
 
-현재 배포는 v1.2.3이다. 이전 버전과의 전환·복구는 [버전 선택 안내](version-choice.md)를 따른다. 두 버전을 동일한 스킬 경로에 동시에 설치하지 않는다.
+현재 배포는 v1.2.4이다. 이전 버전과의 전환·복구는 [버전 선택 안내](version-choice.md)를 따른다. 두 버전을 동일한 스킬 경로에 동시에 설치하지 않는다.
 
 ## 플러그인 생성
 
@@ -43,14 +43,25 @@ python scripts/distribute.py check
 
 ## Codex 플러그인
 
-이 저장소의 `.agents/plugins/marketplace.json`은 저장소 루트 기준 `./plugins/ai-slop-thresher`를 가리킨다. 저장소 카탈로그를 사용하는 Codex 데스크톱 앱에서는 앱을 다시 시작하고 Plugins Directory에서 **AI Slop 탈곡기 로컬 배포** 소스를 선택해 설치한다. CLI에서는 다음처럼 카탈로그를 등록하고 설치한다.
+이 저장소의 `.agents/plugins/marketplace.json`은 저장소 루트 기준 `./plugins/ai-slop-thresher`를 가리킨다. 저장소 카탈로그를 사용하는 Codex 데스크톱 앱에서는 앱을 다시 시작하고 Plugins Directory에서 **AI Slop 탈곡기** 소스를 선택해 설치한다. CLI에서는 다음처럼 카탈로그를 등록하고 설치한다.
 
 ```sh
-codex plugin marketplace add Burntgogi/ai-slop-thresher --ref v1.2.3
-codex plugin add ai-slop-thresher@ai-slop-thresher-local
+codex plugin marketplace add Burntgogi/ai-slop-thresher --ref v1.2.4
+codex plugin add ai-slop-thresher@ai-slop-thresher
 ```
 
-`--ref`에는 설치할 릴리즈 태그를 쓴다. `main`은 아직 릴리즈하지 않은 변경을 담을 수 있다. Codex는 저장소의 `.agents/plugins/marketplace.json`을 읽으므로 GitHub에서 추가해도 카탈로그 이름은 `ai-slop-thresher-local`이다. 내려받은 저장소에서는 `codex plugin marketplace add .`로 같은 카탈로그를 등록할 수 있다. 본 저장소의 Python 스크립트는 Codex 설정을 수정하지 않는다. 플러그인 방식과 아래의 직접 스킬 설치를 함께 사용하면 같은 이름이 중복 표시될 수 있으므로 한 방식을 선택한다.
+`--ref`에는 설치할 릴리즈 태그를 쓴다. `main`은 아직 릴리즈하지 않은 변경을 담을 수 있다. Codex는 고정한 시점의 `.agents/plugins/marketplace.json`에서 카탈로그 이름을 읽는다. v1.2.4부터 이름은 Claude Code와 같은 `ai-slop-thresher`이며, 설치 이름도 두 하네스 모두 `ai-slop-thresher@ai-slop-thresher`다. 내려받은 저장소에서는 `codex plugin marketplace add .`로 같은 카탈로그를 등록할 수 있다. 본 저장소의 Python 스크립트는 Codex 설정을 수정하지 않는다. 플러그인 방식과 아래의 직접 스킬 설치를 함께 사용하면 같은 이름이 중복 표시될 수 있으므로 한 방식을 선택한다.
+
+v1.2.3 이하의 카탈로그 이름은 `ai-slop-thresher-local`이었다. 그 이름으로 설치했다면 카탈로그 이름이 바뀐 뒤 기존 설치가 목록에서 사라지지만 설정에는 남는다. 다음 순서로 옮긴다.
+
+```sh
+codex plugin remove ai-slop-thresher@ai-slop-thresher-local
+codex plugin marketplace remove ai-slop-thresher-local
+codex plugin marketplace add Burntgogi/ai-slop-thresher --ref v1.2.4
+codex plugin add ai-slop-thresher@ai-slop-thresher
+```
+
+`--ref v1.2.3` 이하로 고정해 계속 쓰는 경우에는 설치 이름도 `ai-slop-thresher@ai-slop-thresher-local`을 그대로 쓴다.
 
 ## Claude Code 플러그인
 

@@ -2,7 +2,7 @@
 name: ai-slop-thresher
 description: AI Slop 탈곡기. 한국어 초안의 상투어, 과잉 설명, 반복 수사와 장식 서식을 줄여 자연스럽게 윤문한다. 탈곡기, 휴머나이저, AI 티 줄이기, 사람 글처럼 다듬기, 번역투 개선, 앞 문장을 불필요하게 부정하거나 문제를 축소하는 재정의 표현의 개선을 요청할 때 사용한다. 원문의 정정·책임·조건·유보와 저자의 평가는 보존한다. 단순 맞춤법 검사와 내용 확장은 주된 용도가 아니다.
 metadata:
-  version: "1.2.3"
+  version: "1.2.4"
   english_name: "AI Slop Thresher"
   english_tagline: "This Text Is Not Interesting."
   short_name: "thresh"

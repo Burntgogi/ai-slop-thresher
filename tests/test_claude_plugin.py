@@ -39,8 +39,10 @@ class ClaudePluginTests(unittest.TestCase):
             with self.subTest(doc=doc):
                 self.assertIn(codex, text)
                 self.assertIn(claude, text)
-                self.assertNotIn("codex plugin add ai-slop-thresher@ai-slop-thresher`", text)
-                self.assertNotIn("codex plugin add ai-slop-thresher@ai-slop-thresher\n", text)
+
+    def test_both_hosts_share_one_install_id(self):
+        names = {read_json(".agents/plugins/marketplace.json")["name"], read_json(".claude-plugin/marketplace.json")["name"]}
+        self.assertEqual(names, {"ai-slop-thresher"})
 
     def test_repository_root_is_a_marketplace_not_a_plugin(self):
         # A root plugin.json would make Claude Code copy the whole repository into its cache.
