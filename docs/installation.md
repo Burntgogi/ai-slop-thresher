@@ -1,61 +1,69 @@
 # 하네스별 설치와 배포
 
-공통 윤문 지침은 `skills/`에 한 번만 작성한다. 이 디렉터리는 `SKILL.md`와 참고 문서로 구성되며 Codex 메타데이터를 포함하지 않는다. Codex용 표시 이름과 기본 프롬프트는 `integrations/codex/agents/`에서 관리한다. 빌드 스크립트가 두 원본을 합쳐 `plugins/codex/ai-slop-thresher/`를 만든다. 생성된 플러그인 내부 파일을 직접 편집하지 않는다.
+공통 윤문 지침은 `skills/`에 한 번만 작성한다. 이 디렉터리는 `SKILL.md`와 참고 문서로 구성되며 특정 하네스의 설정을 포함하지 않는다. Codex용 표시 정보와 매니페스트는 `integrations/codex/`, Claude Code용 매니페스트와 추가 frontmatter는 `integrations/claude-code/`에서 관리한다. 빌드 스크립트가 이를 합쳐 두 하네스가 함께 쓰는 `plugins/ai-slop-thresher/`를 만든다. 생성된 플러그인 내부 파일을 직접 편집하지 않는다.
 
 ```text
-skills/                             공통 원본
+skills/                              공통 원본
   ai-slop-thresher/SKILL.md
   ai-slop-thresher/references/
-  thresh/SKILL.md                    공통 원본을 읽는 단축 호출
-integrations/codex/agents/           Codex 전용 원본
-  ai-slop-thresher/openai.yaml
-  thresh/openai.yaml
-plugins/codex/ai-slop-thresher/       생성된 Codex 플러그인
+  thresh/SKILL.md                     공통 원본을 읽는 단축 호출
+integrations/codex/                   Codex 전용 원본
+  plugin.json                         매니페스트와 공개 디렉터리 소개
+  agents/<skill>/openai.yaml          표시 이름과 호출 정책
+integrations/claude-code/             Claude Code 전용 원본
+  plugin.json                         매니페스트
+  frontmatter.json                    생성본 SKILL.md에 더할 필드
+plugins/ai-slop-thresher/             생성된 플러그인
   .codex-plugin/plugin.json
-  skills/
+  .claude-plugin/plugin.json
+  skills/, assets/
   LICENSE, NOTICE, ATTRIBUTIONS.md
-.agents/plugins/marketplace.json     저장소용 Codex 카탈로그
+.agents/plugins/marketplace.json      Codex 카탈로그
+.claude-plugin/marketplace.json       Claude Code 카탈로그(Codex도 읽을 수 있음)
 ```
 
 Python 3.10 이상이면 설치·빌드 스크립트를 실행할 수 있다. 외부 Python 패키지는 필요하지 않다. 아래 명령은 저장소 루트에서 실행한다.
 
-현재 배포는 v1.2.2이다. 이전 버전과의 전환·복구는 [버전 선택 안내](version-choice.md)를 따른다. 두 버전을 동일한 스킬 경로에 동시에 설치하지 않는다.
+현재 배포는 v1.2.3이다. 이전 버전과의 전환·복구는 [버전 선택 안내](version-choice.md)를 따른다. 두 버전을 동일한 스킬 경로에 동시에 설치하지 않는다.
 
-## Codex 플러그인
+## 플러그인 생성
 
 ```sh
 python scripts/distribute.py build --apply
 python scripts/distribute.py check
 ```
 
-`build`는 공통 원본·Codex 메타데이터·법적 고지를 복사하고 호환 형식 `.codex-plugin/plugin.json`을 만든다. 플러그인 소개와 버전은 `integrations/codex/plugin.json`에서 관리하며 그 파일이 참조하는 이미지를 패키지에 포함한다. 생성된 플러그인 파일은 직접 편집하지 않는다. `check`는 생성 파일이 현재 원본과 바이트 단위로 일치하는지, 상대 참조가 해결되는지, 카탈로그 경로가 맞는지 검사한다. 스킬이나 메타데이터를 변경한 뒤에는 다시 빌드한다.
+`build`는 공통 원본, 두 하네스의 매니페스트와 메타데이터, 법적 고지와 아이콘을 `plugins/ai-slop-thresher/`에 복사한다. Claude Code용 생성본의 SKILL.md에는 `integrations/claude-code/frontmatter.json`의 필드를 더한다. thresh의 `disable-model-invocation: true`가 여기에 해당하며 Codex의 `allow_implicit_invocation: false`와 짝을 이룬다. 한쪽만 바꾸면 그 하네스에서만 자동 호출이 열린다. `check`는 생성 파일이 원본과 바이트 단위로 일치하는지, 상대 참조와 두 카탈로그의 경로가 맞는지 검사한다.
 
-스킬, Codex 플러그인, Claude Code 플러그인은 같은 버전 번호를 쓴다. `integrations/codex/plugin.json`과 `.claude-plugin/plugin.json`의 버전이 스킬의 `metadata.version`과 다르면 테스트가 실패한다. 공개 디렉터리용 개인정보와 라이선스 안내는 [plugin-privacy.md](plugin-privacy.md)와 [plugin-terms.md](plugin-terms.md)에 있다.
+공개 디렉터리에 제출하는 Codex 플러그인 ZIP은 같은 원본으로 만들되 Claude Code 전용 매니페스트와 frontmatter를 넣지 않는다. 그래서 Codex 스킬 형식 검사를 그대로 통과한다.
+
+스킬, Codex 플러그인, Claude Code 플러그인은 같은 버전 번호를 쓴다. 두 매니페스트의 버전이 스킬의 `metadata.version`과 다르면 테스트가 실패한다. 공개 디렉터리용 개인정보와 라이선스 안내는 [plugin-privacy.md](plugin-privacy.md)와 [plugin-terms.md](plugin-terms.md)에 있다. 릴리즈 순서는 [릴리즈 절차](releasing.md)에 있다.
 
 생성물 교체와 기존 생성물 복원에 모두 실패하면 기존 파일은 출력 디렉터리 옆 `.thresher-old-*` 백업에 보존되고 오류에 그 경로가 표시된다. 같은 상위 디렉터리에 이 백업이 남아 있으면 다음 빌드는 중단한다. 스크립트는 백업을 자동으로 선택하거나 삭제하지 않는다. 내용을 확인한 뒤 비어 있는 원래 출력 경로로 복원하거나 별도 안전한 위치로 옮겨 보관한 후 다시 실행한다. 새 생성물 교체가 성공한 경우에만 이전 백업을 정리한다.
 
-이 저장소의 `.agents/plugins/marketplace.json`은 저장소 루트 기준 `./plugins/codex/ai-slop-thresher`를 가리킨다. 저장소 카탈로그를 사용하는 Codex 데스크톱 앱에서는 앱을 다시 시작하고 Plugins Directory에서 **AI Slop 탈곡기 로컬 배포** 소스를 선택해 설치한다. CLI로 카탈로그를 명시적으로 등록하려는 경우 다음 명령을 사용한다.
+## Codex 플러그인
+
+이 저장소의 `.agents/plugins/marketplace.json`은 저장소 루트 기준 `./plugins/ai-slop-thresher`를 가리킨다. 저장소 카탈로그를 사용하는 Codex 데스크톱 앱에서는 앱을 다시 시작하고 Plugins Directory에서 **AI Slop 탈곡기 로컬 배포** 소스를 선택해 설치한다. CLI에서는 다음처럼 카탈로그를 등록하고 설치한다.
 
 ```sh
-codex plugin marketplace add .
+codex plugin marketplace add Burntgogi/ai-slop-thresher --ref main
+codex plugin add ai-slop-thresher@ai-slop-thresher
 ```
 
-이 CLI 명령은 카탈로그 등록을 수행한다. 본 저장소의 Python 스크립트는 이를 자동 실행하거나 Codex 설정을 수정하지 않는다. 실제 플러그인 설치·활성화는 사용자가 Plugins Directory에서 수행한다. 플러그인 방식과 아래의 직접 스킬 설치를 함께 사용하면 같은 이름이 중복 표시될 수 있으므로 한 방식을 선택한다.
+내려받은 저장소에서는 `codex plugin marketplace add .`로 등록할 수 있으며 이때 카탈로그 이름은 `ai-slop-thresher-local`이다. 본 저장소의 Python 스크립트는 Codex 설정을 수정하지 않는다. 플러그인 방식과 아래의 직접 스킬 설치를 함께 사용하면 같은 이름이 중복 표시될 수 있으므로 한 방식을 선택한다.
 
 ## Claude Code 플러그인
 
-저장소 루트의 `.claude-plugin/marketplace.json`이 루트 자체를 플러그인으로 가리킨다. Claude Code는 루트의 `skills/`에서 두 공통 스킬을 찾으며 Codex 메타데이터는 읽지 않는다. 별도 빌드 단계가 없으므로 공통 원본을 고치면 그대로 반영된다. Claude Code 안에서 다음 명령으로 설치한다.
+저장소 루트의 `.claude-plugin/marketplace.json`이 `./plugins/ai-slop-thresher`를 가리킨다. Claude Code 안에서 다음 명령으로 설치한다.
 
 ```text
 /plugin marketplace add Burntgogi/ai-slop-thresher
 /plugin install ai-slop-thresher@ai-slop-thresher
 ```
 
-터미널에서는 `claude plugin marketplace add Burntgogi/ai-slop-thresher`와 `claude plugin install ai-slop-thresher@ai-slop-thresher`를 사용한다. 플러그인 스킬은 `/ai-slop-thresher:thresh`, `/ai-slop-thresher:ai-slop-thresher`처럼 플러그인 이름을 붙여 호출한다. `/thresh`로 짧게 부르려면 플러그인 대신 아래의 `--target claude-code` 직접 설치를 사용한다. 두 방식을 함께 쓰면 같은 스킬이 두 번 표시된다.
+터미널에서는 `claude plugin marketplace add Burntgogi/ai-slop-thresher`와 `claude plugin install ai-slop-thresher@ai-slop-thresher`를 사용한다. 플러그인 스킬은 `/ai-slop-thresher:thresh`, `/ai-slop-thresher:ai-slop-thresher`처럼 플러그인 이름을 붙여 호출한다. `/thresh`로 짧게 부르려면 플러그인 대신 아래의 `--target claude-code` 직접 설치를 사용한다. 두 방식을 함께 쓰면 같은 스킬이 두 번 표시된다. 설치 캐시에는 플러그인 폴더만 복사된다.
 
-플러그인 소스가 저장소 루트이므로 설치 캐시에는 평가 자료와 기존 배포 ZIP을 포함한 저장소 전체(약 13MB)가 복사된다. 실제로 읽는 것은 `skills/`의 두 스킬이다.
-
-`.claude-plugin/plugin.json`의 `version`은 Claude Code가 업데이트 여부를 판단하는 값이다. 스킬의 `metadata.version`을 올릴 때 함께 올리며, 두 값이 다르면 `tests/test_claude_plugin.py`가 실패한다. 매니페스트 형식은 `claude plugin validate --strict .`로 확인한다.
+두 하네스 모두 카탈로그를 추가할 때 저장소 전체를 내려받는다. Windows에서 홈 경로가 길어 `Filename too long` 오류가 나면 `git config --global core.longpaths true`를 설정한 뒤 다시 추가한다. 매니페스트 형식은 `claude plugin validate --strict .`와 `claude plugin validate --strict plugins/ai-slop-thresher`로 확인한다.
 
 ## 직접 스킬 설치
 
@@ -93,7 +101,7 @@ python scripts/distribute.py install --target generic --destination /path/to/ski
 
 호출 방식은 하네스에 따른다. Codex에서는 `$ai-slop-thresher` 또는 `$thresh`, Claude Code·Cursor에서는 `/ai-slop-thresher` 또는 `/thresh`를 사용할 수 있다. OpenCode에서는 요청에 스킬 이름을 적거나 해당 하네스의 스킬 도구로 로드한다. 공통 본문은 특정 접두사를 필수로 요구하지 않는다.
 
-`thresh`는 이름을 직접 부를 때 쓰는 단축 호출이다. Codex에서는 `allow_implicit_invocation: false`로 자동 선택 대상에서 제외했고, 다른 하네스에서는 스킬 설명으로 직접 호출 전용임을 알린다. 이름 없이 윤문을 요청하면 `ai-slop-thresher`가 선택된다. 본 스킬을 읽지 못한 `thresh`는 누락된 경로와 설치 방법을 알리고 윤문을 시작하지 않는다.
+`thresh`는 이름을 직접 부를 때 쓰는 단축 호출이다. Codex에서는 `allow_implicit_invocation: false`, Claude Code 플러그인에서는 `disable-model-invocation: true`로 자동 선택 대상에서 제외했다. 공통 스킬을 직접 설치한 다른 하네스에서는 스킬 설명으로 직접 호출 전용임을 알린다. 이름 없이 윤문을 요청하면 `ai-slop-thresher`가 선택된다. 본 스킬을 읽지 못한 `thresh`는 누락된 경로와 설치 방법을 알리고 윤문을 시작하지 않는다.
 
 Gemini CLI, GitHub Copilot, Amp, Goose와 Windsurf도 개인 스킬 경로 `~/.agents/skills`를 읽는다. 이 경로는 `--target codex`의 설치 위치와 같으므로 Codex와 함께 쓰면 한 번만 설치한다. Codex를 쓰지 않으면 `--target generic --destination ~/.agents/skills`로 Codex 메타데이터 없이 설치할 수 있다. Cursor, OpenCode, Amp와 Goose는 `~/.claude/skills`도 읽으므로 `claude-code`와 다른 target에 모두 설치하면 같은 스킬이 두 번 표시될 수 있다. Copilot과 Cursor는 `/thresh`, Windsurf는 `@thresh`로 부르며 Gemini CLI, Amp와 Goose는 요청에 스킬 이름을 적는다.
 

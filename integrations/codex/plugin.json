@@ -1,6 +1,6 @@
 {
   "name": "ai-slop-thresher",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Edit Korean drafts to reduce stock phrases, repetition, and unnecessary explanation while preserving meaning and tone.",
   "author": {"name": "Burntgogi", "url": "https://github.com/Burntgogi"},
   "homepage": "https://github.com/Burntgogi/ai-slop-thresher",
@@ -31,7 +31,7 @@
   "extensions": {
     "com.openai": {
       "publication": {
-        "release_notes": "Initial public directory package, aligned with skills v1.2.2. Adds listing metadata, a square brand icon, and privacy and licensing information. Editing now keeps the shape of preserved quotation marks, and the thresh shortcut is for explicit invocation only.",
+        "release_notes": "Initial public directory package, aligned with skills v1.2.3. Adds listing metadata, a square brand icon, and privacy and licensing information. Editing keeps the shape of preserved quotation marks, and the thresh shortcut is for explicit invocation only.",
         "translations": {
           "ko-KR": {
             "subtitle": "뜻과 말투를 지키는 한국어 윤문",

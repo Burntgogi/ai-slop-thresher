@@ -13,7 +13,7 @@ python -B scripts/distribute.py check
 python -B -m unittest discover -s tests -v
 ```
 
-앞의 세 명령은 저장된 예문, 개선 기록과 A/B 입력·출력·판정을 읽어 검사하고 결과만 출력합니다. 첫 명령은 보고서에 쓰인 최종 결과 12개도 직접 검사합니다. `evaluation/number-bindings.json`에 지정한 사례에서는 수치가 원래 대상과 순서대로 남았는지 확인하고, 일부러 망가뜨린 출력 6개와 검사기 회귀 사례 5개가 의도대로 판정되는지 봅니다. 회귀 사례는 윤문 사례의 통과 수에 합산하지 않습니다. 관계 검사는 같은 문장에서 대상어 뒤, 다음 대상어 앞에 수치가 순서대로 있는지만 봅니다. 늘었다·줄었다처럼 동사로 정한 방향, 수치가 대상어 앞에 오는 어순, 목록에 없는 다른 대상에 붙은 수치는 확인하지 못하며 한 문장에서라도 관계가 맞으면 통과합니다. 새 출력에 적용할 때 정상 편집을 실패로 볼 수 있으므로 실패 사유를 직접 읽어 판단합니다. 기록을 다시 쓰거나 새로운 윤문을 생성하지 않습니다. ZIP 검사는 기록된 체크섬과 ZIP 무결성을 확인하며 파일을 쓰지 않습니다. 플러그인 검사는 현재 소스와 생성물의 일치 여부를 확인합니다. 단위 테스트는 임시 디렉터리의 설치·패키징과 실패 대조군을 검사합니다. Python 캐시 파일 생성을 피하려고 -B를 사용합니다.
+앞의 세 명령은 저장된 예문, 개선 기록과 A/B 입력·출력·판정을 읽어 검사하고 결과만 출력합니다. 첫 명령은 보고서에 쓰인 최종 결과 12개도 직접 검사합니다. `evaluation/number-bindings.json`에 지정한 사례에서는 수치가 원래 대상과 순서대로 남았는지 확인하고, 같은 뜻으로 인정하는 표현은 `evaluation/anchor-alternatives.json`에 따로 둡니다. 일부러 망가뜨린 출력 6개와 검사기 회귀 사례 10개가 의도대로 판정되는지 봅니다. 회귀 사례는 윤문 사례의 통과 수에 합산하지 않습니다. 관계 검사는 같은 문장에서 대상어 뒤, 다음 대상어 앞에 수치가 순서대로 있는지만 봅니다. 늘었다·줄었다처럼 동사로 정한 방향, 수치가 대상어 앞에 오는 어순, 목록에 없는 다른 대상에 붙은 수치는 확인하지 못하며 한 문장에서라도 관계가 맞으면 통과합니다. 새 출력에 적용할 때 정상 편집을 실패로 볼 수 있으므로 실패 사유를 직접 읽어 판단합니다. 기록을 다시 쓰거나 새로운 윤문을 생성하지 않습니다. ZIP 검사는 기록된 체크섬과 ZIP 무결성을 확인하며 파일을 쓰지 않습니다. 플러그인 검사는 현재 소스와 생성물의 일치 여부를 확인합니다. 단위 테스트는 임시 디렉터리의 설치·패키징과 실패 대조군, 두 하네스 매니페스트의 버전, README와 미리보기의 링크·앵커와 미리보기가 현재 Markdown으로 만들어졌는지를 검사합니다. 같은 검사가 GitHub Actions에서도 실행됩니다. 지침을 바꾼 릴리즈의 실행 비교는 [실행 비교 도구](../evaluation/regression/README.md), 릴리즈 전후 점검은 [릴리즈 절차](releasing.md)를 따릅니다. Python 캐시 파일 생성을 피하려고 -B를 사용합니다.
 
 현재 소스가 미공개 후보로 바뀌어도 기존 dist의 ZIP은 원래 체크섬으로 검사합니다. 같은 후보 소스와 ZIP의 내부 바이트까지 대조하려면 verify_release.py --artifacts <후보 폴더> --source .를 사용합니다. 이전 릴리즈가 현재 후보와 다르다는 이유로 훼손됐다고 판단하지 않습니다. 체크섬 검사는 출처 인증이나 윤문 품질의 증명이 아닙니다.
 
@@ -22,9 +22,9 @@ python -B -m unittest discover -s tests -v
 다음 명령은 검사와 별도의 생성 작업입니다. 출력은 소스 밖의 존재하지 않는 새 폴더를 지정합니다. 기본 실행은 계획만 출력하고 --apply에서만 ZIP 4개, SHA256SUMS와 build-report.json을 만듭니다. 기존 소스의 plugins/, research/, dist/는 쓰지 않습니다.
 
 ```powershell
-python -B evaluation/package_artifacts.py --output ../release-candidates/v1.2.2
-python -B evaluation/package_artifacts.py --output ../release-candidates/v1.2.2 --apply
-python -B scripts/verify_release.py --artifacts ../release-candidates/v1.2.2 --source .
+python -B evaluation/package_artifacts.py --output ../release-candidates/v1.2.3
+python -B evaluation/package_artifacts.py --output ../release-candidates/v1.2.3 --apply
+python -B scripts/verify_release.py --artifacts ../release-candidates/v1.2.3 --source .
 ```
 
 Git 체크아웃에서는 추적된 탈곡기 파일을 포함합니다. 미커밋 새 파일은 자동 포함하지 않고 --include scripts/verify_release.py처럼 소스 상대 경로를 명시합니다. 전체 작업 ZIP에는 포함 목록을 저장해 압축을 푼 자료에서도 Git 없이 재빌드할 수 있습니다. 협업 도구의 코드·DB·로컬 원응답은 탈곡기 배포 범위에 포함하지 않습니다.

@@ -1,7 +1,7 @@
 {
   "name": "ai-slop-thresher",
   "displayName": "AI Slop 탈곡기",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "한국어 AI 문체 윤문과 의미 보존 검토를 위한 스킬 모음. Korean prose editing that removes AI slop while preserving meaning.",
   "author": {
     "name": "Burntgogi",

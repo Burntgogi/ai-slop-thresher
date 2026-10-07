@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="source-sha256" content="507b1e0362898581b50a74279d93835e916915b981da8e1955017b56ce4ea140"><title>English · AI Slop Thresher</title><style>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="source-sha256" content="82cbe0ec74e75464e91dca63c438046cff208a0a25fb8e9923fd6b716d31274c"><title>English · AI Slop Thresher</title><style>
 :root { color-scheme: light; --ink:#1f2328; --muted:#59636e; --line:#d1d9e0; --canvas:#f6f8fa; --paper:#fff; --link:#0969da; }
 * { box-sizing:border-box; }
 body { margin:0; color:var(--ink); background:var(--canvas); font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","Malgun Gothic",sans-serif; }
@@ -58,8 +58,8 @@ a:focus-visible { outline:2px solid var(--link); outline-offset:4px; }
   An agent skill that cuts stock phrases, repeated praise, and needless explanation from Korean drafts.<br>
   It edits sentences while preserving the original facts and voice.
 </p><p align="center">
-  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.2.2"><img src="https://img.shields.io/badge/status-released-f3a6ca" alt="Status: released"></a>
-  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.2.2"><img src="https://img.shields.io/badge/release-v1.2.2-315BFF" alt="Release: v1.2.2"></a>
+  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.2.3"><img src="https://img.shields.io/badge/status-released-f3a6ca" alt="Status: released"></a>
+  <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/tag/v1.2.3"><img src="https://img.shields.io/badge/release-v1.2.3-315BFF" alt="Release: v1.2.3"></a>
   <a href="#editing-rules"><img src="https://img.shields.io/badge/language-Korean-2f80ed" alt="Editing language: Korean"></a>
   <a href="#validation-scope"><img src="https://img.shields.io/badge/checks-fixtures_passed-8a78d6" alt="Checks: saved synthetic fixtures passed"></a>
   <a href="../../LICENSE"><img src="https://img.shields.io/badge/license-Apache_2.0-3aa675" alt="License: Apache-2.0"></a>
@@ -68,8 +68,8 @@ a:focus-visible { outline:2px solid var(--link); outline-offset:4px; }
   <a href="#before-and-after">Before &amp; after</a> · <a href="#install">Install</a> ·
   <a href="#usage">Usage</a> · <a href="#license">License</a>
 </p><p>The skill&#39;s instructions and evaluation examples are in Korean. This page explains how to use it on Korean text.</p>
-<p>v1.2.2 keeps the readability improvements of v1.2.1 and gives the skills, the Codex plugin, and the Claude Code plugin one version number. It removes empty praise, shortens wording while preserving conditions and per-person limits, changes information grouping or placement only when the context warrants it, and keeps the shape of preserved quotation marks and symbols.</p>
-<p>The Korean <a href="../../docs/releases/v1.2.2.md">release notes</a> and <a href="../../evaluation/regression-20261007/README.md">execution comparison</a> record the verification scope. Running the released v1.2.0 and v1.2.1 in Codex showed no loss of meaning; these results do not establish superiority on every text. Previous-version users can consult the <a href="../../docs/version-choice.md">version selection guide</a>.</p>
+<p>v1.2.3 keeps the v1.2.2 editing instructions and improves distribution and checks, so Codex and Claude Code share one plugin folder. It removes empty praise, shortens wording while preserving conditions and per-person limits, changes information grouping or placement only when the context warrants it, and keeps the shape of preserved quotation marks and symbols.</p>
+<p>The Korean <a href="../../docs/releases/v1.2.3.md">release notes</a> and <a href="../../evaluation/regression-20261007/README.md">execution comparison</a> record the verification scope. Running the released v1.2.0 and v1.2.1 in Codex showed no loss of meaning; these results do not establish superiority on every text. Previous-version users can consult the <a href="../../docs/version-choice.md">version selection guide</a>.</p>
 <p>In Codex, paste your draft with a request such as the following. Use your harness&#39;s invocation syntax elsewhere:</p>
 <pre><code class="language-text">$thresh Edit the Korean text below for natural phrasing. Preserve its meaning and tone.
 </code></pre>
@@ -99,12 +99,13 @@ a:focus-visible { outline:2px solid var(--link); outline-offset:4px; }
 <p>새 대시보드의 내부 테스트에서 주간 보고서 작성 시간이 30분에서 10분으로 줄었습니다. 보고서는 CSV로도 내려받을 수 있습니다.</p>
 </blockquote>
 </details><h2 id="install">Install</h2>
-<p>Shared instructions live in <code>skills/</code>; Codex presentation metadata lives in <code>integrations/codex/</code>. The generated plugin lives in <code>plugins/codex/ai-slop-thresher/</code>. Portable skills contain no Codex manifest or <code>agents/openai.yaml</code>.</p>
+<p>Shared instructions live in <code>skills/</code>, and harness-specific settings live in <code>integrations/</code>. Both are combined into one plugin, <code>plugins/ai-slop-thresher/</code>, used by Codex and Claude Code alike. Portable skills contain no harness-specific settings.</p>
 <pre><code class="language-text">skills/                            # Shared canonical skills
-integrations/codex/agents/          # Codex presentation metadata
-plugins/codex/ai-slop-thresher/     # Generated Codex plugin
-.agents/plugins/marketplace.json   # Codex local marketplace
-.claude-plugin/                    # Claude Code plugin and marketplace
+integrations/codex/                # Codex manifest and metadata
+integrations/claude-code/          # Claude Code manifest and frontmatter
+plugins/ai-slop-thresher/          # Generated plugin shared by both hosts
+.agents/plugins/marketplace.json   # Codex catalog
+.claude-plugin/marketplace.json    # Claude Code catalog
 </code></pre>
 <p>Manual installation needs no Python: place both portable skill folders together in a supported skills directory. See the <a href="../../docs/installation.md">harness installation guide</a> for Codex plugins, Claude Code, OpenCode, Cursor, and generic destinations. The installation script needs Python 3.10+ and previews changes by default:</p>
 <pre><code class="language-powershell">python scripts/distribute.py install --target codex
@@ -113,7 +114,7 @@ python scripts/distribute.py install --target opencode
 python scripts/distribute.py install --target cursor
 </code></pre>
 <p>After reviewing the destination, add <code>--apply</code> to the selected command to install. Existing skill directories are never overwritten. In Codex, choose either plugin installation or direct skill installation.</p>
-<p>Claude Code can also install the skills as a plugin. Add the repository with <code>/plugin marketplace add Burntgogi/ai-slop-thresher</code>, run <code>/plugin install ai-slop-thresher@ai-slop-thresher</code>, and invoke <code>/ai-slop-thresher:thresh</code>. For the short <code>/thresh</code>, use the <code>--target claude-code</code> direct installation instead. Gemini CLI, GitHub Copilot, Amp, Goose, and Windsurf read the same <code>~/.agents/skills</code> directory as Codex.</p>
+<p>Claude Code can also install the skills as a plugin. Add the repository with <code>/plugin marketplace add Burntgogi/ai-slop-thresher</code>, run <code>/plugin install ai-slop-thresher@ai-slop-thresher</code>, and invoke <code>/ai-slop-thresher:thresh</code>. For the short <code>/thresh</code>, use the <code>--target claude-code</code> direct installation instead. In the Codex CLI, run <code>codex plugin marketplace add Burntgogi/ai-slop-thresher --ref main</code>, then <code>codex plugin add ai-slop-thresher@ai-slop-thresher</code>. On Windows, if you see <code>Filename too long</code>, run <code>git config --global core.longpaths true</code>. Gemini CLI, GitHub Copilot, Amp, Goose, and Windsurf read the same <code>~/.agents/skills</code> directory as Codex.</p>
 <h2 id="usage">Usage</h2>
 <p><code>$thresh</code> and <code>$ai-slop-thresher</code> apply the same editing instructions. The <code>thresh</code> shortcut reads the main skill, so install both folders together.</p>
 <table>
@@ -229,5 +230,5 @@ python scripts/distribute.py install --target cursor
 <h2 id="documentation">Documentation</h2>
 <p>The detailed documentation below is in Korean.</p>
 <p><a href="release-notes.html">Release notes</a> · <a href="../../CHANGELOG.md">Changelog</a> · <a href="../../reports/ai-slop-thresher-report.md">Development report</a> · <a href="../../reports/comparisons.md">20 original and edited examples</a> · <a href="../../docs/verification.md">Verification guide</a></p>
-<p><a href="../../docs/github-frontpage.md">Layout and design sources</a> · <a href="../../reports/document-editing.md">README and release notes editing record</a> · <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/download/v1.2.2/ai-slop-thresher-workbench.zip">Full project ZIP</a></p>
+<p><a href="../../docs/github-frontpage.md">Layout and design sources</a> · <a href="../../reports/document-editing.md">README and release notes editing record</a> · <a href="https://github.com/Burntgogi/ai-slop-thresher/releases/download/v1.2.3/ai-slop-thresher-workbench.zip">Full project ZIP</a></p>
 </article><footer class="foot">Local preview rendered from saved Markdown. Details may differ from GitHub.</footer></main></body></html>

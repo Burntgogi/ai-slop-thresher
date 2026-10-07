@@ -1,14 +1,14 @@
 {
   "skills/ai-slop-thresher/references/design-sources.md": "25188a459c60d1f9e4dd079d3f5ec973644a5bdeb858712e106e34acc754462a",
   "skills/ai-slop-thresher/references/edge-cases.md": "ab9a16a71067fbe62f9641c85636b1717739fc70afff6479c0670a15a2a3f3b2",
-  "skills/ai-slop-thresher/SKILL.md": "6058b2defc41c31bea97fddca1cc9798ab566a0104dbc79aee5870ca3c771b19",
-  "skills/thresh/SKILL.md": "1fe7ffe5b944b38a9b6461b5159f2b6f2e00985e7bf67547881ede7ac08e424f",
+  "skills/ai-slop-thresher/SKILL.md": "89cd141990c4b0ef7f46cc939258cadbdaa212f6ece2cf3e56c65a8e81dd1157",
+  "skills/thresh/SKILL.md": "a9a3ab01eade06ce1f3ae712f3c8437904924f86e18bc41a0486bc8b5b5a61f5",
   "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
   "NOTICE": "2b497d57ae1cb755c24e54275570b145a2158ca46beb88332f25660d24f8cfac",
   "ATTRIBUTIONS.md": "6ae1ecdd5fa6f6bc027e93778150d5dc421aa9b2c4f47ae304935260d6459070",
   "skills/ai-slop-thresher/agents/openai.yaml": "da55cd85de865d735eb44e87164ab4b84d6f1302bdf244af270e799026f958e3",
   "skills/thresh/agents/openai.yaml": "780516022dff5199397b43ca48557126053333354bc923cdb123372f06bd0b37",
   "assets/ai-slop-thresher-icon.png": "1307f5532dff043f7aefdfd4d38b23d9bddd7245d24d69b2f97f7757964c4919",
-  ".codex-plugin/plugin.json": "0f894280e3b3831d1b23daebddcb64f7c47ea8c64e57b953d2a80d6a0da6acd5",
-  ".claude-plugin/plugin.json": "efe72ac6517d89d7ef685e6298c4ef29c28ec84335c283ded52c62768ee08ca7"
+  ".codex-plugin/plugin.json": "daf6307169eaa493de56d0150f9090fab6591e4d6d73ddce91e50fbac5b25259",
+  ".claude-plugin/plugin.json": "ede8ee6f065e017e47b230e6a4027cba598a4f7deec7abe6dcfd6c32ac8acbe7"
 }
