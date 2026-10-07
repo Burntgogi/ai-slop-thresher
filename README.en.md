@@ -37,7 +37,7 @@ $thresh Edit the Korean text below for natural phrasing. Preserve its meaning an
 
 ## Before and after
 
-The image below presents selected passages from the Korean article introducing the skill.
+The image below presents selected passages from the Korean article introducing the skill, edited with the v1.1.0 instructions.
 
 <p align="center">Left, pink: before · Right, blue: after · Korean text</p>
 

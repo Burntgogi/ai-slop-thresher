@@ -1,7 +1,7 @@
 import json, re, sys
 from difflib import SequenceMatcher
 from pathlib import Path
-# Usage: analyze.py <work dir used by run.py>
+# Usage: analyze.py <work dir used by run.py>; writes results.json next to this script
 R = Path(sys.argv[1]); HERE = Path(__file__).resolve().parent; repo = HERE.parents[1]
 sys.path.insert(0, str(repo / "evaluation"))
 from check_results import check_case
@@ -23,9 +23,8 @@ def extra(c, out):
 rows = []
 for c in cases:
     for v in ("v1.2.0", "v1.2.1", "v1.2.2"):
-        for n in (1, 2):
-            p = R/"out"/v/f"{c['id']}-{n}.txt"
-            if not p.exists(): continue
+        for p in sorted((R/"out"/v).glob(f"{c['id']}-*.txt"), key=lambda q: int(q.stem.rsplit("-", 1)[1])):
+            n = int(p.stem.rsplit("-", 1)[1])
             out = p.read_text(encoding="utf-8").strip()
             ev = (R/"out"/v/f"{c['id']}-{n}.events.jsonl")
             contaminated = bool(ev.exists() and re.search(r"\.codex[\/]+skills", ev.read_text(encoding="utf-8"), re.I))
@@ -33,7 +32,11 @@ for c in cases:
             fails = [x["type"] + (":" + str(x.get("value", x.get("values", x.get("subject", ""))))) for x in r["failures"]] + extra(c, out)
             rows.append({"id": c["id"], "v": v, "n": n, "pass": not fails, "fails": fails, "len_ratio": round(len(out)/len(c["source"]), 2),
                          "sim": round(SequenceMatcher(None, c["source"], out).ratio(), 2), "contaminated": contaminated, "out": out})
-json.dump(rows, open(R/"results.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+import hashlib
+meta = {"model": "gpt-6.1-sol", "reasoning_effort": "xhigh", "harness": "codex exec 0.160.1, read-only sandbox, ephemeral", "date": "2026-10-07",
+        "skill_sha256": {v: hashlib.sha256((R/v/"skills/ai-slop-thresher/SKILL.md").read_bytes()).hexdigest() for v in ("v1.2.0", "v1.2.1", "v1.2.2") if (R/v).exists()},
+        "installed_skill_reads": sum(r["contaminated"] for r in rows), "rows": rows}
+json.dump(meta, open(HERE/"results.json", "w", encoding="utf-8", newline="\n"), ensure_ascii=False, indent=1)
 from collections import defaultdict
 agg = defaultdict(lambda: [0, 0, 0.0, 0])
 for r in rows:

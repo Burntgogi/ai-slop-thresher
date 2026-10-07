@@ -27,7 +27,7 @@ v1.2.2는 스킬, Codex 플러그인, Claude Code 플러그인이 같은 번호�
 | [final-ab-20261002](../evaluation/final-ab-20261002/blind-mapping.json) | X (two) | 1.2.1 최종 후보 | 640fd646 |
 | | Y (one) | v1.2.0 | c286b555 |
 | [regression-20261007](../evaluation/regression-20261007/README.md) | v1.2.0, v1.2.1 | 공개 태그 | c286b555, a356b6ef |
-| | v1.2.2 | 따옴표 교정 후 지침 | 이 릴리즈 |
+| | v1.2.2 | 따옴표 교정 후 지침 | 0e12a444 |
 
 공개하지 않은 2026-10-01 도서관 공지 비교는 X를 v1.1.0, Y를 v1.2.0으로 썼다. final-ab-20261002의 X와 다른 대상이다.
 

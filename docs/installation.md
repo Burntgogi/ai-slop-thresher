@@ -53,7 +53,7 @@ codex plugin marketplace add .
 
 터미널에서는 `claude plugin marketplace add Burntgogi/ai-slop-thresher`와 `claude plugin install ai-slop-thresher@ai-slop-thresher`를 사용한다. 플러그인 스킬은 `/ai-slop-thresher:thresh`, `/ai-slop-thresher:ai-slop-thresher`처럼 플러그인 이름을 붙여 호출한다. `/thresh`로 짧게 부르려면 플러그인 대신 아래의 `--target claude-code` 직접 설치를 사용한다. 두 방식을 함께 쓰면 같은 스킬이 두 번 표시된다.
 
-플러그인 소스가 저장소 루트이므로 설치 캐시에는 평가 자료와 기존 배포 ZIP을 포함한 저장소 전체(약 8MB)가 복사된다. 실제로 읽는 것은 `skills/`의 두 스킬이다.
+플러그인 소스가 저장소 루트이므로 설치 캐시에는 평가 자료와 기존 배포 ZIP을 포함한 저장소 전체(약 13MB)가 복사된다. 실제로 읽는 것은 `skills/`의 두 스킬이다.
 
 `.claude-plugin/plugin.json`의 `version`은 Claude Code가 업데이트 여부를 판단하는 값이다. 스킬의 `metadata.version`을 올릴 때 함께 올리며, 두 값이 다르면 `tests/test_claude_plugin.py`가 실패한다. 매니페스트 형식은 `claude plugin validate --strict .`로 확인한다.
 

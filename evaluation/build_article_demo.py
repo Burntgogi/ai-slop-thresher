@@ -133,7 +133,7 @@ def main():
 
     report = [
         "# AI Slop 탈곡기 소개 기사: 스킬 적용 전후 비교",
-        "2026년 9월 12일 작성. 적용 스킬: [ai-slop-thresher 1.1.0](../../skills/ai-slop-thresher/SKILL.md).",
+        "2026년 9월 12일 작성. 적용 스킬: [ai-slop-thresher 1.1.0](https://github.com/Burntgogi/ai-slop-thresher/blob/v1.1.0/skills/ai-slop-thresher/SKILL.md).",
         "같은 초안을 고정한 뒤 편집했다. 이 사례에서는 반복 설명과 우회적인 서술을 줄였고, 이미 분명한 문단과 필요한 조건은 유지했다.",
         "[한 장 비교 보고서 이미지](one-page-comparison.png) · [이미지 제작 프롬프트](image-report-prompt.txt)",
         "## 비교 방법",
