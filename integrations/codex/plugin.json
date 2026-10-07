@@ -2,19 +2,11 @@
   "name": "ai-slop-thresher",
   "version": "1.2.2",
   "description": "Edit Korean drafts to reduce stock phrases, repetition, and unnecessary explanation while preserving meaning and tone.",
-  "author": {
-    "name": "Burntgogi",
-    "url": "https://github.com/Burntgogi"
-  },
+  "author": {"name": "Burntgogi", "url": "https://github.com/Burntgogi"},
   "homepage": "https://github.com/Burntgogi/ai-slop-thresher",
   "repository": "https://github.com/Burntgogi/ai-slop-thresher",
   "license": "Apache-2.0",
-  "keywords": [
-    "Korean",
-    "writing",
-    "editing",
-    "humanizer"
-  ],
+  "keywords": ["Korean", "writing", "editing", "humanizer"],
   "skills": "./skills/",
   "interface": {
     "displayName": "AI Slop Thresher",
@@ -22,11 +14,7 @@
     "longDescription": "AI Slop Thresher edits Korean drafts for readers who want clearer prose with fewer stock phrases, repeated claims, and unnecessary explanations. Use it for articles, work messages, product copy, and document prose.\n\nPaste a draft or provide a document available in your current session. Ask for an edited passage, a before-and-after comparison with brief reasons, or a review without rewriting. The skills direct the assistant to preserve facts, numbers, conditions, uncertainty, quotations, document structure, and the author's tone. Already suitable sentences can remain unchanged.\n\nThis package includes the ai-slop-thresher skill and the short-name thresh skill. It has no bundled server, executable, separate API key, or external service connection. Editing follows the packaged instructions and uses the host assistant.\n\nReview important facts and conditions against the original. The plugin does not determine who wrote a text or promise to pass AI detectors. Its examples and evaluations do not establish quality for every document or model.",
     "developerName": "Burntgogi",
     "category": "Productivity",
-    "capabilities": [
-      "Edit Korean prose",
-      "Compare revisions",
-      "Review wording"
-    ],
+    "capabilities": ["Edit Korean prose", "Compare revisions", "Review wording"],
     "websiteURL": "https://github.com/Burntgogi/ai-slop-thresher",
     "supportURL": "https://github.com/Burntgogi/ai-slop-thresher/issues",
     "privacyPolicyURL": "https://github.com/Burntgogi/ai-slop-thresher/blob/main/docs/plugin-privacy.md",

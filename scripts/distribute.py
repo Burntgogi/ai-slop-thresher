@@ -180,6 +180,21 @@ def plugin_files(root=ROOT):
         "license": "Apache-2.0", "skills": "./skills/",
         "interface": {"displayName": "AI Slop 탈곡기", "shortDescription": "뜻을 보존하며 AI 문체를 다듬는 한국어 윤문 스킬"},
     }
+    manifest_source = plain_path(Path(root) / "integrations/codex/plugin.json")
+    if manifest_source.is_file():
+        manifest = json.loads(manifest_source.read_text(encoding="utf-8"))
+        if manifest.get("name") != "ai-slop-thresher" or manifest.get("skills") != "./skills/":
+            raise DistributionError("Codex manifest must identify ai-slop-thresher and its packaged skills")
+        if not re.fullmatch(r"(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)", manifest.get("version", "")):
+            raise DistributionError("Codex manifest version must be a release semantic version")
+        interface = manifest.get("interface", {})
+        assets = [interface[field] for field in ("logo", "composerIcon", "logoDark", "composerIconDark") if field in interface]
+        assets.extend(interface.get("screenshots", []))
+        for relative in assets:
+            if not isinstance(relative, str) or not relative.startswith("./assets/") or ".." in relative.split("/") or "\\" in relative:
+                raise DistributionError(f"invalid packaged asset path: {relative}")
+            name = relative[2:]
+            files[name] = plain_path(Path(root) / name).read_bytes()
     files[".codex-plugin/plugin.json"] = (json.dumps(manifest, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
     validate_links(files)
     return files
@@ -257,7 +272,7 @@ def build_plugin(root=ROOT, output=None, apply=False):
                         # visible even when temporary-tree cleanup also fails.
                         if hasattr(active_error, "add_note"):
                             active_error.add_note(f"temporary cleanup failed for {owned}: {cleanup_error}")
-    return {"operation": "build", "dry_run": not apply, "output": str(output), "files": len(files), "version": version(root)}
+    return {"operation": "build", "dry_run": not apply, "output": str(output), "files": len(files), "version": json.loads(files[".codex-plugin/plugin.json"])["version"], "skill_version": version(root)}
 
 
 def check_plugin(root=ROOT, output=None):

@@ -375,6 +375,47 @@ class DistributionTests(unittest.TestCase):
         with zipfile.ZipFile(io.BytesIO(blob)) as archive:
             self.assertEqual({name: archive.read(name) for name in archive.namelist()}, files)
 
+    def store_manifest(self, icon="./assets/icon.png"):
+        manifest = {
+            "name": "ai-slop-thresher", "version": "1.2.2", "skills": "./skills/",
+            "interface": {"logo": icon, "composerIcon": icon},
+        }
+        path = self.source / "integrations/codex/plugin.json"
+        path.write_text(json.dumps(manifest), encoding="utf-8")
+        return path, manifest
+
+    def test_store_manifest_packages_assets_without_changing_skill_version(self):
+        self.store_manifest()
+        icon = self.source / "assets/icon.png"
+        icon.parent.mkdir()
+        icon.write_bytes(b"image fixture")
+        files = distribution.plugin_files(self.source)
+        self.assertEqual(files["assets/icon.png"], b"image fixture")
+        self.assertEqual(json.loads(files[".codex-plugin/plugin.json"])["version"], "1.2.2")
+        self.assertEqual(distribution.version(self.source), "1.2.0")
+        self.assertEqual(files["skills/ai-slop-thresher/SKILL.md"], (self.source / "skills/ai-slop-thresher/SKILL.md").read_bytes())
+        result = distribution.build_plugin(root=self.source, output=self.base / "store")
+        self.assertEqual((result["version"], result["skill_version"]), ("1.2.2", "1.2.0"))
+
+    def test_store_manifest_requires_every_referenced_asset(self):
+        self.store_manifest()
+        with self.assertRaises(FileNotFoundError):
+            distribution.plugin_files(self.source)
+
+    def test_store_manifest_rejects_asset_path_escape(self):
+        for icon in ("./assets/../../private.png", "C:/private.png", "./assets\\icon.png"):
+            self.store_manifest(icon)
+            with self.subTest(icon=icon), self.assertRaisesRegex(distribution.DistributionError, "asset path"):
+                distribution.plugin_files(self.source)
+
+    def test_store_manifest_cannot_redirect_plugin_identity_or_skills(self):
+        for key, value in (("name", "unrelated"), ("skills", "../external")):
+            path, manifest = self.store_manifest()
+            manifest[key] = value
+            path.write_text(json.dumps(manifest), encoding="utf-8")
+            with self.subTest(key=key), self.assertRaisesRegex(distribution.DistributionError, "identify"):
+                distribution.plugin_files(self.source)
+
 
 if __name__ == "__main__":
     unittest.main()
